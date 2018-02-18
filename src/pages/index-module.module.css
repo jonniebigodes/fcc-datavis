@@ -1,0 +1,26 @@
+.containerIndex{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 2vh;
+    padding-top:5px;
+    
+}
+.textContainer{
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 1vh;
+}
+.textIndex{
+    font-size: 2rem;
+    text-align: center;
+
+}

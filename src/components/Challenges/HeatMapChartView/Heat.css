@@ -1,0 +1,10 @@
+
+.Heat-Axis-Axis text {
+    font-size: 11px;
+    fill: black;
+  }
+.Heat-Axis-Left text {
+    /* transform: rotate(-45deg);  */
+    transform: rotate(20deg); 
+    text-anchor: end;
+  }
