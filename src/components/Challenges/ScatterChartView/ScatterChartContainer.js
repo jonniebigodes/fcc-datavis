@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
 import DataVisScatterChart from './DataVisScatterChart';
+import ScatterTooltip from './ScatterTooltip';
 import './Scatter.css';
 class ScatterChartContainer extends Component{
     constructor(){
@@ -8,28 +9,28 @@ class ScatterChartContainer extends Component{
         this.state={
             isLoading: true,
             isError: false,
-            fullchartData: []
+            fullchartData: [],
+            isTooltipActive:false,
+            tooltipData:{}
         };
     }
     componentDidMount(){
         setTimeout(() => {
             const storedScatterdate= JSON.parse(Utilities.getStorageData("scatterData"));
             if (!storedScatterdate){
-                console.log('====================================');
-                console.log(`NO DATa`);
-                console.log('====================================');
                 this.fetchData();
             }
             else{
-                console.log('====================================');
-                console.log(`Has data`);
-                console.log('====================================');
-                this.setState(prevState=>({
-                    fullchartData:prevState.fullchartData.concat(storedScatterdate),
-                    isLoading:false
-                }));
+                this.setState({fullchartData:storedScatterdate,isLoading:false});
+                
             }
         }, 2500);
+    }
+    onToolTipHide=()=>{
+        this.setState({isTooltipActive:false,tooltipData:{}});
+    }
+    onToolTipShow=value=>{
+        this.setState({isTooltipActive:true,tooltipData:value});
     }
     fetchData(){
         fetch(`https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/cyclist-data.json`)
@@ -38,10 +39,7 @@ class ScatterChartContainer extends Component{
         })
         .then(result=>{
             Utilities.setStorageData("scatterData",result);
-            this.setState(prevState=>({
-                fullchartData:prevState.fullchartData.concat(result),
-                isLoading:false
-            }));
+            this.setState({fullchartData:storedScatterdate,isLoading:false});
         })
         .catch(Err=>{
             console.log('====================================');
@@ -54,7 +52,7 @@ class ScatterChartContainer extends Component{
         })
     }
     render(){
-        const {isError,isLoading,fullchartData}= this.state;
+        const {isError,isLoading,fullchartData,isTooltipActive,tooltipData}= this.state;
         if (isError){
             return (<h3>Lights up the sirens.....Something went wrong</h3>);
         }
@@ -68,15 +66,11 @@ class ScatterChartContainer extends Component{
                      <div className="scatterTitle">
                         Doping in Professional Bicycle Racing
                      </div>
-<<<<<<< HEAD
                      <DataVisScatterChart 
                             dataChart={fullchartData}
                             scatterLeave={this.onToolTipHide} 
                             scatterEnter={this.onToolTipShow} />
                         {isTooltipActive?<ScatterTooltip data={tooltipData.data}/>:<div/>}
-=======
-                     <DataVisScatterChart dataChart={fullchartData}/>
->>>>>>> parent of a57af93... Changed tooltips for heat and scatter chart added config for github publish and configured the fonts using the gatsby google font package
                      <div className="scatterText">
                         35 Fastest times up Alpe d'Huez<br/>
                         Normalized to 13.8km distance

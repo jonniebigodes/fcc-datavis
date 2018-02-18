@@ -14,21 +14,21 @@ class Bars extends PureComponent {
     barMouseOverHandler=value=>{
         const{barMouseOver,bardata,scales}= this.props;
         const { xScale, yScale } = scales
-        console.log('====================================');
-        console.log(`bar mouse over handler value:${JSON.stringify(value.target.id,null,2)}`);
-        console.log('====================================');
+        // console.log('====================================');
+        // console.log(`bar mouse over handler value:${JSON.stringify(value.target.id,null,2)}`);
+        // console.log('====================================');
         
         const itemData= bardata.find(x=>x.dateTime===value.target.id);
-        console.log('====================================');
-        console.log(`bar mouse over handler itemData:${JSON.stringify(itemData,null,2)}`);
-        console.log('====================================');
+        // console.log('====================================');
+        // console.log(`bar mouse over handler itemData:${JSON.stringify(itemData,null,2)}`);
+        // console.log('====================================');
         barMouseOver({data:itemData,position:{x:xScale(new Date(itemData.dateTime)),y:yScale(itemData.domesticValue)}});
         
     }
     barMouseOutHandler=()=>{
-        console.log('====================================');
-        console.log(`bar barMouseOutHandler`);
-        console.log('====================================');
+        // console.log('====================================');
+        // console.log(`bar barMouseOutHandler`);
+        // console.log('====================================');
         const{barMouseLeave}= this.props;
         barMouseLeave();
     }

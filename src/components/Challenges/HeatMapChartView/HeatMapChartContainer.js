@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
 import DataVisHeatChart from './DataVisHeatChart';
+import HeatToolTip from './HeatTooltip';
 class HeatMapChartContainer extends Component{
 
     constructor(){
@@ -56,7 +57,6 @@ class HeatMapChartContainer extends Component{
         if (fullchartData.baseTemperature){
             return(
                 <div>
-                     
                      <DataVisHeatChart dataChart={fullchartData}/>
                 </div>
             );

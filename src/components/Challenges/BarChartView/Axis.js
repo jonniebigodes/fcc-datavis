@@ -22,9 +22,6 @@ class Axis extends Component{
         const axis = d3Axis[axisType]()
         .scale(scale)
         .tickSize(-tickSize)
-        //.tickPadding([12])
-        //.ticks([4])
-        //.ticks(orient==='Bottom'?D3Time.timeYear.every(5):[6])
         if (orient=='Bottom'){
            // axis.tickFormat(D3TimeFormat.timeFormat("%Y-%m"))
             //axis.ticks(D3Time.timeYear,5)

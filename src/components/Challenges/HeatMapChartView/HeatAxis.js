@@ -26,13 +26,7 @@ class HeatAxis extends Component{
     }
     render(){
         const{translate,orient}= this.props;
-<<<<<<< HEAD
        
-=======
-        console.log('====================================');
-        console.log(`orient:${orient}`);
-        console.log('====================================');
->>>>>>> parent of a57af93... Changed tooltips for heat and scatter chart added config for github publish and configured the fonts using the gatsby google font package
         return(
             <g className="" ref={(el) => { this.axisElement = el; }} transform={translate}/>
         );

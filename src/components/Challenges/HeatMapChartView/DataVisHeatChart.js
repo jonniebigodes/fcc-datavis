@@ -3,7 +3,12 @@ import {scaleTime,scaleBand} from 'd3-scale';
 import HeatAxes from './HeatAxes';
 import HeatPoints from './HeatPoints';
 class DataVisHeatChart extends Component{
-    
+    onMouseOver=value=>{
+
+    }
+    onMouseLeave=()=>{
+
+    }
     findMin=()=>{
         const {dataChart}= this.props;
         let min= Number.POSITIVE_INFINITY;
@@ -31,16 +36,10 @@ class DataVisHeatChart extends Component{
             
            
             let isPresent= items.find(x=>x==current);
-            // console.log('====================================');
-            // console.log(`Current:${current} ispresent:${isPresent}`);
-            // console.log('====================================');
             if (!isPresent){
                 items.push(current);
             }
         }
-        console.log('====================================');
-        console.log(`len databy years:${items.length}`);
-        console.log('====================================');
         return items.length;
     }
     render(){
@@ -60,9 +59,7 @@ class DataVisHeatChart extends Component{
             left: 100
         };
         let svgDimensions = {
-           
             width:Math.max(1024,300),
-            
             height: 500,
             innerWidth:0,
             innerHeight:0
@@ -70,21 +67,7 @@ class DataVisHeatChart extends Component{
         svgDimensions.innerHeight=svgDimensions.height/listOfMonts.length;
         svgDimensions.innerWidth=svgDimensions.width/databyYears;
 
-        // console.log('====================================');
-        // console.log(`Svg dimensions:${JSON.stringify(svgDimensions,null,2)}`);
-        // console.log('====================================');
-        
-        // console.log('====================================');
-        // console.log(`min date:${JSON.stringify(minDate,null,2)} max date:${JSON.stringify(maxDate,null,2)}`);
-        // console.log(`min var:${JSON.stringify(dataIntervals.minVariance,null,2)} max var:${JSON.stringify(dataIntervals.maxVariance,null,2)}`);
-        // console.log(`gridwidth:${svgDimensions.innerWidth} gridheight:${svgDimensions.innerHeight}`);
-        // console.log('====================================');
-        //const xScale= scaleTime().domain([minDate,maxDate]).range([margin.left,svgDimensions.width-margin.right]);
         const xScale= scaleTime().domain([minDate,maxDate]).range([0,svgDimensions.width-1]);
-        
-        // const yScale=scaleBand()
-        //     .domain(listOfMonts)
-        //     .range([margin.top,svgDimensions.height - margin.bottom]);
         const yScale=scaleBand()
         .domain(listOfMonts)
         .range([0,svgDimensions.height]);
@@ -95,13 +78,13 @@ class DataVisHeatChart extends Component{
                     scales={{xScale,yScale}} 
                     margins={margin}
                     svgDimensions={svgDimensions}/>
-
                 <HeatPoints
                     varianceData={dataIntervals} 
                     svgDimensions={svgDimensions} 
                     heatData={dataChart.monthlyVariance} 
                     baseTemp={baseTemperature}
-                    />
+                    heatMouseOver={this.onMouseOver}
+                    heatMouseleave={this.onMouseLeave}/>
             </svg>
             
         );

@@ -2,5 +2,16 @@ module.exports = {
   siteMetadata: {
     title: 'freeCodeCamp Data Visualization projects',
   },
-  plugins: ['gatsby-plugin-react-helmet'],
+  pathPrefix: `/fcc-datavis`,
+  plugins: ['gatsby-plugin-react-helmet',
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options:[
+    //     `Mukta Mahee`,
+    //     `source sans-serif`,
+    //     `Merriweather`,
+    //     `source serif`
+    //   ]
+    // }
+  ],
 };

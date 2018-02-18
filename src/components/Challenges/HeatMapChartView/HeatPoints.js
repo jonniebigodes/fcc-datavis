@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import {scaleQuantile} from 'd3-scale';
+import PropTypes from 'prop-types';
+import HeatPoint from './HeatPoint';
 class HeatPoints extends Component{
 
-    heatMouseOver=value=>{
-<<<<<<< HEAD
-        const {heatData,svgDimensions,heatMouseOver,baseTemp}= this.props;
-        const {innerWidth,innerHeight } = svgDimensions;
+    onheatMouseOver=value=>{
+        const {heatMouseOver}= this.props;
         heatMouseOver(value);
-=======
-
->>>>>>> parent of a57af93... Changed tooltips for heat and scatter chart added config for github publish and configured the fonts using the gatsby google font package
     }
-    heatMouseLeave=()=>{
-
+    onheatMouseLeave=()=>{
+        this.props.heatMouseleave();
     }
     render(){
         const {varianceData ,baseTemp,heatData,svgDimensions}= this.props;
@@ -22,7 +19,6 @@ class HeatPoints extends Component{
         const { height,width,innerWidth,innerHeight } = svgDimensions;
         const heats=(
             heatData.map(datum=>
-<<<<<<< HEAD
                 <HeatPoint key={`heat_item_${datum.year}_${datum.month}`} 
                     data={{
                         year:datum.year,
@@ -34,19 +30,8 @@ class HeatPoints extends Component{
                         baseTemp:baseTemp,
                         fillColor:colorScale(datum.variance+baseTemp)
                     }} 
-                    heatDataMouseEnter={this.heatMouseOver} 
-                    heatDataMouseLeave={this.heatMouseLeave}/>,
-=======
-                <rect
-                    key={`heat_item_${datum.year}_${datum.month}`}
-                    x={(datum.year-heatData[0].year)*innerWidth}
-                    y={(datum.month-1)*innerHeight}
-                     height={innerHeight}
-                     width={innerWidth}
-                    fill={colorScale(datum.variance+baseTemp)}
-                    onMouseOver={this.heatMouseOver}
-                    onMouseOut={this.heatMouseLeave}/>,
->>>>>>> parent of a57af93... Changed tooltips for heat and scatter chart added config for github publish and configured the fonts using the gatsby google font package
+                    heatDataMouseEnter={this.onheatMouseOver} 
+                    heatDataMouseLeave={this.onheatMouseLeave}/>,
             )
         );
         return(
@@ -56,4 +41,5 @@ class HeatPoints extends Component{
         );
     }
 }
+
 export default HeatPoints;

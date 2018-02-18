@@ -5,7 +5,6 @@ import ScatterAxes from './ScatterAxes';
 import ScatterPoints from './ScatterPoints';
 class DataVisScatterChart extends Component {
 
-<<<<<<< HEAD
   onHoverHandler=value=>{
     const {scatterEnter}= this.props;
     scatterEnter(value);
@@ -16,19 +15,16 @@ class DataVisScatterChart extends Component {
     scatterLeave();
   
   }
-=======
- 
->>>>>>> parent of a57af93... Changed tooltips for heat and scatter chart added config for github publish and configured the fonts using the gatsby google font package
   render(){
    
     const {dataChart}= this.props;
     const margin={
-      top: 50, right: 20, bottom: 100, left: 60
+      top: 50, right: 20, bottom: 20, left: 20
     };
    
     const svgDimensions = {
       width: Math.max(1024, 300),
-      height: 500
+      height: 400
     };
     var fastestTime = 2210;
     let tmpChartPointsData=[];
@@ -56,7 +52,10 @@ class DataVisScatterChart extends Component {
           scales={{ xScale, yScale }}
           margins={margin}
           scatterData={tmpChartPointsData}
-          svgDimensions={svgDimensions}/>
+          svgDimensions={svgDimensions}
+          PointMouseEnter={this.onHoverHandler}
+          PointMouseLeave={this.onLeaveHandler}
+          />
       </svg>
     );
   }

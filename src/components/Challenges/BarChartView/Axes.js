@@ -15,9 +15,6 @@ const Axes=({ scales, margins, svgDimensions})=>{
         translate: `translate(${margins.left}, 0)`,
         tickSize: width - margins.left - margins.right,
       };
-      // console.log('====================================');
-      // console.log(`AXES xPRops:${JSON.stringify(xProps,null,2)}\n yProps:${JSON.stringify(yProps,null,2)}\n scales:${JSON.stringify(scales)}`);
-      // console.log('====================================');
       return (
         <g>
           <Axis {...xProps} />
