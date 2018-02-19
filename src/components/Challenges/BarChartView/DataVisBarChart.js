@@ -29,7 +29,7 @@ class DataVisBarChart extends Component {
   render(){
     const {dataChart}= this.props;
     const{isTooltipActive,tooltipData}= this.state;
-    const margins = { top: 30, right: 20, bottom: 40, left: 60 };
+    const margins = { top: 30, right: 10, bottom: 40, left: 60 };
     const svgDimensions = {
       width: Math.max(1024, 300),
       height: 500

@@ -3,7 +3,7 @@ import * as d3Axis from 'd3-axis';
 import {select as d3Select} from 'd3-selection';
 import * as d3TimeFormat from 'd3-time-format';
 import * as d3Time from 'd3-time';
-//import * as d3Time from 'd3-time';
+import './Scatter.css';
 class ScatterAxis extends Component{
     componentDidMount(){
         this.renderAxis();
@@ -22,7 +22,7 @@ class ScatterAxis extends Component{
     render(){
         const{translate,orient}= this.props;
         return(
-            <g className="" ref={(el) => { this.axisElement = el; }} transform={translate}/>
+            <g className={`Axis Axis-${orient}`} ref={(el) => { this.axisElement = el; }} transform={translate}/>
         );
     }
 }

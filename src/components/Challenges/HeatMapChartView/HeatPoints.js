@@ -9,6 +9,7 @@ class HeatPoints extends Component{
         heatMouseOver(value);
     }
     onheatMouseLeave=()=>{
+
         this.props.heatMouseleave();
     }
     render(){

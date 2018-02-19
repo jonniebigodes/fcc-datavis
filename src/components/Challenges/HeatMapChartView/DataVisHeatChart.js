@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import {scaleTime,scaleBand} from 'd3-scale';
+import PropTypes from 'prop-types';
 import HeatAxes from './HeatAxes';
 import HeatPoints from './HeatPoints';
 class DataVisHeatChart extends Component{
     onMouseOver=value=>{
-
+        const{showToolTip}= this.props;
+       
+        showToolTip(value);
     }
     onMouseLeave=()=>{
-
+        const{hideToolTip} =this.props;
+      
+        hideToolTip();
     }
     findMin=()=>{
         const {dataChart}= this.props;
@@ -55,7 +60,7 @@ class DataVisHeatChart extends Component{
         const margin={
             top: 5,
             right: 0,
-            bottom: 90,
+            bottom: 30,
             left: 100
         };
         let svgDimensions = {

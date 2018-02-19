@@ -9,7 +9,9 @@ class HeatMapChartContainer extends Component{
         this.state={
             isLoading:true,
             isError:false,
-            fullchartData: {}
+            fullchartData: {},
+            isTooltipActive:false,
+            tooltipData:{}
         }
     }
     componentDidMount(){
@@ -25,6 +27,13 @@ class HeatMapChartContainer extends Component{
                 }));
             }
         }, 2500);
+    }
+    onHideToolTip=()=>{
+        
+        this.setState({isTooltipActive:false,tooltipData:{}});
+    }
+    onShowToolTip=value=>{
+        this.setState({isTooltipActive:true,tooltipData:value});
     }
     fetchData(){
         fetch(`https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/global-temperature.json`)
@@ -47,7 +56,7 @@ class HeatMapChartContainer extends Component{
         });
     }
     render(){
-        const {isError,isLoading,fullchartData}= this.state;
+        const {isError,isLoading,fullchartData,isTooltipActive,tooltipData}= this.state;
         if (isError){
             return (<h3>Lights up the sirens.....Something went wrong</h3>);
         }
@@ -57,7 +66,8 @@ class HeatMapChartContainer extends Component{
         if (fullchartData.baseTemperature){
             return(
                 <div>
-                     <DataVisHeatChart dataChart={fullchartData}/>
+                     <DataVisHeatChart dataChart={fullchartData} showToolTip={this.onShowToolTip} hideToolTip={this.onHideToolTip}/>
+                     {isTooltipActive?<HeatToolTip data={tooltipData.data} dataTemp={fullchartData.baseTemperature}/>:<div/>}
                 </div>
             );
         }

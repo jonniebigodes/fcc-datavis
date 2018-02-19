@@ -4,14 +4,16 @@ module.exports = {
   },
   pathPrefix: `/fcc-datavis`,
   plugins: ['gatsby-plugin-react-helmet',
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options:[
-    //     `Mukta Mahee`,
-    //     `source sans-serif`,
-    //     `Merriweather`,
-    //     `source serif`
-    //   ]
-    // }
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options:{
+        fonts:[
+          'Mukta Mahee',
+          'source sans-serif',
+          'Merriweather',
+          'source serif'
+        ]
+      }
+    }
   ],
 };

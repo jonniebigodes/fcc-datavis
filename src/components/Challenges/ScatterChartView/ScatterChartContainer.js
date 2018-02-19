@@ -54,15 +54,14 @@ class ScatterChartContainer extends Component{
     render(){
         const {isError,isLoading,fullchartData,isTooltipActive,tooltipData}= this.state;
         if (isError){
-            return (<h3>Lights up the sirens.....Something went wrong</h3>);
+            return (<div className="scatterPreload">Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<h3>Hold on to your hat...i'm getting the data at lightspeed</h3>);
+            return (<div className="scatterPreload">Hold on to your hat...i'm getting the data at Lance Armstrong speed</div>);
         }
         if (fullchartData.length){
             return(
                 <div>
-                     {/* <h3>soon the graph</h3> */}
                      <div className="scatterTitle">
                         Doping in Professional Bicycle Racing
                      </div>

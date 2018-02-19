@@ -1,8 +1,24 @@
+.Axis path,
+.Axis line {
+  stroke: #E0E0E0;
+}
+
+.Axis text {
+  font-size: 11px;
+  fill: black;
+}
 .scatterText{
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    font-family: 'Merriweather', serif;
 }
 .scatterTitle{
     text-align: center;
     font-size: 1rem;
+    font-family: 'Merriweather', serif;
+}
+.scatterPreload{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Merriweather',serif;
 }

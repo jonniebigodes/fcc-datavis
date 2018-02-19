@@ -21,11 +21,18 @@
   
 }
 .BarFooterText{
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-align: center;
+  font-family: 'Merriweather', serif;
   /* margin-top:1vh; */
 }
 .BarTitle{
   font-size: 1rem;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+}
+.Preload{
+  font-family: 'Merriweather',serif;
+  font-size: 1.5rem;
   text-align: center;
 }
