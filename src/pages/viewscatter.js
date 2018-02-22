@@ -9,4 +9,4 @@ const ScatterChartPage=()=>{
         </div>
     );
 };
-export default ScatterChartPage;
+export default ScatterChartPage; 
