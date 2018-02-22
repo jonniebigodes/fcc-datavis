@@ -28,6 +28,10 @@ const IndexPage = () => (
           <div className={styles.textContainer}>Placeholder to get you to the...</div>
           <div className={styles.textContainer}><Link to="/forceview">Force Directed Chart Project</Link></div>
         </Paper>
+        <Paper zDepth={5} style={{width:300,height:150}}>
+          <div className={styles.textContainer}>Placeholder to get you to the...</div>
+          <div className={styles.textContainer}><Link to="/globeview">Globe Chart Project</Link></div>
+        </Paper>
       </div>
     </div>
   </MuiThemeProvider>

@@ -48,13 +48,14 @@ class ForceDirectContainer extends Component{
     render(){
         const{isError,isLoading,fullChartData}= this.state;
         if (isError){
-            return (<h3>Lights up the sirens.....Something went wrong</h3>);
+            return (<div>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<h3>Hold on to your hat...i'm getting the data at lightspeed</h3>);
+            return (<div>Hold on to your hat...i'm getting the data at lightspeed</div>);
         }
-        if (fullChartData.length){
-            return(<DataVisForceGraph graphData={fullChartData}/>);
+        if (fullChartData.nodes.length){
+            return(<DataVisForceGraph graphData={fullChartData} width={800} height={600}/>);
         }
     }
 }
+export default ForceDirectContainer;
