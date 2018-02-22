@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import ScatterChartContainer from '../components/Challenges/ScatterChartView/ScatterChartContainer';
 const ScatterChartPage=()=>{
 

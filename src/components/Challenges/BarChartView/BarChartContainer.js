@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DataVisBarChart from './DataVisBarChart';
-import './Axis.css';
+import '../../../Assets/css/barChart.css';
 class BarChartContainer extends Component{
     constructor() {
         super()

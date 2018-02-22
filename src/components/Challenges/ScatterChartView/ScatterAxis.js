@@ -3,7 +3,7 @@ import * as d3Axis from 'd3-axis';
 import {select as d3Select} from 'd3-selection';
 import * as d3TimeFormat from 'd3-time-format';
 import * as d3Time from 'd3-time';
-import './Scatter.css';
+import '../../../Assets/css/scatterGraph.css';
 class ScatterAxis extends Component{
     componentDidMount(){
         this.renderAxis();

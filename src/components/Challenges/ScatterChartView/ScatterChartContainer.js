@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
 import DataVisScatterChart from './DataVisScatterChart';
 import ScatterTooltip from './ScatterTooltip';
-import './Scatter.css';
+import '../../../Assets/css/scatterGraph.css';
 class ScatterChartContainer extends Component{
     constructor(){
         super();

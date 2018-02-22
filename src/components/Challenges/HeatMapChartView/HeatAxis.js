@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as d3Axis from 'd3-axis';
 import {select as d3Select} from 'd3-selection';
 import * as d3Time from 'd3-time';
-import './Heat.css';
+import '../../../Assets/css/heatGraph.css';
 class HeatAxis extends Component{
 
     componentDidMount(){

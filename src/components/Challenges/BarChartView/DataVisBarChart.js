@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types';
 import {scaleBand, scaleLinear,scaleTime} from 'd3-scale';
 import Bars from './Bars';
 import Axes from './Axes';
 import BarChartToolTip from './BarToolTip';
 class DataVisBarChart extends Component {
-
-  
   constructor(){
     super();
     this.state={
@@ -69,5 +67,7 @@ class DataVisBarChart extends Component {
     );
   }
 }
-
+DataVisBarChart.propTypes={
+  //dataChart:PropTypes.
+}
 export default DataVisBarChart

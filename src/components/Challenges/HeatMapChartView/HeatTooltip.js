@@ -5,9 +5,9 @@ const getMonts=value=>{
     return listOfMonts[value-1];
 }
 const HeatToolTip=({data,dataTemp})=>{
-    console.log('====================================');
-    console.log(`fill color:${data.toolColor}`);
-    console.log('====================================');
+    // console.log('====================================');
+    // console.log(`fill color:${data.toolColor}`);
+    // console.log('====================================');
     const styles={
         toolTip:{
             width:600,
