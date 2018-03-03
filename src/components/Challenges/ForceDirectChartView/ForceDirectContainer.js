@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import Toggle from 'material-ui/Toggle';
 import Utilities from '../../../Utils/Utilities';
 import DataVisForceGraph from './DataVisForceGraph';
+import ForceGraphToolTip from './ForceGraphToolTip';
+import '../../../Assets/css/forceGraph.css';
 class ForceDirectContainer extends Component{
     constructor(){
         super();
         this.state={
             isLoading:true,
             isError:false,
-            fullChartData:{}
+            fullChartData:{},
+            isToolTipActive:false,
+            countryCode:'',
         };
     }
     componentDidMount(){
@@ -23,6 +28,10 @@ class ForceDirectContainer extends Component{
                 }));
             }
         }, 2500);
+    }
+
+    onShowHideLegend=()=>{
+        this.setState({labelShow:!this.state.labelShow});
     }
     fetchData(){
         fetch(`https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json`).then(response=>{
@@ -45,16 +54,46 @@ class ForceDirectContainer extends Component{
             }));
         });
     }
+    activateToolTip=value=>{
+        this.setState({isToolTipActive:true,countryCode:value});
+    }
+    deactivateToolTip=()=>{
+        this.setState({isToolTipActive:false,countryCode:''});
+    }
     render(){
-        const{isError,isLoading,fullChartData}= this.state;
+        const{isError,isLoading,fullChartData,isToolTipActive,countryCode,labelShow}= this.state;
         if (isError){
-            return (<div>Lights up the sirens.....Something went wrong</div>);
+            return (<div className="preloadText">Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<div>Hold on to your hat...i'm getting the data at lightspeed</div>);
+            return (
+                <div className="preloadText">
+                    Hold on to your hat...i'm getting the data Chuck Norris style.<p/>
+                    And speaking of chuck.....<br/>
+                    Here's a random fact about Chuck Norris<br/>
+                    {Utilities.forcePreload()}
+                </div>
+
+            );
         }
         if (fullChartData.nodes.length){
-            return(<DataVisForceGraph graphData={fullChartData} width={800} height={600}/>);
+            return(
+                <div>
+                    <div className="title">Force directed graph ilustrating the world countries contiguity</div>
+                    <div className="containerForce">
+                    <div className="forceGraph">
+                        <DataVisForceGraph graphData={fullChartData} width={800} height={600} 
+                            enableToolTip={this.activateToolTip} 
+                            disableToolTip={this.deactivateToolTip}
+                            enableLegends={labelShow}/>
+                    </div>
+                    <div className="tooltipInfo">
+                        <ForceGraphToolTip value={isToolTipActive?Utilities.loadCountryInfo(countryCode):null}/>
+                    </div>  
+               </div>
+                </div>
+               
+            );
         }
     }
 }

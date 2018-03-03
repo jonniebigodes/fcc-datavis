@@ -4,26 +4,25 @@ import PropTypes from 'prop-types';
 import '../../../Assets/css/forceGraph.css';
 class ForceNode extends Component{
     componentDidMount() {
-        d3Select(this.nodeElement).data([this.props.node]);
+        const {node}= this.props;
+        d3Select(this.nodeElement).data([node]);
+        
     }
     onMouseEnter=value=>{
-        const {forceNodeMouseEnter}= this.props;
+        const {forceNodeMouseEnter,node}= this.props;
+        forceNodeMouseEnter(node.code);
     }
     onMouseLeave=()=>{
         const {forceNodeMouseLeave}= this.props;
+        forceNodeMouseLeave();
     }
     render(){
         const {node}= this.props;
-        // const pattern=<defs><pattern id="flagImage" key="flagImage" patternUnits="userSpaceOnUse" width="100%" height="100%">
-        //     <image width="20" height="20" x="0" y="0" className={`flag flag-${node.code}`} xlinkHref="../../../Assets/images/blank.gif"/>
-        // </pattern></defs>;
         return(
-            // <div className={`flag flag-${node.code}`} ref={(el) => { this.nodeElement = el; }}/>
-                
-            // </div>
             <circle r={6} className={`node`}
-                ref={(el) => { this.nodeElement = el; }}>
-                
+                ref={(el) => { this.nodeElement = el; }} 
+                    onMouseOver={this.onMouseEnter}
+                    onMouseOut={this.onMouseLeave}>
             </circle> 
             
         );

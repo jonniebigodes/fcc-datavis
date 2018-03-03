@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Utilities from '../../../Utils/Utilities';
-import GlobeViewChart from './GlobeViewChart';
-
 import { feature } from "topojson-client";
+import GlobeViewChart from './GlobeViewChart';
+import Utilities from '../../../Utils/Utilities';
 class GlobeViewContainer extends Component{
 
     constructor(){
@@ -10,14 +9,15 @@ class GlobeViewContainer extends Component{
         this.state={
             isLoading:true,
             isError:false,
-            fullData:{},
+            meteors:{},
             globeMap:[]
         }
     }
     componentDidMount(){
+        
         setTimeout(() => {
             const storedMap=JSON.parse(Utilities.getStorageData("globeMap"));
-             
+            const meteorsData=JSON.parse(Utilities.getStorageData("meteors"));
             if (!storedMap){
                 this.fetchData();
                 this.fetchDataMeteor();
@@ -25,6 +25,7 @@ class GlobeViewContainer extends Component{
             else{
                 this.setState(prevState=>({
                     globeMap:feature(storedMap,storedMap.objects.countries).features,
+                    meteors:meteorsData,
                     isLoading:false
                 }));
             }
@@ -36,7 +37,10 @@ class GlobeViewContainer extends Component{
             .then(response=>{return response.json()})
             .then(result=>{
                 Utilities.setStorageData("meteors",result);
-                
+                this.setState({
+                    meteors:result,
+                    isLoading:false
+                });
             })
             .catch(err=>{
                 console.log('====================================');
@@ -54,10 +58,10 @@ class GlobeViewContainer extends Component{
 
                 Utilities.setStorageData("globeMap",result);
                 this.setState({
-                    isLoading:false,
+                    
                     globeMap:feature(result,result.objects.countries).features
                     
-                })
+                });
             })
             .catch(err=>{
                 console.log('====================================');
@@ -68,7 +72,7 @@ class GlobeViewContainer extends Component{
     }
    
     render(){
-        const {isError,isLoading,globeMap}= this.state;
+        const {isError,isLoading,globeMap,meteors}= this.state;
         if (isError){
             return (<div>Lights up the sirens.....Something went wrong</div>);
         }
@@ -78,7 +82,7 @@ class GlobeViewContainer extends Component{
         //return (<h3>soom</h3>)
         if (globeMap.length){
             return (
-                <GlobeViewChart globeData={globeMap}/>
+                <GlobeViewChart globeData={globeMap} meteorsInfo={meteors.features}/>
             )
         }
     }

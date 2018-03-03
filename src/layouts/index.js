@@ -7,6 +7,7 @@ import Footer from '../components/Footer/footer';
 import './index.css'
 
 const TemplateWrapper = ({ children }) => (
+  
   <div>
     <Helmet
       title="freeCodeCamp Data Visualization Projects"
@@ -22,7 +23,7 @@ const TemplateWrapper = ({ children }) => (
       //   {rel: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css", rel: "stylesheet"}
       // ]}
     />
-    <Header />
+    <Header itemHeader="default" />
     <div
       style={{
         margin: '0 auto',
@@ -34,7 +35,7 @@ const TemplateWrapper = ({ children }) => (
       {children()}
     </div>
     <div>
-      <Footer/>
+      <Footer itemFooter="default"/>
     </div>
   </div>
 )

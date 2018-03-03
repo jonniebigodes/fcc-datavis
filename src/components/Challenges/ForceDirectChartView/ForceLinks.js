@@ -23,22 +23,22 @@ ForceLinks.propTypes={
     graphLinks:PropTypes.arrayOf(PropTypes.shape({
         index:PropTypes.number,
         source:PropTypes.shape({
-        code:PropTypes.string,
-        country:PropTypes.string,
-        index:PropTypes.number,
-        vx:PropTypes.number,
-        vy:PropTypes.number,
-        x:PropTypes.number,
-        y:PropTypes.number
+            code:PropTypes.string,
+            country:PropTypes.string,
+            index:PropTypes.number,
+            vx:PropTypes.number,
+            vy:PropTypes.number,
+            x:PropTypes.number,
+            y:PropTypes.number
         }),
         target:PropTypes.shape({
-        code:PropTypes.string,
-        country:PropTypes.string,
-        index:PropTypes.number,
-        vx:PropTypes.number,
-        vy:PropTypes.number,
-        x:PropTypes.number,
-        y:PropTypes.number
+            code:PropTypes.string,
+            country:PropTypes.string,
+            index:PropTypes.number,
+            vx:PropTypes.number,
+            vy:PropTypes.number,
+            x:PropTypes.number,
+            y:PropTypes.number
         })
     }))
 }

@@ -1,4 +1,4 @@
-
+import {dataVisConstant} from './Constants';
 class Utilities{
     static setStorageData(token,value){
         // console.log('====================================');
@@ -17,5 +17,15 @@ class Utilities{
     static clearStorage(){
         localStorage.clear();
     }
+    static forcePreload(){
+        const max=dataVisConstant.forcePreloader.length;
+        const min=1;
+        return dataVisConstant.forcePreloader[Math.floor(Math.random()*(max-min+1))+min];
+    }
+    static loadCountryInfo(value){
+        return dataVisConstant.countryInfo[value];
+    }
 }
+
+
 export default Utilities;

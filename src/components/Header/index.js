@@ -1,10 +1,19 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const Header = () => (
+const setPageItem=(value)=>{
+  switch (value) {
+    case "force":
+      return '#ada9a9';
+    default:
+      return 'rebeccapurple';
+  }
+}
+const Header = ({itemHeader}) => (
   <div
     style={{
-      background: 'rebeccapurple',
+      //background: 'rebeccapurple',
+      background:setPageItem(itemHeader),
       marginBottom: '1.45rem',
     }}
   >
@@ -20,7 +29,7 @@ const Header = () => (
           to="/"
           style={{
             color: 'white',
-            textDecoration: 'none',
+            textDecoration: 'none'
           }}
         >
           Supercalifragilistic Data Visualization
