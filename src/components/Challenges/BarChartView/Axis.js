@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import * as d3Axis from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
-import * as D3Time from 'd3-time';
-import * as D3TimeFormat from 'd3-time-format';
 import '../../../Assets/css/barChart.css';
 class Axis extends Component{
     componentDidMount() {

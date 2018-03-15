@@ -19,7 +19,11 @@ class WorldMap extends Component{
             
             meteorfall.map((m,i)=>
                 <MeteorPoint key={`mpoint_${i}`}
-                    
+                    data={{
+                        meteorname:m.properties.name,
+                        meteorclass:m.properties.recclass,
+                        datefell:m.properties.year
+                    }}
                     mass={parseInt(m.properties.mass)}
                     rectangleLat={this.project()([Number(m.properties.reclong),Number(m.properties.reclat)])[0]}
                     rectangleLong={this.project()([Number(m.properties.reclong),Number(m.properties.reclat)])[1]}

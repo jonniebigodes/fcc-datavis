@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {scaleLinear} from 'd3-scale';
 import * as d3TimeFormat from 'd3-time-format';
+import PropTypes from 'prop-types';
 import ScatterAxes from './ScatterAxes';
 import ScatterPoints from './ScatterPoints';
 class DataVisScatterChart extends Component {
@@ -23,8 +24,8 @@ class DataVisScatterChart extends Component {
     };
    
     const svgDimensions = {
-      width: Math.max(1024, 300),
-      height: 400
+      width: Math.max(800, 300),
+      height: 420
     };
     var fastestTime = 2210;
     let tmpChartPointsData=[];
@@ -59,5 +60,17 @@ class DataVisScatterChart extends Component {
       </svg>
     );
   }
+}
+DataVisScatterChart.propTypes={
+  dataChart:PropTypes.arrayOf(PropTypes.shape({
+    Time:PropTypes.number,
+    Place:PropTypes.number,
+    Seconds:PropTypes.number,
+    Name:PropTypes.string,
+    Year:PropTypes.number,
+    Nationality:PropTypes.string,
+    URL:PropTypes.string,
+    Doping:PropTypes.string
+  }))
 }
 export default DataVisScatterChart

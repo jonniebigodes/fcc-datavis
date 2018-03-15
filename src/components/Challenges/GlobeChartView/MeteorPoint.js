@@ -44,10 +44,21 @@ class MeteorPoint extends PureComponent{
         return 12;
     }
     onEnter=()=>{
-
+        // const {meteorPointEnter,data,mass,rectangleLat,rectangleLong}= this.props;
+        // meteorPointEnter(
+        //     {
+        //         name:data.meteorname,
+        //         meteorclass:data.meteorclass,
+        //         dateofhit:data.datefell,
+        //         meteormass:mass,
+        //         latitude:rectangleLat,
+        //         longitude:rectangleLong
+        //     }
+        // );
     }
     onExit=()=>{
-        
+        // const {meteorPointExit}= this.props;
+        // meteorPointExit();
     }
     render(){
         const {mass,rectangleLat,rectangleLong,circleId}= this.props;
@@ -66,9 +77,16 @@ class MeteorPoint extends PureComponent{
     }
 }
 MeteorPoint.propTypes={
+    data:PropTypes.shape({
+        meteorname:PropTypes.string,
+        meteorclass:PropTypes.string,
+        datefell:PropTypes.string
+    }),
     mass:PropTypes.number,
     rectangleLat:PropTypes.number,
     rectangleLong:PropTypes.number,
-    circleId:PropTypes.number
+    circleId:PropTypes.number,
+    meteorPointEnter:PropTypes.func,
+    meteorPointExit:PropTypes.func
 };
 export default MeteorPoint;

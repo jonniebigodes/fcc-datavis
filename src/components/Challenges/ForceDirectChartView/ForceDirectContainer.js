@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Toggle from 'material-ui/Toggle';
+// import Toggle from 'material-ui/Toggle';
 import Utilities from '../../../Utils/Utilities';
 import DataVisForceGraph from './DataVisForceGraph';
 import ForceGraphToolTip from './ForceGraphToolTip';

@@ -65,11 +65,19 @@ class ScatterChartContainer extends Component{
                      <div className="scatterTitle">
                         Doping in Professional Bicycle Racing
                      </div>
-                     <DataVisScatterChart 
-                            dataChart={fullchartData}
-                            scatterLeave={this.onToolTipHide} 
-                            scatterEnter={this.onToolTipShow} />
-                        {isTooltipActive?<ScatterTooltip data={tooltipData.data}/>:<div/>}
+                     <div className="containerScatter">
+                        <div className="containerChart">
+                             <DataVisScatterChart 
+                                dataChart={fullchartData}
+                                scatterLeave={this.onToolTipHide} 
+                                scatterEnter={this.onToolTipShow} />
+                        </div>
+                       
+                        <div>
+                            <ScatterTooltip data={isTooltipActive?tooltipData.data:null}/>
+                        </div>
+                     </div>
+                    
                      <div className="scatterText">
                         35 Fastest times up Alpe d'Huez<br/>
                         Normalized to 13.8km distance

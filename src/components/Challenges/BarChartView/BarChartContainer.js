@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import DataVisBarChart from './DataVisBarChart';
+import BarChartToolTip from './BarToolTip';
+import Utilities from '../../../Utils/Utilities';
 import '../../../Assets/css/barChart.css';
 class BarChartContainer extends Component{
     constructor() {
@@ -8,6 +10,8 @@ class BarChartContainer extends Component{
           isLoading: true,
           isError: false,
           fullchartData: [],
+          isToolTipActive:false,
+          gdpInfo:{},
         }
     }
     fetchData(){
@@ -29,10 +33,12 @@ class BarChartContainer extends Component{
                         }
                     );
                 }
-                this.setState(prevState=>({
-                    fullchartData:prevState.fullchartData.concat(itemsResult),
+                
+                Utilities.setStorageData("barsdata",itemsResult);
+                this.setState({
+                    fullchartData:itemsResult,
                     isLoading:false
-                }));
+                });
             })
             .catch(error=>{
                 //
@@ -45,32 +51,56 @@ class BarChartContainer extends Component{
             });
     }
     componentDidMount(){
+        
         setTimeout(() => {
-            this.fetchData();
+            const storedbars=JSON.parse(Utilities.getStorageData("barsdata"));
+            if(!storedbars){
+                this.fetchData();
+            }
+            else{
+                this.setState({
+                fullchartData:storedbars,
+                isLoading:false
+                });
+            }
         }, 2500);
     }
+    activateToolTip=value=>{
+        this.setState({isToolTipActive:true,gdpInfo:value});
+    }
+    deactivateToolTip=()=>{
+        this.setState({isToolTipActive:false,gdpInfo:{}});
+    }
     render(){
-        const {isError,isLoading,fullchartData}= this.state;
+        const {isError,isLoading,fullchartData,isToolTipActive,gdpInfo}= this.state;
         if (isError){
             return (<div className="Preload">Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<div className="Preload"h3>Hold on to your hat...i'm getting the data at lightspeed</div>);
+            return (<div className="Preload">Hold on to your hat...i'm getting the data at lightspeed</div>);
         }
         if (fullchartData.length){
             return(
-                <div className="containerBar">
-                     <div className="BarTitle">
+                <div>
+                    <div className="BarTitle">
                         Federal Reserve Economic Data on Gross Domestic Product in the USA
                      </div>
-                    
-                    <DataVisBarChart dataChart={fullchartData}/>
-                    <div className="BarFooterText">
+                     <div className="containerBar">
+                        <div className="containerBarChart">
+                            <DataVisBarChart dataChart={fullchartData} enableToolTip={this.activateToolTip} disableToolTip={this.deactivateToolTip}/>
+                        </div>
+                        
+                        <div>
+                            <BarChartToolTip data={isToolTipActive?gdpInfo:null}/>
+                        </div>
+                     </div>
+                     <div className="BarFooterText">
                         Units: Billions of Dollars.<br/>
                         Seasonal Adjustment: Seasonally Adjusted Annual Rate<br/>
                         Notes: A Guide to the National Income and Product Accounts of the United States (NIPA) - (http://www.bea.gov/national/pdf/nipaguid.pdf)
                      </div>
                 </div>
+                
             );
         }
     }

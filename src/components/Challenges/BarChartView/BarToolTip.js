@@ -1,6 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../../../Assets/css/barChart.css';
-const BarChartToolTip=({display,position,data})=>{
+
+const showInfo=()=>{
+    return(
+        <div>
+            <div className="tooltipText">
+                Mouse over a bar 
+            </div>
+            <div className="tooltipText">
+                to show you information
+            </div>
+        </div>
+    )
+};
+const showData=value=>{
+
+    return(
+        <div>
+            <div className="tooltipText">In</div>
+            <div className="tooltipText">{value.dateTime}</div>
+            <div className="tooltipText">Domestic value</div>
+            <div className="tooltipText">{value.domesticValue}</div>
+        </div>
+    )
+};
+
+const BarChartToolTip=({data})=>{
     // let visibility="hidden";
     // let transform="";
     // let x=0,y=0;
@@ -50,5 +76,17 @@ const BarChartToolTip=({display,position,data})=>{
     //         </text>
     //     </g>
     // );
+    return(
+        <div className="containerToolTip">
+            {data?showData(data):showInfo()}
+        </div>
+    );
 };
+BarChartToolTip.propTypes={
+    data:PropTypes.shape({
+        dateTime:PropTypes.string,
+        domesticValue:PropTypes.number
+    })
+};
+
 export default BarChartToolTip;

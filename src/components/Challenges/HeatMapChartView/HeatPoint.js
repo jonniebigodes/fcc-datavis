@@ -37,7 +37,6 @@ class HeatPoint extends PureComponent{
         )
     }
 }
-export default HeatPoint;
 HeatPoint.propTypes={
 
     data:PropTypes.shape({
@@ -53,3 +52,4 @@ HeatPoint.propTypes={
     heatDataMouseEnter:PropTypes.func,
     heatDataMouseLeave:PropTypes.func
 };
+export default HeatPoint;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ScatterAxis from './ScatterAxis';
-
+import PropTypes from 'prop-types';
 const ScatterAxes=({scales, margins, svgDimensions})=>{
 
     const {height,width}= svgDimensions;
@@ -23,4 +23,16 @@ const ScatterAxes=({scales, margins, svgDimensions})=>{
         </g>
     );
 };
+ScatterAxes.propTypes={
+    margins:PropTypes.shape({
+        top:PropTypes.number,
+        right:PropTypes.number,
+        bottom:PropTypes.number,
+        left:PropTypes.number
+    }),
+    svgDimensions:PropTypes.shape({
+        width:PropTypes.number,
+        height:PropTypes.number
+    })
+}
 export default ScatterAxes;

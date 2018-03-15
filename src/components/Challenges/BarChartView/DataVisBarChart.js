@@ -3,34 +3,23 @@ import PropTypes from 'prop-types';
 import {scaleBand, scaleLinear,scaleTime} from 'd3-scale';
 import Bars from './Bars';
 import Axes from './Axes';
-import BarChartToolTip from './BarToolTip';
+
 class DataVisBarChart extends Component {
-  constructor(){
-    super();
-    this.state={
-      isTooltipActive:false,
-      tooltipData:{}
-    }
-  }
+  
   onMouseOverHandler=value=>{
-    this.setState(prevState=>({
-      isTooltipActive:true,
-      tooltipData:value
-    }));
+    const{enableToolTip}= this.props;
+    enableToolTip(value);
   }
   onMouseLeaveHandler=()=>{
-    this.setState(prevState=>({
-      isTooltipActive:false,
-      tooltipData:{}
-    }));
+    const{disableToolTip}= this.props;
+    disableToolTip();
   }
   render(){
     const {dataChart}= this.props;
-    const{isTooltipActive,tooltipData}= this.state;
     const margins = { top: 30, right: 10, bottom: 40, left: 60 };
     const svgDimensions = {
-      width: Math.max(1024, 300),
-      height: 500
+      width: Math.max(820, 300),
+      height: 450
     };
     const maxValue= Math.max(...dataChart.map(d=>d.domesticValue));
 
@@ -44,9 +33,8 @@ class DataVisBarChart extends Component {
     
     
     return(
-      <svg width={svgDimensions.width} height={svgDimensions.height} className="animated lightSpeedIn">
+      <svg width={svgDimensions.width} height={svgDimensions.height}>
         <g>
-        
           <Axes
             scales={{ xScale, yScale }}
             margins={margins}
@@ -61,13 +49,17 @@ class DataVisBarChart extends Component {
             barMouseOver={this.onMouseOverHandler}
             barMouseLeave={this.onMouseLeaveHandler}
           />
-          <BarChartToolTip display={isTooltipActive} position={tooltipData.position} data={tooltipData.data}/>
         </g>
       </svg>
     );
   }
 }
 DataVisBarChart.propTypes={
-  //dataChart:PropTypes.
+  dataChart:PropTypes.arrayOf(PropTypes.shape({
+    dateTime:PropTypes.string,
+    domesticValue:PropTypes.number
+  })),
+  enableToolTip:PropTypes.func,
+  disableToolTip:PropTypes.func
 }
 export default DataVisBarChart

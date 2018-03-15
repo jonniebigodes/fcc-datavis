@@ -95,4 +95,7 @@ class DataVisHeatChart extends Component{
         );
     }
 }
+DataVisHeatChart.propTypes={
+
+};
 export default DataVisHeatChart;

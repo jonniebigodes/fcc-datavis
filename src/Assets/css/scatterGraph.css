@@ -22,3 +22,26 @@
     font-size: 1.5rem;
     font-family: 'Merriweather',serif;
 }
+.containerToolTip{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1vw;
+}
+.toolTipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.8rem;
+    text-align: center;
+    padding-left: 1vw;
+}
+.containerScatter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+}
+.containerChart{
+    margin: 1 auto;
+}
