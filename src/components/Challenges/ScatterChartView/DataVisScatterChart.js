@@ -20,7 +20,7 @@ class DataVisScatterChart extends Component {
    
     const {dataChart}= this.props;
     const margin={
-      top: 50, right: 20, bottom: 30, left: 20
+      top: 30, right: 20, bottom: 20, left: 20
     };
    
     const svgDimensions = {

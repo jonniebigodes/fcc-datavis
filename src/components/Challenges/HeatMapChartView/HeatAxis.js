@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import * as d3Axis from 'd3-axis';
 import {select as d3Select} from 'd3-selection';
 import * as d3Time from 'd3-time';
-import '../../../Assets/css/heatGraph.css';
+//import '../../../Assets/css/heatGraph.css';
+import styles from './heat-style.module.css';
 class HeatAxis extends Component{
 
     componentDidMount(){
@@ -28,7 +29,7 @@ class HeatAxis extends Component{
         const{translate,orient}= this.props;
        
         return(
-            <g className="" ref={(el) => { this.axisElement = el; }} transform={translate}/>
+            <g className={`${styles.Axis} ${styles.Axis}-${orient}`} ref={(el) => { this.axisElement = el; }} transform={translate}/>
         );
     }
 }

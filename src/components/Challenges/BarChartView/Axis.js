@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as d3Axis from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
-import '../../../Assets/css/barChart.css';
+//import '../../../Assets/css/barChart.css';
+import styles from './bar-style.module.css';
 class Axis extends Component{
     componentDidMount() {
         this.renderAxis()
@@ -35,7 +36,8 @@ class Axis extends Component{
         const {orient,translate}= this.props;
         return (
             <g
-              className={`Axis Axis-${orient}`}
+            //   className={`Axis Axis-${orient}`}
+              className={`${styles.Axis} ${styles.Axis}-${orient}`}
               ref={(el) => { this.axisElement = el; }}
               transform={translate}
             />

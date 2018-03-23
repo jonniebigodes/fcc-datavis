@@ -1,0 +1,61 @@
+.Axis path,
+.Axis line {
+  /*stroke: #E0E0E0;*/
+  stroke: darkslategrey;
+}
+
+.Axis text {
+  font-size: 11px;
+  fill: darkslategrey;
+}
+.Axis-Bottom text {
+  /* transform: rotate(-45deg);  */
+  transform: rotate(-45deg); 
+  text-anchor: end;
+}
+.containerBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+  /* background-color:rgba(34, 143, 5, .65); 
+  /*background-color: rgba(214, 255, 233,0.6);*/
+  
+}
+.BarFooterText{
+  font-size: 0.65rem;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  color: darkslategrey;
+  /* margin-top:1vh; */
+}
+.BarTitle{
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  color: darkslategrey;
+}
+.Preload{
+  font-family: 'Merriweather',serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: darkslategrey;
+}
+.containerToolTip{
+  width: 220px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.bartooltipText{
+  font-family: 'Merriweather', serif;
+  font-size: 0.60rem;
+  text-align: center;
+  color: darkslategrey;
+}
+.containerBarChart{
+  margin: 1 auto;
+}

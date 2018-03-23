@@ -1210,4 +1210,17 @@ const forcePreloader=[
     'The Avatar was created by Chuck Norris uppercutting a smurf.',
     'Chuck Norris can play Angry Birds from a payphone.'
 ];
-export const dataVisConstant={forcePreloader,countryInfo}
+const svgDimensions={
+    charts:{
+        width:820,
+        height:470,
+    },
+    margins:{
+        top: 30,
+        right: 20,
+        bottom: 30,
+        left: 30
+    }
+};
+const Months=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+export const dataVisConstant={forcePreloader,countryInfo,svgDimensions}

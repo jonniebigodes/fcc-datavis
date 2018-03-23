@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import Toggle from 'material-ui/Toggle';
 import Utilities from '../../../Utils/Utilities';
 import DataVisForceGraph from './DataVisForceGraph';
 import ForceGraphToolTip from './ForceGraphToolTip';
 import '../../../Assets/css/forceGraph.css';
+import styles from './force-style.module.css';
 class ForceDirectContainer extends Component{
     constructor(){
         super();
@@ -63,11 +63,11 @@ class ForceDirectContainer extends Component{
     render(){
         const{isError,isLoading,fullChartData,isToolTipActive,countryCode,labelShow}= this.state;
         if (isError){
-            return (<div className="preloadText">Lights up the sirens.....Something went wrong</div>);
+            return (<div className={styles.preloadText}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
             return (
-                <div className="preloadText">
+                <div className={styles.preloadText}>
                     Hold on to your hat...i'm getting the data Chuck Norris style.<p/>
                     And speaking of chuck.....<br/>
                     Here's a random fact about Chuck Norris<br/>
@@ -79,15 +79,15 @@ class ForceDirectContainer extends Component{
         if (fullChartData.nodes.length){
             return(
                 <div>
-                    <div className="title">Force directed graph ilustrating the world countries contiguity</div>
-                    <div className="containerForce">
-                    <div className="forceGraph">
+                    <div className={styles.title}>Force directed graph ilustrating the world countries contiguity</div>
+                    <div className={styles.containerForce}>
+                    <div className={styles.forceGraph}>
                         <DataVisForceGraph graphData={fullChartData} width={800} height={600} 
                             enableToolTip={this.activateToolTip} 
                             disableToolTip={this.deactivateToolTip}
                             enableLegends={labelShow}/>
                     </div>
-                    <div className="tooltipInfo">
+                    <div className={styles.tooltipInfo}>
                         <ForceGraphToolTip value={isToolTipActive?Utilities.loadCountryInfo(countryCode):null}/>
                     </div>  
                </div>

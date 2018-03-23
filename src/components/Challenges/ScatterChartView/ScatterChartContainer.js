@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
 import DataVisScatterChart from './DataVisScatterChart';
 import ScatterTooltip from './ScatterTooltip';
-import '../../../Assets/css/scatterGraph.css';
+import styles from './scatter-style.module.css';
 class ScatterChartContainer extends Component{
     constructor(){
         super();
@@ -54,19 +54,19 @@ class ScatterChartContainer extends Component{
     render(){
         const {isError,isLoading,fullchartData,isTooltipActive,tooltipData}= this.state;
         if (isError){
-            return (<div className="scatterPreload">Lights up the sirens.....Something went wrong</div>);
+            return (<div className={styles.scatterPreload}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<div className="scatterPreload">Hold on to your hat...i'm getting the data at Lance Armstrong speed</div>);
+            return (<div className={styles.scatterPreload}>Hold on to your hat...i'm getting the data at Lance Armstrong speed</div>);
         }
         if (fullchartData.length){
             return(
                 <div>
-                     <div className="scatterTitle">
+                     <div className={styles.scatterTitle}>
                         Doping in Professional Bicycle Racing
                      </div>
-                     <div className="containerScatter">
-                        <div className="containerChart">
+                     <div className={styles.containerScatter}>
+                        <div className={styles.scattercontainerChart}>
                              <DataVisScatterChart 
                                 dataChart={fullchartData}
                                 scatterLeave={this.onToolTipHide} 
@@ -78,7 +78,7 @@ class ScatterChartContainer extends Component{
                         </div>
                      </div>
                     
-                     <div className="scatterText">
+                     <div className={styles.scatterText}>
                         35 Fastest times up Alpe d'Huez<br/>
                         Normalized to 13.8km distance
                      </div>

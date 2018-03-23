@@ -1,0 +1,52 @@
+.Axis path,
+.Axis line {
+  /*stroke: #E0E0E0;*/
+  stroke: darkslategrey;
+}
+
+.Axis text {
+  font-size: 11px;
+  fill: darkslategrey;
+}
+.scatterText{
+    text-align: center;
+    font-size: 0.75rem;
+    font-family: 'Merriweather', serif;
+}
+.scatterTitle{
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Merriweather', serif;
+}
+.scatterPreload{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Merriweather',serif;
+}
+.scattercontainerToolTip{
+    width: 310px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1vw;
+    /*background-color: #144d83;*/
+}
+.scattertoolTipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.6rem;
+    text-align: center;
+    padding-left: 1vw;
+    color: darkslategrey;
+}
+.containerScatter{
+    /* background-color: #144d83; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+}
+.scattercontainerChart{
+    margin: 1 auto;
+}

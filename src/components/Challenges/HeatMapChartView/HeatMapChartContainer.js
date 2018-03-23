@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
 import DataVisHeatChart from './DataVisHeatChart';
 import HeatToolTip from './HeatTooltip';
+import HeatInfo from './HeatInfo';
+import styles from './heat-style.module.css';
 class HeatMapChartContainer extends Component{
 
     constructor(){
@@ -33,6 +35,10 @@ class HeatMapChartContainer extends Component{
         this.setState({isTooltipActive:false,tooltipData:{}});
     }
     onShowToolTip=value=>{
+        
+        // console.log('====================================');
+        // console.log(`onShowToolTip:${JSON.stringify(value,null,2)}`);
+        // console.log('====================================');
         this.setState({isTooltipActive:true,tooltipData:value});
     }
     fetchData(){
@@ -58,17 +64,29 @@ class HeatMapChartContainer extends Component{
     render(){
         const {isError,isLoading,fullchartData,isTooltipActive,tooltipData}= this.state;
         if (isError){
-            return (<h3>Lights up the sirens.....Something went wrong</h3>);
+            return (<div className={styles.heatTitle}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<h3>Hold on to your hat...i'm getting the data at lightspeed</h3>);
+            return (<div className={styles.heatPreloader}>Hold on to your hat...i'm getting the data at lightspeed</div>);
         }
         if (fullchartData.baseTemperature){
             return(
                 <div>
-                     <DataVisHeatChart dataChart={fullchartData} showToolTip={this.onShowToolTip} hideToolTip={this.onHideToolTip}/>
-                     {isTooltipActive?<HeatToolTip data={tooltipData.data} dataTemp={fullchartData.baseTemperature}/>:<div/>}
+                    <div className={styles.heatTitle}>Monthly Global Surface Temperature between 1753 - 2015</div>
+                    <div className={styles.containerHeat}>
+                        <div>
+                            <HeatInfo/>
+                        </div>
+                        <div className={styles.containerHeatChart}>
+                            <DataVisHeatChart dataChart={fullchartData} showToolTip={this.onShowToolTip} hideToolTip={this.onHideToolTip}/>
+                        </div>
+                        <div>
+                            <HeatToolTip data={isTooltipActive?tooltipData:null}/>
+                        </div>
                 </div>
+                </div>
+                
+                
             );
         }
     }

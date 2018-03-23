@@ -15,10 +15,10 @@ class ScatterPoint extends Component{
         return (
             <circle
                 key={`item_${scatterItem.Seconds}_${scatterItem.Place}_${scatterItem.Nationality}`}
-                r={6}
+                r={5}
                 cx={pos.x}
                 cy={pos.y}
-                fill={scatterItem.Doping==="Doping Allegations"?"#ed0909":"#14892a"}
+                fill={scatterItem.Doping==="Doping Allegations"?"#ed0909":"#6caeac"}
                 onMouseOver={this.onMouseOver}
                 onMouseOut={this.onMouseOut}/>
         );

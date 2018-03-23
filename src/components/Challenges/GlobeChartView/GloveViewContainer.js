@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { feature } from "topojson-client";
 import GlobeViewChart from './GlobeViewChart';
+import MeteorToolTip from './MeteorToolTip';
 import Utilities from '../../../Utils/Utilities';
+import '../../../Assets/css/globe.css';
+import styles from './globe-style.module.css';
 class GlobeViewContainer extends Component{
 
     constructor(){
@@ -10,7 +13,9 @@ class GlobeViewContainer extends Component{
             isLoading:true,
             isError:false,
             meteors:{},
-            globeMap:[]
+            globeMap:[],
+            isToolTipActive:false,
+            meteorInfo:{}
         }
     }
     componentDidMount(){
@@ -71,8 +76,14 @@ class GlobeViewContainer extends Component{
             })
     }
    
+    activateToolTip=value=>{
+        this.setState({isToolTipActive:true,meteorInfo:value});
+    }
+    disableToolTip=()=>{
+        this.setState({isToolTipActive:false,meteorInfo:{}});
+    }
     render(){
-        const {isError,isLoading,globeMap,meteors}= this.state;
+        const {isError,isLoading,globeMap,meteors,isToolTipActive,meteorInfo}= this.state;
         if (isError){
             return (<div>Lights up the sirens.....Something went wrong</div>);
         }
@@ -82,7 +93,22 @@ class GlobeViewContainer extends Component{
         //return (<h3>soom</h3>)
         if (globeMap.length){
             return (
-                <GlobeViewChart globeData={globeMap} meteorsInfo={meteors.features}/>
+                <div>
+                    <div className={style.globeTitle}>Meteor hits across the globe</div>
+                    <div className={style.containerGlobe}>
+                        <div>
+                            <GlobeViewChart 
+                                globeData={globeMap} 
+                                meteorsInfo={meteors.features}
+                                showToolTip={this.activateToolTip}
+                                hideToolTip={this.disableToolTip}/>
+                        </div>
+                        <div>
+                            <MeteorToolTip data={isToolTipActive?meteorInfo:null}/>
+                        </div>
+                    </div>
+                </div>
+                
             )
         }
     }

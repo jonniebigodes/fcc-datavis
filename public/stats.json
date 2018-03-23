@@ -1,36 +1,44 @@
 {
   "assetsByChunkName": {
+    "path---forceview": [
+      "path---forceview-a0e39f21c11f6a62c5ab.js",
+      "path---forceview-a0e39f21c11f6a62c5ab.js.map"
+    ],
     "path---viewbarchart": [
       "path---viewbarchart-a0e39f21c11f6a62c5ab.js",
       "path---viewbarchart-a0e39f21c11f6a62c5ab.js.map"
     ],
+    "path---globeview": [
+      "path---globeview-a0e39f21c11f6a62c5ab.js",
+      "path---globeview-a0e39f21c11f6a62c5ab.js.map"
+    ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-74a0cdb64338642c0524.js",
-      "component---src-pages-index-js-74a0cdb64338642c0524.js.map"
+      "component---src-pages-index-js-fc5ab3f1f7d296dcd395.js",
+      "component---src-pages-index-js-fc5ab3f1f7d296dcd395.js.map"
     ],
     "component---src-pages-viewbarchart-js": [
-      "component---src-pages-viewbarchart-js-862eac22be819d5611d0.js",
-      "component---src-pages-viewbarchart-js-862eac22be819d5611d0.js.map"
+      "component---src-pages-viewbarchart-js-dc535f6ac22cd6b7dd9c.js",
+      "component---src-pages-viewbarchart-js-dc535f6ac22cd6b7dd9c.js.map"
     ],
     "component---src-pages-viewscatter-js": [
-      "component---src-pages-viewscatter-js-b51db934660f0a3926a7.js",
-      "component---src-pages-viewscatter-js-b51db934660f0a3926a7.js.map"
+      "component---src-pages-viewscatter-js-983cd4508a16cd8742d1.js",
+      "component---src-pages-viewscatter-js-983cd4508a16cd8742d1.js.map"
     ],
     "path---": [
-      "path----557518bd178906f8d58a.js",
-      "path----557518bd178906f8d58a.js.map"
+      "path----131f9aef94525eeb6ecd.js",
+      "path----131f9aef94525eeb6ecd.js.map"
+    ],
+    "component---src-pages-forceview-js": [
+      "component---src-pages-forceview-js-26e7fd324ba32f5e57c5.js",
+      "component---src-pages-forceview-js-26e7fd324ba32f5e57c5.js.map"
     ],
     "component---src-pages-heatview-js": [
-      "component---src-pages-heatview-js-7b57725051c425a8daa1.js",
-      "component---src-pages-heatview-js-7b57725051c425a8daa1.js.map"
+      "component---src-pages-heatview-js-3b53a52280c11a32d881.js",
+      "component---src-pages-heatview-js-3b53a52280c11a32d881.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-a090f76831456418f49b.js",
-      "component---src-layouts-index-js-a090f76831456418f49b.js.map"
-    ],
-    "path---page-2": [
-      "path---page-2-a0e39f21c11f6a62c5ab.js",
-      "path---page-2-a0e39f21c11f6a62c5ab.js.map"
+      "component---src-layouts-index-js-4fab9a18cc062d3f9e72.js",
+      "component---src-layouts-index-js-4fab9a18cc062d3f9e72.js.map"
     ],
     "path---index": [
       "path---index-a0e39f21c11f6a62c5ab.js",
@@ -40,29 +48,33 @@
       "path---viewscatter-a0e39f21c11f6a62c5ab.js",
       "path---viewscatter-a0e39f21c11f6a62c5ab.js.map"
     ],
+    "component---src-layouts-layout-projects-js": [
+      "component---src-layouts-layout-projects-js-6dc0a9cde35ef18602aa.js",
+      "component---src-layouts-layout-projects-js-6dc0a9cde35ef18602aa.js.map"
+    ],
     "component---src-pages-404-js": [
-      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
-      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+      "component---src-pages-404-js-6f7af49b2b71476d4d49.js",
+      "component---src-pages-404-js-6f7af49b2b71476d4d49.js.map"
     ],
     "commons": [
-      "commons-d278761ca780327a1f70.js",
+      "commons-1a8e9228af9169a29685.js",
       "build-js-styles.css",
-      "commons-d278761ca780327a1f70.js.map",
+      "commons-1a8e9228af9169a29685.js.map",
       "build-js-styles.css.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
-    "component---src-pages-page-2-js": [
-      "component---src-pages-page-2-js-075954cd9c4544c7dcd8.js",
-      "component---src-pages-page-2-js-075954cd9c4544c7dcd8.js.map"
-    ],
     "app": [
-      "app-b7a9cdd80f6aa2cbc827.js",
+      "app-f2303ddcac4f3e3acd85.js",
       "build-js-styles.css",
-      "app-b7a9cdd80f6aa2cbc827.js.map",
+      "app-f2303ddcac4f3e3acd85.js.map",
       "build-js-styles.css.map"
+    ],
+    "component---src-pages-globeview-js": [
+      "component---src-pages-globeview-js-d81c54cac17ac8358146.js",
+      "component---src-pages-globeview-js-d81c54cac17ac8358146.js.map"
     ],
     "path---heatview": [
       "path---heatview-a0e39f21c11f6a62c5ab.js",

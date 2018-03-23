@@ -3,11 +3,20 @@ import PropTypes from 'prop-types';
 import { geoMercator, geoPath } from "d3-geo";
 import MeteorPoint from './MeteorPoint';
 class WorldMap extends Component{
-
-    
     project(){
         const {width,height}= this.props;
         return geoMercator().scale(100).translate([width/2,height/2])
+    }
+    onPointHover=value=>{
+        console.log('====================================');
+        console.log(`onPointHover value:${JSON.stringify(value,null,2)}`);
+        console.log('====================================');
+        const {pointEnter}= this.props;
+        pointEnter(value);
+    }
+    onPointLeave=()=>{
+        const {pointExit}= this.props;
+        pointExit();
     }
     render(){
         const {world,meteorfall,width,height}= this.props;
@@ -27,7 +36,8 @@ class WorldMap extends Component{
                     mass={parseInt(m.properties.mass)}
                     rectangleLat={this.project()([Number(m.properties.reclong),Number(m.properties.reclat)])[0]}
                     rectangleLong={this.project()([Number(m.properties.reclong),Number(m.properties.reclat)])[1]}
-                    circleId={i}/>,
+                    circleId={i} meteorPointEnter={this.onPointHover}
+                    meteorPointExit={this.onPointLeave}/>,
             )
         )
         return(

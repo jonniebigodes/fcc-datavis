@@ -58,17 +58,17 @@ class DataVisHeatChart extends Component{
         const listOfMonts=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
        
         const margin={
-            top: 5,
-            right: 0,
+            top: 30,
+            right: 20,
             bottom: 30,
-            left: 100
+            left: 30
         };
         let svgDimensions = {
-            width:Math.max(1024,300),
+            width:Math.max(820,300),
             height: 500,
             innerWidth:0,
             innerHeight:0
-          };
+        };
         svgDimensions.innerHeight=svgDimensions.height/listOfMonts.length;
         svgDimensions.innerWidth=svgDimensions.width/databyYears;
 
@@ -77,8 +77,9 @@ class DataVisHeatChart extends Component{
         .domain(listOfMonts)
         .range([0,svgDimensions.height]);
         return(
-            <svg width={svgDimensions.width+margin.left+margin.right} height={svgDimensions.height+margin.top+margin.bottom} className="animated bounceInLeft">
-            
+            <svg width={svgDimensions.width+margin.left+margin.right} 
+                height={svgDimensions.height+margin.top+margin.bottom} 
+                className="animated bounceInLeft">
                 <HeatAxes
                     scales={{xScale,yScale}} 
                     margins={margin}

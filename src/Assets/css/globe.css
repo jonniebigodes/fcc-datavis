@@ -1,0 +1,19 @@
+.containerGlobe{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    
+  }
+  .globeTitle{
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 1vh;
+    
+  }
+  .tooltipText{
+      font-size: 0.7rem;
+      text-align: center;
+      font-family: 'Merriweather', serif;
+  }

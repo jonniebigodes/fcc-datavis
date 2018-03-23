@@ -7,14 +7,13 @@ class HeatPoint extends PureComponent{
 
         const {data,heatDataMouseEnter}= this.props;
         heatDataMouseEnter({
-            data:{
-                temp:data.baseTemp,
+            temp:data.baseTemp,
                 variance:data.variance,
                 year:data.year,
                 month:data.month,
-                toolColor:data.fillColor
-            }
-        });
+                toolColor:data.fillColor,
+                baseTemp:data.baseTemp
+            });
     }
     onHeatLeave=()=>{
         this.props.heatDataMouseLeave();

@@ -198,6 +198,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
+  background-color: transparent;
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;

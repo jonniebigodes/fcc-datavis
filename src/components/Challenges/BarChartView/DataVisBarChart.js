@@ -15,37 +15,38 @@ class DataVisBarChart extends Component {
     disableToolTip();
   }
   render(){
-    const {dataChart}= this.props;
-    const margins = { top: 30, right: 10, bottom: 40, left: 60 };
-    const svgDimensions = {
-      width: Math.max(820, 300),
-      height: 450
-    };
+    const {dataChart,chartDimensions}= this.props;
+    // const margins = { top: 30, right: 10, bottom: 40, left: 50 };
+    // const svgDimensions = {
+    //   width: 820,
+    //   height: 450
+    // };
     const maxValue= Math.max(...dataChart.map(d=>d.domesticValue));
 
     const minDate= new Date(dataChart[0].dateTime);
     const maxDate= new Date(dataChart[dataChart.length-1].dateTime);
 
-    const xScale= scaleTime().domain([minDate,maxDate]).range([margins.left, svgDimensions.width-margins.right]);
+    const xScale= scaleTime().domain([minDate,maxDate]).range([chartDimensions.margins.left, 
+      chartDimensions.svgWidth-chartDimensions.margins.right]);
       const yScale=scaleLinear()
       .domain([0, maxValue])
-      .range([svgDimensions.height - margins.bottom, margins.top]);
+      .range([chartDimensions.svgHeight - chartDimensions.margins.bottom, chartDimensions.margins.top]);
     
     
     return(
-      <svg width={svgDimensions.width} height={svgDimensions.height}>
+      <svg width={chartDimensions.svgWidth} height={chartDimensions.svgHeight}>
         <g>
           <Axes
             scales={{ xScale, yScale }}
-            margins={margins}
-            svgDimensions={svgDimensions}
+            margins={chartDimensions.margins}
+            svgDimensions={{height:chartDimensions.svgHeight, width:chartDimensions.svgWidth }}
           />
           <Bars
             scales={{ xScale, yScale }}
-            margins={margins}
+            margins={chartDimensions.margins}
             bardata={dataChart}
             maxValue={maxValue}
-            svgDimensions={svgDimensions}
+            svgDimensions={{height:chartDimensions.svgHeight, width:chartDimensions.svgWidth }}
             barMouseOver={this.onMouseOverHandler}
             barMouseLeave={this.onMouseLeaveHandler}
           />
@@ -55,10 +56,21 @@ class DataVisBarChart extends Component {
   }
 }
 DataVisBarChart.propTypes={
+  
   dataChart:PropTypes.arrayOf(PropTypes.shape({
     dateTime:PropTypes.string,
     domesticValue:PropTypes.number
   })),
+  chartDimensions:PropTypes.shape({
+    svgWidth:PropTypes.number,
+    svgHeight:PropTypes.number,
+    margins:PropTypes.shape({
+      top: PropTypes.number, 
+      right: PropTypes.number, 
+      bottom: PropTypes.number, 
+      left: PropTypes.number
+    })
+  }),
   enableToolTip:PropTypes.func,
   disableToolTip:PropTypes.func
 }

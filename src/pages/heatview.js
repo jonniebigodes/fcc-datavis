@@ -2,7 +2,7 @@ import React from 'react';
 import HeatMapChartContainer from '../components/Challenges/HeatMapChartView/HeatMapChartContainer';
 const HeatMapPage=()=>{
     return(
-        <div >
+        <div>
             <HeatMapChartContainer/>
         </div>
     );

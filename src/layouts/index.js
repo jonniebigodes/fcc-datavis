@@ -23,7 +23,7 @@ const TemplateWrapper = ({ children }) => (
       //   {rel: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css", rel: "stylesheet"}
       // ]}
     />
-    <Header itemHeader="default" />
+    <Header/>
     <div
       style={{
         margin: '0 auto',

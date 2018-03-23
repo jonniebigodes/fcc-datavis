@@ -1,13 +1,13 @@
 .Axis path,
 .Axis line {
-  stroke: #E0E0E0;
+  /*stroke: #E0E0E0;*/
+  stroke: whitesmoke;
 }
 
 .Axis text {
   font-size: 11px;
-  fill: black;
+  fill: whitesmoke;
 }
-
 .Axis-Bottom text {
   /* transform: rotate(-45deg);  */
   transform: rotate(-45deg); 
@@ -19,36 +19,41 @@
   justify-content: space-between;
   align-content: space-between;
   align-items: center;
+  background-color:rgba(34, 143, 5, .65);
   
 }
 .BarFooterText{
   font-size: 0.65rem;
   text-align: center;
   font-family: 'Merriweather', serif;
+  color: whitesmoke;
   /* margin-top:1vh; */
 }
 .BarTitle{
   font-size: 1rem;
   text-align: center;
   font-family: 'Merriweather', serif;
+  color: whitesmoke;
 }
 .Preload{
   font-family: 'Merriweather',serif;
   font-size: 1.5rem;
   text-align: center;
+  color: whitesmoke;
 }
 .containerToolTip{
-  width: 8vw;
+  width: 6vw;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   
 }
-.tooltipText{
+.bartooltipText{
   font-family: 'Merriweather', serif;
   font-size: 0.8rem;
   text-align: center;
+  color: whitesmoke;
 }
 .containerBarChart{
   margin: 1 auto;

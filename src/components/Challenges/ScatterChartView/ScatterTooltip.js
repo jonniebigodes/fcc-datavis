@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../../Assets/css/scatterGraph.css';
+import styles from './scatter-style.module.css';
 const showInfo=()=>{
     return(
         <div>
-            <div className="tooltipText">
+            <div className={styles.scattertoolTipText}>
                 Mouse over a circle to show information
             </div>
         </div>
@@ -12,29 +12,15 @@ const showInfo=()=>{
 }
 const showData=value=>{
     return(
-        <div className="toolTipText">
+        <div className={styles.scattertoolTipText}>
             <div>{value.Name} from {value.Nationality} with a time of {value.Time} finished in {value.Place}th place.</div>
             <div>{value.Doping==="No Allegations"?`Clean as a whistle`:`With doping alegations`}</div>
         </div>  
     )
 }
 const ScatterTooltip=({data})=>{
-    
-    // const styles={
-    //     toolTip:{
-    //         width:550, 
-    //         height:50,
-    //         margin:20,
-    //         fontSize:14,
-    //         fontFamily:'Merriweather',
-    //         backgroundColor:data.Doping==="No Allegations"?"#14892a":"#ed0909",
-    //         textAlign:'center',
-    //         color:'#ffffff'
-    //     }
-    // };
-
     return (
-         <div className="containerToolTip">
+         <div className={styles.scattercontainerToolTip}>
            {data?showData(data):showInfo()}
         </div>
     );

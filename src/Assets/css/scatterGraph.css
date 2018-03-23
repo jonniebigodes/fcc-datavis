@@ -5,7 +5,7 @@
 
 .Axis text {
   font-size: 11px;
-  fill: black;
+  fill: white;
 }
 .scatterText{
     text-align: center;
@@ -22,26 +22,30 @@
     font-size: 1.5rem;
     font-family: 'Merriweather',serif;
 }
-.containerToolTip{
+.scattercontainerToolTip{
+    width: 320px;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-left: 1vw;
+    background-color: #144d83;
 }
-.toolTipText{
+.scattertoolTipText{
     font-family: 'Merriweather', serif;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     text-align: center;
     padding-left: 1vw;
+    color: whitesmoke;
 }
 .containerScatter{
+    background-color: #144d83;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: space-between;
     align-items: center;
 }
-.containerChart{
+.scattercontainerChart{
     margin: 1 auto;
 }
