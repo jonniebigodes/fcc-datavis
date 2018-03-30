@@ -15,13 +15,16 @@ const showMeteorData=value=>{
         <div>
             
             <div className="tooltipText">
-                {value.dateofhit}
-                
+                In {value.dateofhit}<br/>
+                meteor with mass of {value.meteormass}<br/>
+                and class {value.meteorclass}<br/>  
+                fell on latitude {value.latitude}<br/>  
+                longitude {value.longitude}<br/>  
             </div>
-            <div className="tooltipText">meteor with mass of {value.meteormass} </div>
+            {/* <div className="tooltipText">meteor with mass of {value.meteormass} </div>
             <div className="tooltipText">and class {value.meteorclass}</div>
             <div className="tooltipText">fell on latitude {value.latitude} </div>
-            <div className="tooltipText">and longitude:{value.longitude}</div>
+            <div className="tooltipText">and longitude:{value.longitude}</div> */}
         </div>
     )
 };

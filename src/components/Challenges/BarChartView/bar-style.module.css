@@ -5,7 +5,7 @@
 }
 
 .Axis text {
-  font-size: 11px;
+  font-size: 10px;
   fill: darkslategrey;
 }
 .Axis-Bottom text {
@@ -52,10 +52,11 @@
 }
 .bartooltipText{
   font-family: 'Merriweather', serif;
-  font-size: 0.60rem;
+  font-size: 0.7rem;
   text-align: center;
   color: darkslategrey;
 }
 .containerBarChart{
   margin: 1 auto;
 }
+/* @media only screen (max) */

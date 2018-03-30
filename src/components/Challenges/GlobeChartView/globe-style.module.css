@@ -7,6 +7,7 @@
     
   }
   .globeTitle{
+    font-family: 'Merriweather', serif;
     font-size: 1.3rem;
     text-align: center;
     padding-bottom: 1vh;
@@ -16,4 +17,26 @@
       font-size: 0.7rem;
       text-align: center;
       font-family: 'Merriweather', serif;
+  }
+  @media  screen and (max-width: 600px){
+    .containerGlobe{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .globeTitle{
+      font-family: 'Merriweather', serif;
+      font-size: .6rem;
+      text-align: center;
+      padding-bottom: 1vh;
+      
+    }
+    .tooltipText{
+      font-size: 0.6rem;
+      text-align: justify;
+      font-family: 'Merriweather', serif;
+  }
   }

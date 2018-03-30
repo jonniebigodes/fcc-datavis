@@ -23,8 +23,9 @@ class BarChartContainer extends Component{
             console.log('====================================');
             console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
             console.log('====================================');
-            window.addEventListener('resize',this.resizeWindowHandler);
             this.setChartDimensions();
+            window.addEventListener('resize',this.resizeWindowHandler);
+            
         }
         setTimeout(() => {
             const storedbars=JSON.parse(Utilities.getStorageData("barsdata"));
@@ -48,7 +49,12 @@ class BarChartContainer extends Component{
         }
     }
     setChartDimensions=()=>{
-        if (window.innerHeight>=500 || window.innerWidth>=1024){
+        console.log('====================================');
+        console.log(`setChartDimensions`);
+        console.log('====================================');
+        //this.chartContainer.getBoundingClientRect().width
+        if ((window.innerHeight>=500)||(window.innerWidth>=1000)){
+        //if (window.innerHeight>=500 || window.innerWidth>=1024){
             this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.height});
         }
         else{
@@ -57,7 +63,7 @@ class BarChartContainer extends Component{
     }
     resizeWindowHandler=()=>{
         console.log('====================================');
-        console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+        console.log(`resizeWindowHandler we's gots windows ${window.innerHeight} ${window.innerWidth}`);
         console.log('====================================');
         this.setChartDimensions();
         // if (window.innerHeight>=500 || window.innerWidth>=1024){
@@ -80,7 +86,7 @@ class BarChartContainer extends Component{
                     itemsResult.push(
                         {
                             dateTime:item[0],
-                            domesticValue:item[1]
+                            domesticValue:Number(item[1]).toFixed(2)
                         }
                     );
                 }
@@ -116,7 +122,7 @@ class BarChartContainer extends Component{
         }
         if (fullchartData.length){
             return(
-                <div>
+                <div ref={(el)=>this.chartContainer=el}>
                     <div className={styles.BarTitle}>
                         Federal Reserve Economic Data on Gross Domestic Product in the USA
                      </div>
@@ -125,7 +131,7 @@ class BarChartContainer extends Component{
                             <DataVisBarChart dataChart={fullchartData} 
                             enableToolTip={this.activateToolTip} 
                             disableToolTip={this.deactivateToolTip}
-                            chartDimensions={{svgWidth:chartWidth,svgHeight:chartHeight,margins:dataVisConstant.svgDimensions.margins}}/>
+                            chartDimensions={{svgWidth:chartWidth,svgHeight:chartHeight,margins:dataVisConstant.svgDimensions.margins.barChart}}/>
                         </div>
                         
                         <div>

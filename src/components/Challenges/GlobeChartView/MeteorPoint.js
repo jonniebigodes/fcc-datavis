@@ -44,15 +44,16 @@ class MeteorPoint extends PureComponent{
         return 12;
     }
     onEnter=()=>{
-        const {meteorPointEnter,data,mass,rectangleLat,rectangleLong}= this.props;
+        //const {meteorPointEnter,data,mass,rectangleLat,rectangleLong}= this.props;
+        const {data,meteorPointEnter}= this.props;
         meteorPointEnter(
             {
                 name:data.meteorname,
                 meteorclass:data.meteorclass,
-                dateofhit:data.datefell,
-                meteormass:mass,
-                latitude:rectangleLat,
-                longitude:rectangleLong
+                dateofhit: data.datefell.substring(0,4),
+                meteormass:data.mass,
+                latitude:Number(data.rectangleLat).toFixed(4),
+                longitude:Number(data.rectangleLong).toFixed(4)
             }
         );
     }
@@ -61,31 +62,58 @@ class MeteorPoint extends PureComponent{
         meteorPointExit();
     }
     render(){
-        const {mass,rectangleLat,rectangleLong,circleId}= this.props;
+        //const {mass,rectangleLat,rectangleLong,circleId}= this.props;
+        const {data}= this.props;
         return (
-            <circle key={`marker_${circleId} `}
+            // <circle key={`marker_${circleId} `}
+            //     fill="#E91E63"
+            //     fillOpacity={mass<=179687.5?1:0.5}
+            //     stroke="#FFFFFF"
+            //     className="marker" 
+            //     cx={rectangleLat}
+            //     cy={rectangleLong}
+            //     r={this.calculateRadius(mass)}
+            //     onMouseOver={this.onEnter}
+            //     onMouseOut={this.onExit}/>
+            <circle key={`marker_${data.circleId} `}
                 fill="#E91E63"
-                fillOpacity={mass<=179687.5?1:0.5}
+                fillOpacity={data.circleFill}
                 stroke="#FFFFFF"
                 className="marker" 
-                cx={rectangleLat}
-                cy={rectangleLong}
-                r={this.calculateRadius(mass)}
+                cx={data.rectangleLat}
+                cy={data.rectangleLong}
+                r={data.circleArea} 
                 onMouseOver={this.onEnter}
                 onMouseOut={this.onExit}/>
         )
     }
 }
 MeteorPoint.propTypes={
-    data:PropTypes.shape({
+    // data:PropTypes.shape({
+    //     meteorname:PropTypes.string,
+    //     meteorclass:PropTypes.string,
+    //     datefell:PropTypes.string
+    // }),
+    // mass:PropTypes.number,
+    // rectangleLat:PropTypes.number,
+    // rectangleLong:PropTypes.number,
+    // circleId:PropTypes.number,
+    // meteorPointEnter:PropTypes.func,
+    // meteorPointExit:PropTypes.func
+    
+
+
+     data:PropTypes.shape({
         meteorname:PropTypes.string,
         meteorclass:PropTypes.string,
-        datefell:PropTypes.string
+        datefell:PropTypes.string,
+        mass:PropTypes.number,
+        rectangleLat:PropTypes.number,
+        rectangleLong:PropTypes.number,
+        circleId:PropTypes.number,
+        circleArea:PropTypes.number,
+        circleFill:PropTypes.number
     }),
-    mass:PropTypes.number,
-    rectangleLat:PropTypes.number,
-    rectangleLong:PropTypes.number,
-    circleId:PropTypes.number,
     meteorPointEnter:PropTypes.func,
     meteorPointExit:PropTypes.func
 };

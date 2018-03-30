@@ -4,6 +4,7 @@ import DataVisHeatChart from './DataVisHeatChart';
 import HeatToolTip from './HeatTooltip';
 import HeatInfo from './HeatInfo';
 import styles from './heat-style.module.css';
+import {dataVisConstant} from '../../../Utils/Constants';
 class HeatMapChartContainer extends Component{
 
     constructor(){
@@ -13,10 +14,19 @@ class HeatMapChartContainer extends Component{
             isError:false,
             fullchartData: {},
             isTooltipActive:false,
-            tooltipData:{}
+            tooltipData:{},
+            chartWidth:0,
+            chartHeight:0
         }
     }
     componentDidMount(){
+        if (typeof window!=='undefined'){
+            console.log('====================================');
+            console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+            console.log('====================================');
+            window.addEventListener('resize',this.resizeWindowHandler);
+            this.setChartDimensions();
+        }
         setTimeout(() => {
             const storedHeatData=JSON.parse(Utilities.getStorageData("heatdata"));
             if (!storedHeatData){
@@ -29,6 +39,38 @@ class HeatMapChartContainer extends Component{
                 }));
             }
         }, 2500);
+    }
+    componentWillUnmount(){
+        if (typeof window!=='undefined'){
+            console.log('====================================');
+            console.log(`componentWillUnmount we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+            console.log('====================================');
+            window.removeEventListener('resize',this.resizeWindowHandler);
+        }
+    }
+    setChartDimensions=()=>{
+        console.log('====================================');
+            console.log(`setChartDimensions`);
+            console.log('====================================');
+        if (window.innerHeight>=500 || window.innerWidth>=1024){
+            this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.height});
+        }
+        else{
+            this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+        }
+    }
+    resizeWindowHandler=()=>{
+        console.log('====================================');
+        console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+        console.log('====================================');
+        this.setChartDimensions();
+        // if (window.innerHeight>=500 || window.innerWidth>=1024){
+        //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
+        // }
+        // else{
+        //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+        // }
+        //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
     }
     onHideToolTip=()=>{
         
@@ -62,7 +104,7 @@ class HeatMapChartContainer extends Component{
         });
     }
     render(){
-        const {isError,isLoading,fullchartData,isTooltipActive,tooltipData}= this.state;
+        const {isError,isLoading,fullchartData,isTooltipActive,tooltipData,chartHeight,chartWidth}= this.state;
         if (isError){
             return (<div className={styles.heatTitle}>Lights up the sirens.....Something went wrong</div>);
         }
@@ -78,7 +120,10 @@ class HeatMapChartContainer extends Component{
                             <HeatInfo/>
                         </div>
                         <div className={styles.containerHeatChart}>
-                            <DataVisHeatChart dataChart={fullchartData} showToolTip={this.onShowToolTip} hideToolTip={this.onHideToolTip}/>
+                            <DataVisHeatChart dataChart={fullchartData} 
+                            showToolTip={this.onShowToolTip} 
+                            hideToolTip={this.onHideToolTip}
+                            chartDimensions={{svgWidth:chartWidth,svgHeight:chartHeight,margins:dataVisConstant.svgDimensions.margins}}/>
                         </div>
                         <div>
                             <HeatToolTip data={isTooltipActive?tooltipData:null}/>

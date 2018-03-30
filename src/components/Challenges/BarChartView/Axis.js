@@ -21,14 +21,14 @@ class Axis extends Component{
         const axis = d3Axis[axisType]()
         .scale(scale)
         .tickSize(-tickSize)
-        if (orient=='Bottom'){
+        //if (orient=='Bottom'){
            // axis.tickFormat(D3TimeFormat.timeFormat("%Y-%m"))
             //axis.ticks(D3Time.timeYear,5)
-        }
-        else{
-            axis.ticks([6])
-            axis.tickPadding([12])
-        }
+        //}
+        //else{
+            //axis.ticks([6])
+            //axis.tickPadding([12])
+        //}
         d3Select(this.axisElement).call(axis)
         //
     }

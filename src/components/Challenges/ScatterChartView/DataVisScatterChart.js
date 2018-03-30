@@ -18,15 +18,15 @@ class DataVisScatterChart extends Component {
   }
   render(){
    
-    const {dataChart}= this.props;
-    const margin={
-      top: 30, right: 20, bottom: 20, left: 20
-    };
+    const {dataChart,chartDimensions}= this.props;
+    // const margin={
+    //   top: 30, right: 20, bottom: 20, left: 20
+    // };
    
-    const svgDimensions = {
-      width: Math.max(800, 300),
-      height: 420
-    };
+    // const svgDimensions = {
+    //   width: Math.max(800, 300),
+    //   height: 420
+    // };
     var fastestTime = 2210;
     let tmpChartPointsData=[];
 
@@ -44,16 +44,27 @@ class DataVisScatterChart extends Component {
       });
     });
    
-    const xScale=scaleLinear().domain([60*3.5,0]).range([margin.left, svgDimensions.width - margin.right]);
-    const yScale= scaleLinear().domain([36,1]).range([svgDimensions.height - margin.bottom, margin.top]);
+    //const xScale=scaleLinear().domain([60*3.5,0]).range([margin.left, svgDimensions.width - margin.right]);
+    //const yScale= scaleLinear().domain([36,1]).range([svgDimensions.height - margin.bottom, margin.top]);
+    const xScale=scaleLinear().domain([60*3.5,0]).range([chartDimensions.margins.left, chartDimensions.svgWidth-chartDimensions.margins.right]);
+    const yScale= scaleLinear().domain([36,1]).range([chartDimensions.svgHeight - chartDimensions.margins.bottom, chartDimensions.margins.top]);
     return(
-      <svg width={svgDimensions.width} height={svgDimensions.height}>
-        <ScatterAxes scales={{xScale,yScale}} margins={margin} svgDimensions={svgDimensions}/>
+      // <svg width={svgDimensions.width} height={svgDimensions.height}>
+      <svg width={chartDimensions.svgWidth} height={chartDimensions.svgHeight}>
+        <ScatterAxes scales={{xScale,yScale}} 
+        // margins={margin} 
+        // svgDimensions={svgDimensions}/>
+        margins={chartDimensions.margins} 
+        svgDimensions={{height:chartDimensions.svgHeight, 
+          width:chartDimensions.svgWidth }}/>
         <ScatterPoints  
           scales={{ xScale, yScale }}
-          margins={margin}
           scatterData={tmpChartPointsData}
-          svgDimensions={svgDimensions}
+          // margins={margin}
+          // svgDimensions={svgDimensions}
+          margins={chartDimensions.margins}
+          svgDimensions={{height:chartDimensions.svgHeight, 
+            width:chartDimensions.svgWidth }}
           PointMouseEnter={this.onHoverHandler}
           PointMouseLeave={this.onLeaveHandler}
           />
@@ -71,6 +82,16 @@ DataVisScatterChart.propTypes={
     Nationality:PropTypes.string,
     URL:PropTypes.string,
     Doping:PropTypes.string
-  }))
+  })),
+  chartDimensions:PropTypes.shape({
+    svgWidth:PropTypes.number,
+    svgHeight:PropTypes.number,
+    margins:PropTypes.shape({
+      top: PropTypes.number, 
+      right: PropTypes.number, 
+      bottom: PropTypes.number, 
+      left: PropTypes.number
+    })
+  }),
 }
 export default DataVisScatterChart

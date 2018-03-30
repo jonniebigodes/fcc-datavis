@@ -23,6 +23,7 @@ class DataVisBarChart extends Component {
     // };
     const maxValue= Math.max(...dataChart.map(d=>d.domesticValue));
 
+    
     const minDate= new Date(dataChart[0].dateTime);
     const maxDate= new Date(dataChart[dataChart.length-1].dateTime);
 
@@ -34,7 +35,10 @@ class DataVisBarChart extends Component {
     
     
     return(
-      <svg width={chartDimensions.svgWidth} height={chartDimensions.svgHeight}>
+      <svg width={chartDimensions.svgWidth} 
+        height={chartDimensions.svgHeight} 
+        viewBox={`0 0 ${chartDimensions.svgWidth} ${chartDimensions.svgHeight}`}
+        preserveAspectRatio="xMidYMid meet">
         <g>
           <Axes
             scales={{ xScale, yScale }}

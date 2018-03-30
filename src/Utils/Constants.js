@@ -1216,11 +1216,15 @@ const svgDimensions={
         height:470,
     },
     margins:{
+        barChart:{
+            top: 30, right: 10, bottom: 40, left: 50 
+        },
+
         top: 30,
         right: 20,
         bottom: 30,
-        left: 30
+        left: 20
     }
 };
 const Months=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-export const dataVisConstant={forcePreloader,countryInfo,svgDimensions}
+export const dataVisConstant={forcePreloader,countryInfo,svgDimensions,Months};

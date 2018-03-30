@@ -3,6 +3,7 @@ import Utilities from '../../../Utils/Utilities';
 import DataVisScatterChart from './DataVisScatterChart';
 import ScatterTooltip from './ScatterTooltip';
 import styles from './scatter-style.module.css';
+import {dataVisConstant} from '../../../Utils/Constants';
 class ScatterChartContainer extends Component{
     constructor(){
         super();
@@ -11,10 +12,19 @@ class ScatterChartContainer extends Component{
             isError: false,
             fullchartData: [],
             isTooltipActive:false,
-            tooltipData:{}
+            tooltipData:{},
+            chartWidth:0,
+            chartHeight:0
         };
     }
     componentDidMount(){
+        if (typeof window!=='undefined'){
+            console.log('====================================');
+            console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+            console.log('====================================');
+            window.addEventListener('resize',this.resizeWindowHandler);
+            this.setChartDimensions();
+        }
         setTimeout(() => {
             const storedScatterdate= JSON.parse(Utilities.getStorageData("scatterData"));
             if (!storedScatterdate){
@@ -26,6 +36,33 @@ class ScatterChartContainer extends Component{
             }
         }, 2500);
     }
+    componentWillUnmount(){
+        if (typeof window!=='undefined'){
+            window.removeEventListener('resize',this.resizeWindowHandler);
+        }
+    }
+    setChartDimensions=()=>{
+        if (window.innerHeight>=500 || window.innerWidth>=1024){
+            this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.height});
+        }
+        else{
+            this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+        }
+    }
+    resizeWindowHandler=()=>{
+        console.log('====================================');
+        console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+        console.log('====================================');
+        this.setChartDimensions();
+        // if (window.innerHeight>=500 || window.innerWidth>=1024){
+        //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
+        // }
+        // else{
+        //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+        // }
+        //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+    }
+    
     onToolTipHide=()=>{
         this.setState({isTooltipActive:false,tooltipData:{}});
     }
@@ -52,7 +89,7 @@ class ScatterChartContainer extends Component{
         })
     }
     render(){
-        const {isError,isLoading,fullchartData,isTooltipActive,tooltipData}= this.state;
+        const {isError,isLoading,fullchartData,isTooltipActive,tooltipData,chartWidth,chartHeight}= this.state;
         if (isError){
             return (<div className={styles.scatterPreload}>Lights up the sirens.....Something went wrong</div>);
         }
@@ -70,7 +107,8 @@ class ScatterChartContainer extends Component{
                              <DataVisScatterChart 
                                 dataChart={fullchartData}
                                 scatterLeave={this.onToolTipHide} 
-                                scatterEnter={this.onToolTipShow} />
+                                scatterEnter={this.onToolTipShow} 
+                                chartDimensions={{svgWidth:chartWidth,svgHeight:chartHeight,margins:dataVisConstant.svgDimensions.margins}}/>
                         </div>
                        
                         <div>

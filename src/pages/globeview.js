@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobeViewContainer from '../components/Challenges/GlobeChartView/GloveViewContainer';
+import GlobeViewContainer from '../components/Challenges/GlobeChartView/GlobeViewContainer';
 
 const GlobeGraphPage=()=>{
     return (
