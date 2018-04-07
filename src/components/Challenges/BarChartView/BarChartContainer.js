@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import DataVisBarChart from './DataVisBarChart';
-import BarChartToolTip from './BarToolTip';
 import Utilities from '../../../Utils/Utilities';
+import BarChartToolTip from './BarToolTip';
+import DataVisBarChart from './DataVisBarChart';
 import styles from './bar-style.module.css';
-import {dataVisConstant} from '../../../Utils/Constants';
 class BarChartContainer extends Component{
     constructor() {
         super()
@@ -57,33 +56,16 @@ class BarChartContainer extends Component{
         return value*.80;
     }
     setChartDimensions=()=>{
-        // console.log('====================================');
-        // console.log(`setChartDimensions enter:\n${JSON.stringify(this.chartContainer,null,2)}`);
-        // console.log('====================================');
-        // if (this.chartContainer){
-        //     console.log('====================================');
-        //     console.log(`setChartDimensions with chart container:\n${JSON.stringify(this.chartContainer.getBoundingClientRect().width,null,2)}`);
-        //     console.log('====================================');
-        // }
         const {chartWidth}= this.state;
         let currentWidth=0;
-        // console.log('====================================');
-        // console.log(`setChartDimensions before if chart container:\ncurrent width: ${currentWidth}`);
-        // console.log('====================================');
         if (this.chartContainer){
-            console.log('===========================s=========');
-            console.log(`setChartDimensions with chart container:\n${JSON.stringify(this.chartContainer.getBoundingClientRect().width,null,2)}`);
-            console.log('====================================');
-
+           
             currentWidth= this.chartContainer.getBoundingClientRect().width;
 
             currentWidth=this.chartContainer.getBoundingClientRect().width<=768
                 ?this.setChartWidth(this.chartContainer.getBoundingClientRect().width)
                 :this.chartContainer.getBoundingClientRect().width;
-            //currentWidth= this.chartContainer.getBoundingClientRect().width>600?820:this.chartContainer.getBoundingClientRect().width;
-            // console.log('====================================');
-            // console.log(`setChartDimensions with chart container:\ncurrent width: ${currentWidth} state width:${chartWidth}`);
-            // console.log('====================================');
+           
             if (currentWidth!==chartWidth){
                 this.setState({
                     chartWidth:currentWidth,
@@ -93,46 +75,14 @@ class BarChartContainer extends Component{
         else{
             //currentWidth= window.innerWidth; 
             currentWidth=this.setChartWidth(window.innerWidth);  
-            // console.log('====================================');
-            // console.log(`setChartDimensions with no container:\ncurrent width: ${currentWidth} state width:${chartWidth}`);
-            // console.log('====================================');
             if (currentWidth!==chartWidth){
                 this.setState({
                     chartWidth:currentWidth
                 });
             }
         }
-        
-        //if (window.innerWidth>600){
-        //if (window.innerHeight>=500 || window.innerWidth>=1024){
-            //this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.height});
-       // }
-       // else{
-            // if (this.chartContainer){
-
-            // }
-            // this.chartContainer?this.setState(
-            //     {
-            //         chartWidth:this.chartContainer.getBoundingClientRect().width,
-            //         chartHeight:this.chartContainer.getBoundingClientRect().height
-            //     })
-            //     :this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight})
-            //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-        //}
     }
-    /* resizeWindowHandler=()=>{
-        console.log('====================================');
-        console.log(`resizeWindowHandler we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-        console.log('====================================');
-        this.setChartDimensions();
-        // if (window.innerHeight>=500 || window.innerWidth>=1024){
-        //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
-        // }
-        // else{
-        //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-        // }
-        //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-    } */
+   
     fetchData(){
         fetch('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json')
             .then(response=>{
