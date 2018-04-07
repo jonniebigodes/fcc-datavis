@@ -1,0 +1,13 @@
+
+.footerText{
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Mukta Mahee';
+}
+@media screen and (max-width:600px){
+    .footerText{
+        text-align: center;
+        font-size: .6rem;
+        font-family: 'Mukta Mahee';
+    }
+}

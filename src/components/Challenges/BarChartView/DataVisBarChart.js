@@ -16,41 +16,44 @@ class DataVisBarChart extends Component {
   }
   render(){
     const {dataChart,chartDimensions}= this.props;
-    // const margins = { top: 30, right: 10, bottom: 40, left: 50 };
-    // const svgDimensions = {
-    //   width: 820,
-    //   height: 450
-    // };
+    const margins = { top: 30, right: 10, bottom: 40, left: 50 };
+    const svgDimensions = {
+      width: Math.max(chartDimensions.svgWidth,300),
+      height: 450
+    };
+    
     const maxValue= Math.max(...dataChart.map(d=>d.domesticValue));
 
     
     const minDate= new Date(dataChart[0].dateTime);
     const maxDate= new Date(dataChart[dataChart.length-1].dateTime);
 
-    const xScale= scaleTime().domain([minDate,maxDate]).range([chartDimensions.margins.left, 
-      chartDimensions.svgWidth-chartDimensions.margins.right]);
+    const xScale= scaleTime().domain([minDate,maxDate]).range([margins.left, 
+      svgDimensions.width-margins.right]);
       const yScale=scaleLinear()
       .domain([0, maxValue])
-      .range([chartDimensions.svgHeight - chartDimensions.margins.bottom, chartDimensions.margins.top]);
+      .range([svgDimensions.height - margins.bottom, margins.top]);
     
-    
+    /*
+    viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
+        preserveAspectRatio="xMidYMid meet"
+    */
     return(
-      <svg width={chartDimensions.svgWidth} 
-        height={chartDimensions.svgHeight} 
-        viewBox={`0 0 ${chartDimensions.svgWidth} ${chartDimensions.svgHeight}`}
-        preserveAspectRatio="xMidYMid meet">
+      <svg width={svgDimensions.width} 
+        height={svgDimensions.height}
+        viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`} preserveAspectRatio="xMidYMid meet">
         <g>
           <Axes
             scales={{ xScale, yScale }}
-            margins={chartDimensions.margins}
-            svgDimensions={{height:chartDimensions.svgHeight, width:chartDimensions.svgWidth }}
+            margins={margins}
+            svgDimensions={{height:svgDimensions.height, width:svgDimensions.width }}
           />
           <Bars
             scales={{ xScale, yScale }}
-            margins={chartDimensions.margins}
+            margins={margins}
             bardata={dataChart}
             maxValue={maxValue}
-            svgDimensions={{height:chartDimensions.svgHeight, width:chartDimensions.svgWidth }}
+            svgDimensions={{height:svgDimensions.height, width:svgDimensions.width }}
             barMouseOver={this.onMouseOverHandler}
             barMouseLeave={this.onMouseLeaveHandler}
           />

@@ -13,18 +13,17 @@ class BarChartContainer extends Component{
           fullchartData: [],
           isToolTipActive:false,
           gdpInfo:{},
-          chartWidth:0,
-          chartHeight:0
+          chartWidth:0
         }
     }
     
     componentDidMount(){
         if (typeof window!=='undefined'){
-            console.log('====================================');
-            console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            console.log('====================================');
+            // console.log('====================================');
+            // console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+            // console.log('====================================');
             this.setChartDimensions();
-            window.addEventListener('resize',this.resizeWindowHandler);
+            window.addEventListener('resize',this.setChartDimensions);
             
         }
         setTimeout(() => {
@@ -33,8 +32,14 @@ class BarChartContainer extends Component{
                 this.fetchData();
             }
             else{
+                const storedBarsData= storedbars.map(item=>{
+                    return {
+                        dateTime:item.dateTime,
+                        domesticValue:Number(item.domesticValue)
+                    }
+                });
                 this.setState({
-                fullchartData:storedbars,
+                fullchartData:storedBarsData,
                 isLoading:false
                 });
             }
@@ -45,23 +50,77 @@ class BarChartContainer extends Component{
             console.log('====================================');
             console.log(`componentWillUnmount we's gots windows ${window.innerHeight} ${window.innerWidth}`);
             console.log('====================================');
-            window.removeEventListener('resize',this.resizeWindowHandler);
+            window.removeEventListener('resize',this.setChartDimensions);
         }
+    }
+    setChartWidth=value=>{
+        return value*.80;
     }
     setChartDimensions=()=>{
-        console.log('====================================');
-        console.log(`setChartDimensions`);
-        console.log('====================================');
-        //this.chartContainer.getBoundingClientRect().width
-        if ((window.innerHeight>=500)||(window.innerWidth>=1000)){
-        //if (window.innerHeight>=500 || window.innerWidth>=1024){
-            this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.height});
+        // console.log('====================================');
+        // console.log(`setChartDimensions enter:\n${JSON.stringify(this.chartContainer,null,2)}`);
+        // console.log('====================================');
+        // if (this.chartContainer){
+        //     console.log('====================================');
+        //     console.log(`setChartDimensions with chart container:\n${JSON.stringify(this.chartContainer.getBoundingClientRect().width,null,2)}`);
+        //     console.log('====================================');
+        // }
+        const {chartWidth}= this.state;
+        let currentWidth=0;
+        // console.log('====================================');
+        // console.log(`setChartDimensions before if chart container:\ncurrent width: ${currentWidth}`);
+        // console.log('====================================');
+        if (this.chartContainer){
+            console.log('===========================s=========');
+            console.log(`setChartDimensions with chart container:\n${JSON.stringify(this.chartContainer.getBoundingClientRect().width,null,2)}`);
+            console.log('====================================');
+
+            currentWidth= this.chartContainer.getBoundingClientRect().width;
+
+            currentWidth=this.chartContainer.getBoundingClientRect().width<=768
+                ?this.setChartWidth(this.chartContainer.getBoundingClientRect().width)
+                :this.chartContainer.getBoundingClientRect().width;
+            //currentWidth= this.chartContainer.getBoundingClientRect().width>600?820:this.chartContainer.getBoundingClientRect().width;
+            // console.log('====================================');
+            // console.log(`setChartDimensions with chart container:\ncurrent width: ${currentWidth} state width:${chartWidth}`);
+            // console.log('====================================');
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth,
+                });
+            }
         }
         else{
-            this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+            //currentWidth= window.innerWidth; 
+            currentWidth=this.setChartWidth(window.innerWidth);  
+            // console.log('====================================');
+            // console.log(`setChartDimensions with no container:\ncurrent width: ${currentWidth} state width:${chartWidth}`);
+            // console.log('====================================');
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth
+                });
+            }
         }
+        
+        //if (window.innerWidth>600){
+        //if (window.innerHeight>=500 || window.innerWidth>=1024){
+            //this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.height});
+       // }
+       // else{
+            // if (this.chartContainer){
+
+            // }
+            // this.chartContainer?this.setState(
+            //     {
+            //         chartWidth:this.chartContainer.getBoundingClientRect().width,
+            //         chartHeight:this.chartContainer.getBoundingClientRect().height
+            //     })
+            //     :this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight})
+            //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+        //}
     }
-    resizeWindowHandler=()=>{
+    /* resizeWindowHandler=()=>{
         console.log('====================================');
         console.log(`resizeWindowHandler we's gots windows ${window.innerHeight} ${window.innerWidth}`);
         console.log('====================================');
@@ -73,7 +132,7 @@ class BarChartContainer extends Component{
         //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
         // }
         //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-    }
+    } */
     fetchData(){
         fetch('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json')
             .then(response=>{
@@ -115,34 +174,35 @@ class BarChartContainer extends Component{
     render(){
         const {isError,isLoading,fullchartData,isToolTipActive,gdpInfo,chartHeight,chartWidth}= this.state;
         if (isError){
-            return (<div className={styles.Preload}>Lights up the sirens.....Something went wrong</div>);
+            return (<span> className={styles.Preload}>Lights up the sirens.....Something went wrong</span>);
         }
         if (isLoading){
             return (<div className={styles.Preload}>Hold on to your hat...i'm getting the data at lightspeed</div>);
         }
         if (fullchartData.length){
             return(
-                <div ref={(el)=>this.chartContainer=el}>
+                <div ref={(el) => { this.chartContainer = el;}}>
                     <div className={styles.BarTitle}>
                         Federal Reserve Economic Data on Gross Domestic Product in the USA
                      </div>
                      <div className={styles.containerBar}>
-                        <div >
+                        <div>
                             <DataVisBarChart dataChart={fullchartData} 
                             enableToolTip={this.activateToolTip} 
                             disableToolTip={this.deactivateToolTip}
-                            chartDimensions={{svgWidth:chartWidth,svgHeight:chartHeight,margins:dataVisConstant.svgDimensions.margins.barChart}}/>
+                            chartDimensions={{svgWidth:chartWidth,svgHeight:chartHeight}}/>
                         </div>
                         
                         <div>
                             <BarChartToolTip data={isToolTipActive?gdpInfo:null}/>
                         </div>
                      </div>
-                     <div className={styles.BarFooterText}>
-                        Units: Billions of Dollars.<br/>
-                        Seasonal Adjustment: Seasonally Adjusted Annual Rate<br/>
-                        Notes: A Guide to the National Income and Product Accounts of the United States (NIPA) - (http://www.bea.gov/national/pdf/nipaguid.pdf)
-                     </div>
+                     <p><span className={styles.BarFooterText}>
+                        Units: Billions of Dollars.
+                    
+                        Seasonal Adjustment: Seasonally Adjusted Annual Rate
+                        Notes: A Guide to the National Income and Product Accounts of the United States (NIPA) (http://www.bea.gov/national/pdf/nipaguid.pdf)
+                     </span></p>
                 </div>
                 
             );

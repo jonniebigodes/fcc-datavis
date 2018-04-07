@@ -1,7 +1,7 @@
 import React from 'react';
-import './Footer.css';
-const Footer = ({itemFooter}) => (
-  <footer className="footerText">
+import styles from './footer-style.module.css';
+const Footer = () => (
+  <footer className={styles.footerText}>
       <div>
         Made by <a href="https://www.freecodecamp.com/jonniebigodes" target="_blank" rel="nofollow">Jonniebigodes</a>
       </div>
@@ -11,4 +11,4 @@ const Footer = ({itemFooter}) => (
   </footer>
 )
 
-export default Footer
+export default Footer;

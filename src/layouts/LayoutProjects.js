@@ -11,7 +11,7 @@ const TemplateWrapper = ({ children }) => (
         title="freeCodeCamp Data Visualization Projects"
         meta={[
           { name: 'description', content: 'freeCodeCamp Data Visualization ' },
-          { name: 'keywords', content: 'react, d3, data visualization,gatsby' },
+          { name: 'keywords', content: 'react, d3, bar chart, heat map, force direct graph,scatter graph, maps,data visualization,gatsbyjs' },
           {name:'author',content:'jonniebigodes'}
         ]}
         link={[
@@ -25,9 +25,8 @@ const TemplateWrapper = ({ children }) => (
       <div
         style={{
           margin: '0 auto',
-          maxWidth: 1024,
-          //padding: '0px 1.0875rem 1.45rem',
-          padding:'0 1rem',
+          maxWidth: 960,
+          padding: '0px 1.0875rem 1.45rem',
           paddingTop: 0,
           //background:'rgba(214, 255, 233,0.6)'
         }}
@@ -35,7 +34,7 @@ const TemplateWrapper = ({ children }) => (
         {children()}
       </div>
       <div>
-        <Footer itemFooter="force"/>
+        <Footer/>
       </div>
     </div>
   )

@@ -1,19 +1,20 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
+import styles from './header-style.module.css';
 const Header = () => (
-  <div
-    style={{
-      //background: 'rebeccapurple',
-      background:'#06691b',
-      marginBottom: '1.15rem',
-    }}
+  <div className={styles.header}
+    // style={{
+    //   //background: 'rebeccapurple',
+    //   background:'#06691b',
+    //   marginBottom: '1.15rem',
+    // }}
   >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.15rem 1.0875rem',
-      }}
+    <div className={styles.containerDataVis}
+      // style={{
+      //   margin: '0 auto',
+      //   maxWidth: 960,
+      //   padding: '1.15rem 1.0875rem',
+      // }}
     >
       <h1 style={{ margin: 0 }}>
         <Link

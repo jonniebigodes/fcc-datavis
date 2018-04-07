@@ -72,11 +72,11 @@ MIT
 **Free Software, Hell Yeah!**
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-   [Visualize Data with a Bar Chart]: <https://freecodecampdynprojects.herokuapp.com/nightlife>
-   [Visualize Data with a Scatterplot Graph]: <https://freecodecampdynprojects.herokuapp.com/stocks>
-   [Map Data Across the Globe]:<https://freecodecampdynprojects.herokuapp.com/books>
-   [Visualize Data with a Heat Map]:<https://freecodecampdynprojects.herokuapp.com/voting/>
-   [Show National Contiguity with a Force Directed Graph]:<https://freecodecampdynprojects.herokuapp.com/pinclone/>
+   [Visualize Data with a Bar Chart]: <https://jonniebigodes.github.io/fcc-datavis/viewbarchart/>
+   [Visualize Data with a Scatterplot Graph]: <https://jonniebigodes.github.io/fcc-datavis/viewscatter/>
+   [Map Data Across the Globe]:<https://jonniebigodes.github.io/fcc-datavis/globeview/>
+   [Visualize Data with a Heat Map]:<https://jonniebigodes.github.io/fcc-datavis/heatview/>
+   [Show National Contiguity with a Force Directed Graph]:<https://jonniebigodes.github.io/fcc-datavis/forceview/>
    [Gatsby]: <https://www.gatsbyjs.org/>
    [git-repo-url]: <https://github.com/jonniebigodes/fcc-datavis.git>
    [node.js]: <http://nodejs.org>

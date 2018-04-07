@@ -1,62 +1,339 @@
-.Axis path,
-.Axis line {
-  /*stroke: #E0E0E0;*/
-  stroke: darkslategrey;
+@media  only screen and (max-width: 600px){
+  .Axis path,
+  .Axis line {
+    /*stroke: #E0E0E0;*/
+    stroke: darkslategrey;
+  }
+  .Axis text {
+    font-size: 6px;
+    fill: darkslategrey;
+    font-weight: 500;
+  }
+  .Axis-Bottom text {
+    /* transform: rotate(-45deg);  */
+    transform: rotate(-45deg); 
+    text-anchor: end;
+  }
+  .BarTitle{
+    font-size: .55rem;
+    text-align: justify;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 500;
+  }
+  .containerBar{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;  
+  }
+
+  .containerToolTip{
+    /* width: 220px; */
+    border: 1px solid;
+    border-color: blueviolet;
+    box-shadow:1px 1px;
+    margin-bottom: 1rem;
+
+    /* display: -webkit-inline-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+
+  }
+  .BarFooterText{
+    font-size: 0.6rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 500;
+    /* margin-top:1vh; */
+  }
+  .bartooltipText{
+    font-family: 'Merriweather',serif;
+    font-size: .5rem;
+    text-align: justify;
+    color: darkslategrey;
+    word-wrap: break-word;
+    font-weight: 500;
+  }
+  .BarTitle{
+    font-size: .5rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 500;
+  }
+  .Preload{
+    font-family: 'Merriweather',serif;
+    font-size: .5rem;
+    text-align: center;
+    color: darkslategrey;
+    font-weight: 500;
+  }
+  
 }
 
-.Axis text {
-  font-size: 10px;
-  fill: darkslategrey;
+@media only screen and (min-width: 600px){
+  .Axis path,
+  .Axis line {
+    /*stroke: #E0E0E0;*/
+    stroke: darkslategrey;
+  }
+
+  .Axis text {
+    font-size: 6px;
+    fill: darkslategrey;
+    font-weight: 500;
+  }
+  .Axis-Bottom text {
+    /* transform: rotate(-45deg);  */
+    transform: rotate(-45deg); 
+    text-anchor: end;
+    font-weight: 500;
+  }
+  .Preload{
+    font-family: 'Merriweather',serif;
+    font-size: .65rem;
+    text-align: center;
+    color: darkslategrey;
+    font-weight: 500;
+  }
+  .bartooltipText{
+    font-family: 'Merriweather',serif;
+    font-size: .65rem;
+    text-align: justify;
+    color: darkslategrey;
+    word-wrap: break-word;
+    font-weight: 500;
+  }
+  .BarTitle{
+    font-size: .65rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 500;
+  }
+  .containerBar{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;  
+  }
+  .containerToolTip{
+    /* width: 220px; */
+    border: 1px solid;
+    border-color: blueviolet;
+    box-shadow:1px 1px;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+
+    /* display: -webkit-inline-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+  }
+  .BarFooterText{
+    width: 90%;
+    font-size: 0.65rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 500;
+    overflow-wrap: break-word;
+
+    /* margin-top:1vh; */
+  }
 }
-.Axis-Bottom text {
-  /* transform: rotate(-45deg);  */
-  transform: rotate(-45deg); 
-  text-anchor: end;
-}
-.containerBar{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-content: space-around;
-  align-items: center;
-  /* background-color:rgba(34, 143, 5, .65); 
-  /*background-color: rgba(214, 255, 233,0.6);*/
+@media only screen and (min-width:768px){
+  .Axis path,
+  .Axis line {
+    /*stroke: #E0E0E0;*/
+    stroke: darkslategrey;
+  }
+
+  .Axis text {
+    font-size: 7px;
+    fill: darkslategrey;
+    font-weight: 600;
+  }
+  .Axis-Bottom text {
+    /* transform: rotate(-45deg);  */
+    transform: rotate(-45deg); 
+    text-anchor: end;
+    font-weight: 600;
+  }
+  .BarTitle{
+    font-size: .75rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 500;
+  }
+  .bartooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.75rem;
+    text-align: center;
+    color: darkslategrey;
+    font-weight: 500;
+    margin: 1.05rem 1.85rem;
+  }
+  .Preload{
+    font-family: 'Merriweather',serif;
+    font-size: .7rem;
+    text-align: center;
+    color: darkslategrey;
+    font-weight: 600;
+  }
+  .containerBar{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;  
+  }
+  .BarFooterText{
+    font-size: 0.7rem;
+    text-align: justify;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    /* margin-top:1vh; */
+    font-weight: 500;
+  }
+  .containerToolTip{
+    /* width: 220px; */
+    border: 1px solid;
+    border-color: blueviolet;
+    box-shadow:1px 1px;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+
+    /* display: -webkit-inline-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    
   
+  }
 }
-.BarFooterText{
-  font-size: 0.65rem;
-  text-align: center;
-  font-family: 'Merriweather', serif;
-  color: darkslategrey;
-  /* margin-top:1vh; */
+@media only screen and (min-width:992px){
+
+  .Axis path,
+  .Axis line {
+    /*stroke: #E0E0E0;*/
+    stroke: darkslategrey;
+  }
+
+  .Axis text {
+    font-size: 10px;
+    fill: darkslategrey;
+    font-weight: 800;
+  }
+  .Axis-Bottom text {
+    /* transform: rotate(-45deg);  */
+    transform: rotate(-45deg); 
+    text-anchor: end;
+    font-weight: 800;
+  }
+  .containerBar{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    /* background-color:rgba(34, 143, 5, .65); 
+    /*background-color: rgba(214, 255, 233,0.6);*/
+    
+  }
+  .BarFooterText{
+    font-size: 0.75rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 600;
+    /* margin-top:1vh; */
+  }
+  .BarTitle{
+    font-size: .90rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: darkslategrey;
+    font-weight: 800;
+  }
+  .Preload{
+    font-family: 'Merriweather',serif;
+    font-size: 1.5rem;
+    text-align: center;
+    color: darkslategrey;
+    font-weight: 800;
+  }
+  .containerToolTip{
+    border: 1px solid;
+    border-color: blueviolet;
+    box-shadow:2px 2px;
+    margin-left: 1rem;
+
+    /* display: -webkit-inline-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    
+
+  }
+  .bartooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    text-align: center;
+    color: darkslategrey;
+    word-break: break-all;
+    margin: 0 auto;
+    padding: 1.5 1.085rem;
+  }
+  .containerBarChart{
+    margin: 1 auto;
+  }
 }
-.BarTitle{
-  font-size: 1rem;
-  text-align: center;
-  font-family: 'Merriweather', serif;
-  color: darkslategrey;
-}
-.Preload{
-  font-family: 'Merriweather',serif;
-  font-size: 1.5rem;
-  text-align: center;
-  color: darkslategrey;
-}
-.containerToolTip{
-  width: 220px;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-}
-.bartooltipText{
-  font-family: 'Merriweather', serif;
-  font-size: 0.7rem;
-  text-align: center;
-  color: darkslategrey;
-}
-.containerBarChart{
-  margin: 1 auto;
-}
-/* @media only screen (max) */
+/* @media only screen and (min-width:1200px){
+
+} */

@@ -1216,10 +1216,6 @@ const svgDimensions={
         height:470,
     },
     margins:{
-        barChart:{
-            top: 30, right: 10, bottom: 40, left: 50 
-        },
-
         top: 30,
         right: 20,
         bottom: 30,
