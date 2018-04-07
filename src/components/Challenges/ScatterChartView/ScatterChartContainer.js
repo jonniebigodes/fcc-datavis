@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { dataVisConstant } from '../../../Utils/Constants';
 import Utilities from '../../../Utils/Utilities';
 import DataVisScatterChart from './DataVisScatterChart';
 import ScatterTooltip from './ScatterTooltip';
 import styles from './scatter-style.module.css';
-import {dataVisConstant} from '../../../Utils/Constants';
 class ScatterChartContainer extends Component{
     constructor(){
         super();
@@ -14,55 +14,75 @@ class ScatterChartContainer extends Component{
             isTooltipActive:false,
             tooltipData:{},
             chartWidth:0,
-            chartHeight:0
         };
     }
     componentDidMount(){
         if (typeof window!=='undefined'){
-            console.log('====================================');
-            console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            console.log('====================================');
-            window.addEventListener('resize',this.resizeWindowHandler);
+            // console.log('====================================');
+            // console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+            // console.log('====================================');
             this.setChartDimensions();
+            window.addEventListener('resize',this.setChartDimensions);
+            
         }
         setTimeout(() => {
-            const storedScatterdate= JSON.parse(Utilities.getStorageData("scatterData"));
-            if (!storedScatterdate){
+            const storedScatterdata= JSON.parse(Utilities.getStorageData("scatterData"));
+            if (!storedScatterdata){
                 this.fetchData();
             }
             else{
-                this.setState({fullchartData:storedScatterdate,isLoading:false});
+                const storedScatter=storedScatterdata.map(item=>{
+                    return{
+                        Doping:item.Doping,
+                        Name:item.Name,
+                        Nationality:item.Nationality,
+                        Place:item.Place,
+                        Seconds:item.Seconds,
+                        Time:item.Time,
+                        URL:item.URL,
+                        Year:item.Year
+                    }
+                });
+                this.setState({fullchartData:storedScatterdata,isLoading:false});
                 
             }
         }, 2500);
     }
     componentWillUnmount(){
         if (typeof window!=='undefined'){
-            window.removeEventListener('resize',this.resizeWindowHandler);
+            window.removeEventListener('resize',this.setChartDimensions);
         }
+    }
+    setChartWidth=value=>{
+        return value*.80;
     }
     setChartDimensions=()=>{
-        if (window.innerHeight>=500 || window.innerWidth>=1024){
-            this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.height});
+        const {chartWidth}= this.state;
+        let currentWidth=0;
+        if (this.chartContainer){
+           
+            currentWidth= this.chartContainer.getBoundingClientRect().width;
+
+            currentWidth=this.chartContainer.getBoundingClientRect().width<=768
+                ?this.setChartWidth(this.chartContainer.getBoundingClientRect().width)
+                :this.chartContainer.getBoundingClientRect().width;
+           
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth,
+                });
+            }
         }
         else{
-            this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+            //currentWidth= window.innerWidth; 
+            currentWidth=this.setChartWidth(window.innerWidth);  
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth
+                });
+            }
         }
     }
-    resizeWindowHandler=()=>{
-        console.log('====================================');
-        console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-        console.log('====================================');
-        this.setChartDimensions();
-        // if (window.innerHeight>=500 || window.innerWidth>=1024){
-        //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
-        // }
-        // else{
-        //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-        // }
-        //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-    }
-    
     onToolTipHide=()=>{
         this.setState({isTooltipActive:false,tooltipData:{}});
     }
@@ -75,8 +95,22 @@ class ScatterChartContainer extends Component{
             return response.json();
         })
         .then(result=>{
-            Utilities.setStorageData("scatterData",result);
-            this.setState({fullchartData:storedScatterdate,isLoading:false});
+            const fastestTime = 2210;
+            const dataToStore=result.map(item=>{
+                return{
+                  Time:item.Time,
+                  Place:item.Place,
+                  Seconds:item.Seconds,
+                  Name:item.Name,
+                  Year:item.Year,
+                  Nationality:item.Nationality,
+                  Doping:item.Doping===""?"No Allegations":"Doping Allegations",
+                  URL:item.URL,
+                  behind:item.Seconds-fastestTime
+                }
+              });
+            Utilities.setStorageData("scatterData",dataToStore);
+            this.setState({fullchartData:dataToStore,isLoading:false});
         })
         .catch(Err=>{
             console.log('====================================');
@@ -91,14 +125,14 @@ class ScatterChartContainer extends Component{
     render(){
         const {isError,isLoading,fullchartData,isTooltipActive,tooltipData,chartWidth,chartHeight}= this.state;
         if (isError){
-            return (<div className={styles.scatterPreload}>Lights up the sirens.....Something went wrong</div>);
+            return (<p><span className={styles.scatterPreload}>Lights up the sirens.....Something went wrong</span></p>);
         }
         if (isLoading){
-            return (<div className={styles.scatterPreload}>Hold on to your hat...i'm getting the data at Lance Armstrong speed</div>);
+            return (<p><span className={styles.scatterPreload}>Hold on to your hat...i'm getting the data at Lance Armstrong speed</span></p>);
         }
         if (fullchartData.length){
             return(
-                <div>
+                <div ref={(el) => { this.chartContainer = el;}}>
                      <div className={styles.scatterTitle}>
                         Doping in Professional Bicycle Racing
                      </div>
@@ -108,7 +142,7 @@ class ScatterChartContainer extends Component{
                                 dataChart={fullchartData}
                                 scatterLeave={this.onToolTipHide} 
                                 scatterEnter={this.onToolTipShow} 
-                                chartDimensions={{svgWidth:chartWidth,svgHeight:chartHeight,margins:dataVisConstant.svgDimensions.margins}}/>
+                                svgWidth={chartWidth}/>
                         </div>
                        
                         <div>

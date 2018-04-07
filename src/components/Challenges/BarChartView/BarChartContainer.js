@@ -46,9 +46,7 @@ class BarChartContainer extends Component{
     }
     componentWillUnmount(){
         if (typeof window!=='undefined'){
-            console.log('====================================');
-            console.log(`componentWillUnmount we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            console.log('====================================');
+            
             window.removeEventListener('resize',this.setChartDimensions);
         }
     }

@@ -24,6 +24,10 @@ const ScatterAxes=({scales, margins, svgDimensions})=>{
     );
 };
 ScatterAxes.propTypes={
+    scales:PropTypes.shape({
+        yScale:PropTypes.func,
+        xScale:PropTypes.func
+    }),
     margins:PropTypes.shape({
         top:PropTypes.number,
         right:PropTypes.number,

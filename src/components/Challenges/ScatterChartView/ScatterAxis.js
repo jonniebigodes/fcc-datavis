@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as d3Axis from 'd3-axis';
 import {select as d3Select} from 'd3-selection';
 import * as d3TimeFormat from 'd3-time-format';
 import * as d3Time from 'd3-time';
-
 import styles from './scatter-style.module.css';
 class ScatterAxis extends Component{
     componentDidMount(){
@@ -27,4 +27,10 @@ class ScatterAxis extends Component{
         );
     }
 }
+ScatterAxis.propTypes={
+    orient:PropTypes.string,
+    scale:PropTypes.func,
+    translate:PropTypes.string,
+    tickSize:PropTypes.number
+};
 export default ScatterAxis;
