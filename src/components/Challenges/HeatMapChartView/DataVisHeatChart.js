@@ -49,7 +49,7 @@ class DataVisHeatChart extends Component{
         return items.length;
     }
     render(){
-        const {dataChart,chartDimensions}= this.props;
+        const {dataChart,svgWidth}= this.props;
         
         const baseTemperature= dataChart.baseTemperature;
         const minDate=new Date(dataChart.monthlyVariance[0].year,0);
@@ -58,50 +58,46 @@ class DataVisHeatChart extends Component{
         const dataIntervals=this.findMin();
         //const listOfMonts=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
        
-        // const margin={
-        //     top: 30,
-        //     right: 20,
-        //     bottom: 30,
-        //     left: 30
-        // };
-        // let svgDimensions = {
-        //     width:Math.max(820,300),
-        //     height: 500,
-        //     innerWidth:0,
-        //     innerHeight:0
-        // };
-        // svgDimensions.innerHeight=svgDimensions.height/listOfMonts.length;
-        // svgDimensions.innerWidth=svgDimensions.width/databyYears;
+        const margin={
+            top: 30,
+            right: 10,
+            bottom: 40,
+            left: 50
+        };
+        let svgDimensions = {
+            width:Math.max(svgWidth,300),
+            height: 450,
+            innerWidth:0,
+            innerHeight:0
+        };
 
-        //const xScale= scaleTime().domain([minDate,maxDate]).range([0,svgDimensions.width-1]);
-        const xScale= scaleTime().domain([minDate,maxDate]).range([0,chartDimensions.svgWidth]);
+        svgDimensions.innerHeight=svgDimensions.height/dataVisConstant.Months.length;
+        svgDimensions.innerWidth=svgDimensions.width/databyYears;
+
+        const xScale= scaleTime().domain([minDate,maxDate]).range([0,svgDimensions.width-1]);
+        //const xScale= scaleTime().domain([minDate,maxDate]).range([margin.left,svgDimensions.width-margin.right]);
+
+
         const yScale=scaleBand()
         .domain(dataVisConstant.Months)
-        .range([0,chartDimensions.svgHeight]);
+        //.range([0,chartDimensions.svgHeight]);
         //.domain(listOfMonts)
-        //.range([0,svgDimensions.height]);
+        .range([0,svgDimensions.height]);
         return(
-            // <svg width={svgDimensions.width+margin.left+margin.right} 
-            //     height={svgDimensions.height+margin.top+margin.bottom} 
-            <svg width={chartDimensions.svgWidth+chartDimensions.margins.left+chartDimensions.margins.right} 
-                height={chartDimensions.svgHeight+chartDimensions.margins.top+chartDimensions.margins.bottom}
+            <svg width={svgDimensions.width+margin.left+margin.right} 
+                height={svgDimensions.height+margin.top+margin.bottom} 
+                // <svg width={svgDimensions.width} 
+                // height={svgDimensions.height}
+                viewBox={`0 0 ${svgDimensions.width+margin.left+margin.right} ${svgDimensions.height+margin.top+margin.bottom}`} preserveAspectRatio="xMidYMid meet"
                 className="animated bounceInLeft">
                 <HeatAxes
                     scales={{xScale,yScale}} 
-                    // margins={margin}
-                    // svgDimensions={svgDimensions}/>´
-                    margins={chartDimensions.margins}
-                    svgDimensions={{height:chartDimensions.svgHeight, 
-                      width:chartDimensions.svgWidth,
-                      innerHeight:chartDimensions.svgHeight/dataVisConstant.Months.length,
-                      innerWidth: chartDimensions.svgWidth/databyYears}}/>
+                    margins={margin}
+                    svgDimensions={svgDimensions}/>´
+
                 <HeatPoints
                     varianceData={dataIntervals} 
-                    // svgDimensions={svgDimensions} 
-                    svgDimensions={{height:chartDimensions.svgHeight, 
-                        width:chartDimensions.svgWidth,
-                        innerHeight:chartDimensions.svgHeight/dataVisConstant.Months.length,
-                        innerWidth: chartDimensions.svgWidth/databyYears}}
+                    svgDimensions={svgDimensions} 
                     heatData={dataChart.monthlyVariance} 
                     baseTemp={baseTemperature}
                     heatMouseOver={this.onMouseOver}
@@ -112,15 +108,14 @@ class DataVisHeatChart extends Component{
     }
 }
 DataVisHeatChart.propTypes={
-    chartDimensions:PropTypes.shape({
-        svgWidth:PropTypes.number,
-        svgHeight:PropTypes.number,
-        margins:PropTypes.shape({
-          top: PropTypes.number, 
-          right: PropTypes.number, 
-          bottom: PropTypes.number, 
-          left: PropTypes.number
-        })
-      }),
+    svgWidth:PropTypes.number,
+    dataChart:PropTypes.shape({
+        baseTemperature:PropTypes.number,
+        monthlyVariance:PropTypes.arrayOf(PropTypes.shape({
+            month:PropTypes.number,
+            variance:PropTypes.number,
+            year:PropTypes.number
+        }))
+    })
 };
 export default DataVisHeatChart;

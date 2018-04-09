@@ -1,29 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './heat-style.module.css';
+import { dataVisConstant } from '../../../Utils/Constants';
 const getMonths=value=>{
-    const listOfMonts=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    return listOfMonts[value-1];
+    return dataVisConstant.Months[value-1];
+    // const listOfMonts=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    // return listOfMonts[value-1];
 }
 const showInfo=()=>{
     return (
-        <div>
+        <p><span className={styles.heattooltipText}>Mouse over a bar to show you information</span></p>
+       
+        
+            /* <div>
             <div className={styles.heattooltipText}>
                 Mouse over a bar 
             </div>
             <div className={styles.heattooltipText}>
                 to show you information
             </div>
-        </div>
+        </div> */
     )
 };
 const showData=value=>{
     return(
-        <div>
-            <div className={styles.heattooltipText}>{getMonths(value.month)} {value.year}</div>
-            <div className={styles.heattooltipText}>Temperature was: {value.baseTemp}</div>
-            <div className={styles.heattooltipText}>with variance of: {value.variance}</div>
-        </div>
+        <p><span className={styles.heattooltipText}>{getMonths(value.month)} {value.year} temperature was: {value.baseTemp} with variance:{value.variance}</span></p>
+        // <div>
+        //     <div className={styles.heattooltipText}>{getMonths(value.month)} {value.year}</div>
+        //     <div className={styles.heattooltipText}>Temperature was: {value.baseTemp}</div>
+        //     <div className={styles.heattooltipText}>with variance of: {value.variance}</div>
+        // </div>
     )
 };
 const HeatToolTip=({data})=>{

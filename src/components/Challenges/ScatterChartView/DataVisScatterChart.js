@@ -49,7 +49,7 @@ class DataVisScatterChart extends Component {
     // const yScale= scaleLinear().domain([36,1]).range([chartDimensions.svgHeight - chartDimensions.margins.bottom, chartDimensions.margins.top]);
     return(
       <svg width={svgDimensions.width} height={svgDimensions.height}
-        viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`} preserveAspectRatio="xMidYMid meet">>
+        viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`} preserveAspectRatio="xMidYMid meet">
       {/* <svg width={chartDimensions.svgWidth} height={chartDimensions.svgHeight}> */}
         <ScatterAxes scales={{xScale,yScale}} 
         margins={margin} 
