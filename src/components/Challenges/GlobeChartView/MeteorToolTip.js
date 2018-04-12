@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import styles from './globe-style.module.css';
 const showMeteorInfo=()=>{
     return(
-        <div>
-            <div className="tooltipText">
-                Mouse over map<br/>to show information
-            </div>
-        </div>
+        <p><span className={styles.tooltipText}>Mouse over map to show information</span></p>
+        // <div>
+        //     <div className="tooltipText">
+        //         Mouse over map<br/>to show information
+        //     </div>
+        // </div>
     )
 };
 const showMeteorData=value=>{
     return(
-        <div>
+        <p><span className={styles.tooltipText}>In {value.dateofhit} a meteor with mass of {value.meteormass} and class {value.meteorclass} fell on latitude {value.latitude} longitude {value.longitude}</span></p>
+         /*<div>
             
             <div className="tooltipText">
                 In {value.dateofhit}<br/>
@@ -21,18 +23,18 @@ const showMeteorData=value=>{
                 fell on latitude {value.latitude}<br/>  
                 longitude {value.longitude}<br/>  
             </div>
-            {/* <div className="tooltipText">meteor with mass of {value.meteormass} </div>
+            <div className="tooltipText">meteor with mass of {value.meteormass} </div>
             <div className="tooltipText">and class {value.meteorclass}</div>
             <div className="tooltipText">fell on latitude {value.latitude} </div>
-            <div className="tooltipText">and longitude:{value.longitude}</div> */}
-        </div>
+            <div className="tooltipText">and longitude:{value.longitude}</div>
+        </div> */
     )
 };
 
 const MeteorToolTip=({data})=>{
 
     return(
-        <div className="containerToolTip">
+        <div className={styles.containerToolTip}>
             {data?showMeteorData(data):showMeteorInfo()}
         </div>
     );
@@ -44,8 +46,8 @@ MeteorToolTip.propTypes={
         meteorclass:PropTypes.string,
         dateofhit:PropTypes.string,
         meteormass:PropTypes.number,
-        latitude:PropTypes.number,
-        longitude:PropTypes.number
+        latitude:PropTypes.string,
+        longitude:PropTypes.string
     })
 };
 export default MeteorToolTip;

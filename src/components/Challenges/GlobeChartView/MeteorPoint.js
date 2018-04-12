@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 class MeteorPoint extends PureComponent{
     
-    calculateRadius=value=>{
+    /* calculateRadius=value=>{
         let range=179687.5
         // console.log('====================================');
         // console.log("range: "+range+" value:"+ value);
@@ -42,7 +42,7 @@ class MeteorPoint extends PureComponent{
         // console.log(`(50)`);
         // console.log('====================================');
         return 12;
-    }
+    } */
     onEnter=()=>{
         //const {meteorPointEnter,data,mass,rectangleLat,rectangleLong}= this.props;
         const {data,meteorPointEnter}= this.props;
@@ -100,9 +100,6 @@ MeteorPoint.propTypes={
     // circleId:PropTypes.number,
     // meteorPointEnter:PropTypes.func,
     // meteorPointExit:PropTypes.func
-    
-
-
      data:PropTypes.shape({
         meteorname:PropTypes.string,
         meteorclass:PropTypes.string,

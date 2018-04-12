@@ -4,10 +4,36 @@
     font-size: 1.2rem;
     font-family: 'Mukta Mahee';
 }
+
+@media only screen and (min-width: 600px){
+    .footerText{
+        text-align: center;
+        font-size: .75rem;
+        font-family: 'Mukta Mahee';
+        font-weight: 200;
+    }
+}
 @media screen and (max-width:600px){
     .footerText{
         text-align: center;
-        font-size: .6rem;
+        font-size: .85rem;
         font-family: 'Mukta Mahee';
+        font-weight: 300;
+    }
+}
+@media only screen and (min-width:768px){
+    .footerText{
+        text-align: center;
+        font-size: 1rem;
+        font-family: 'Mukta Mahee';
+        font-weight: 300;
+    }
+}
+@media only screen and (min-width:992px){
+    .footerText{
+        text-align: center;
+        font-size: 1.2rem;
+        font-family: 'Mukta Mahee';
+        font-weight: 300;
     }
 }

@@ -1,4 +1,8 @@
 .containerGlobe{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -6,30 +10,53 @@
     align-items: center;
     
   }
-  .globeTitle{
+.globeTitle{
     font-family: 'Merriweather', serif;
     font-size: 1.3rem;
     text-align: center;
     padding-bottom: 1vh;
     
-  }
-  .tooltipText{
+}
+.tooltipText{
       font-size: 0.7rem;
       text-align: center;
       font-family: 'Merriweather', serif;
+}
+.containerToolTip{
+  -webkit-box-shadow:  3px 0px 5px 0px rgba(69,77,89,1);
+  -moz-box-shadow:  3px 0px 5px 0px rgba(69,77,89,1);
+  box-shadow:  3px 0px 5px 0px rgba(69,77,89,1);
+}
+@media only screen and (min-width: 600px){
+  .containerGlobe{
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
   }
-  @media  screen and (max-width: 600px){
+  .globeTitle{
+    font-family: 'Merriweather', serif;
+    font-size: .5rem;
+    text-align: center;
+    font-weight: 300;
+    padding-bottom: 1vh;
+    
+  }
+}
+
+@media  screen and (max-width: 600px){
     .containerGlobe{
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      align-content: space-between;
+      justify-content: space-around;
+      align-content: space-around;
       align-items: center;
       flex-wrap: wrap;
     }
     .globeTitle{
       font-family: 'Merriweather', serif;
       font-size: .6rem;
+      font-weight: 300;
       text-align: center;
       padding-bottom: 1vh;
       
@@ -38,5 +65,49 @@
       font-size: 0.6rem;
       text-align: justify;
       font-family: 'Merriweather', serif;
+    }
   }
+@media only screen and (min-width:768px){
+  .containerGlobe{
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
   }
+  .globeTitle{
+    font-family: 'Merriweather', serif;
+    font-size: .85rem;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 1vh;
+    
+  }
+  .tooltipText{
+    font-size: 0.75rem;
+    text-align: justify;
+    font-family: 'Merriweather', serif;
+  }
+}
+@media only screen and (min-width:992px){
+  .containerGlobe{
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .globeTitle{
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 1vh;
+    
+  }
+  .tooltipText{
+    font-size: 0.85rem;
+    text-align: justify;
+    font-family: 'Merriweather', serif;
+  }
+}

@@ -12,13 +12,12 @@ class GlobeViewContainer extends Component{
         this.state={
             isLoading:true,
             isError:false,
-            // meteors:{},
             meteors:[],
             globeMap:[],
             isToolTipActive:false,
             meteorInfo:{},
             chartWidth:0,
-            chartHeight:0,
+            chartHeight:0
         }
     }
     componentDidMount(){
@@ -26,8 +25,8 @@ class GlobeViewContainer extends Component{
             console.log('====================================');
             console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
             console.log('====================================');
-            window.addEventListener('resize',this.resizeWindowHandler);
             this.setChartDimensions();
+            window.addEventListener('resize',this.setChartDimensions);
         }
         setTimeout(() => {
             const storedMap=JSON.parse(Utilities.getStorageData("globeMap"));
@@ -56,15 +55,30 @@ class GlobeViewContainer extends Component{
             console.log('====================================');
             console.log(`componentWillUnmount we's gots windows ${window.innerHeight} ${window.innerWidth}`);
             console.log('====================================');
-            window.removeEventListener('resize',this.resizeWindowHandler);
+            window.removeEventListener('resize',this.setChartDimensions);
         }
+    }
+    setChartWidth=value=>{
+        return value*.80;
     }
     calculateRadius=value=>{
         let range=179687.5
-        // console.log('====================================');
-        // console.log("range: "+range+" value:"+ value);
-        // console.log('====================================');
-        if (value<=range){
+
+        switch (true) {
+            case (value<=range):
+                return 2;
+            case (value<=range*2):
+                return 4;
+            case (value<=range*3):
+                return 6;
+            case (value<=range*20):
+                return 8;
+            case (value<=range*100):
+                return 8;
+            default:
+                return 12;
+        }
+        /* if (value<=range){
             return 2;
         }
         else if (value<=range*2){
@@ -86,36 +100,74 @@ class GlobeViewContainer extends Component{
         // console.log('====================================');
         // console.log(`(50)`);
         // console.log('====================================');
-        return 12;
+        return 12; */
     }
     project(){
         const {chartWidth,chartHeight}= this.state;
         return geoMercator().scale(100).translate([chartWidth/2,chartHeight/2]);
+        // if(chartWidth<768){
+        //     return geoMercator().scale(chartWidth).translate([chartWidth/2,chartHeight/2]);
+        // }
+        // else{
+            
+        // }
+        
     }
     setChartDimensions=()=>{
-        console.log('====================================');
-        console.log(`setChartDimensions`);
-        console.log('====================================');
-        if (window.innerHeight>=500 || window.innerWidth>=1024){
-            this.setState({chartWidth:800,chartHeight:550});
+        const {chartWidth}= this.state;
+        let currentWidth=0;
+        let currentHeight=0;
+        if (this.chartContainer){
+            currentWidth= this.chartContainer.getBoundingClientRect().width;
+            currentHeight= this.chartContainer.getBoundingClientRect().height;
+
+            currentWidth=this.chartContainer.getBoundingClientRect().width<=768
+                ?this.setChartWidth(this.chartContainer.getBoundingClientRect().width)
+                :this.chartContainer.getBoundingClientRect().width;
+            currentHeight=this.chartContainer.getBoundingClientRect().width<=768
+                ?this.setChartWidth(this.chartContainer.getBoundingClientRect().height)
+                :this.chartContainer.getBoundingClientRect().height;
+            
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth,
+                    chartHeight:currentHeight
+                });
+            }
         }
         else{
-            this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+            currentWidth=this.setChartWidth(window.innerWidth);
+            currentHeight= this.setChartWidth(window.innerHeight);
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth,
+                    chartHeight:currentHeight
+                });
+            }
         }
-    }
-    resizeWindowHandler=()=>{
-        console.log('====================================');
-        console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-        console.log('====================================');
-        this.setChartDimensions();
+        // console.log('====================================');
+        // console.log(`setChartDimensions`);
+        // console.log('====================================');
         // if (window.innerHeight>=500 || window.innerWidth>=1024){
-        //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
+        //     this.setState({chartWidth:800,chartHeight:550});
         // }
         // else{
         //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
         // }
-        //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
     }
+    // resizeWindowHandler=()=>{
+    //     console.log('====================================');
+    //     console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
+    //     console.log('====================================');
+    //     this.setChartDimensions();
+    //     // if (window.innerHeight>=500 || window.innerWidth>=1024){
+    //     //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
+    //     // }
+    //     // else{
+    //     //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+    //     // }
+    //     //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+    // }
     fetchDataMeteor(){
         fetch('https://data.nasa.gov/resource/y77d-th95.geojson')
             .then(response=>{return response.json()})
@@ -133,9 +185,9 @@ class GlobeViewContainer extends Component{
                         fillOp:parseInt(d.properties.mass)<=179687.5?1:0.5
                     }
                 });
-                 console.log('====================================');
-                 console.log(`meteor format\n:${JSON.stringify(meteorPoints,null,2)}`);
-                 console.log('====================================');
+                console.log('====================================');
+                console.log(`meteor format\n:${JSON.stringify(meteorPoints,null,2)}`);
+                console.log('====================================');
                 // result.features.map((d,i)=>{
                 //     console.log('====================================');
                 //     console.log(`data features:${JSON.stringify(d,null,2)}`);
@@ -197,17 +249,16 @@ class GlobeViewContainer extends Component{
         this.setState({isToolTipActive:false,meteorInfo:{}});
     }
     render(){
-        const {isError,isLoading,globeMap,meteors,isToolTipActive,meteorInfo, chartWidth,
-            chartHeight}= this.state;
+        const {isError,isLoading,globeMap,meteors,isToolTipActive,meteorInfo, chartWidth,chartHeight}= this.state;
         if (isError){
             return (<div className={styles.globeTitle}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<div className={styles.globeTitle}>Hold on to your hat...i'm getting the data at lightspeed</div>);
+            return (<div className={styles.globeTitle}>Hold on to your hat...i'm getting the data at *insert meteror speed here</div>);
         }
         if (globeMap.length){
             return (
-                <div>
+                <div ref={(el)=>{this.chartContainer=el;}}>
                     <div className={styles.globeTitle}>Meteor hits across the globe</div>
                     <div className={styles.containerGlobe}>
                         <div>
