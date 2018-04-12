@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {select as d3Select } from 'd3-selection';
 import PropTypes from 'prop-types';
-import '../../../Assets/css/forceGraph.css';
+//import '../../../Assets/css/forceGraph.css';
+//import styles from './force-style.module.css';
+import './forceGraph.css';
 class ForceNode extends Component{
     componentDidMount() {
         const {node}= this.props;
@@ -19,7 +21,7 @@ class ForceNode extends Component{
     render(){
         const {node}= this.props;
         return(
-            <circle r={6} className={`node`}
+             <circle r={6} className={`node`}
                 ref={(el) => { this.nodeElement = el; }} 
                     onMouseOver={this.onMouseEnter}
                     onMouseOut={this.onMouseLeave}>

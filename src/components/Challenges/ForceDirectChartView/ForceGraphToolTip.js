@@ -1,30 +1,33 @@
 import React from 'react';
-import styles from './force-style.module.css';
+//import styles from './force-style.module.css';
+import './forceGraph.css';
 const showData=value=>{
 
     return (
         <div>
-            <div className={styles.imgToolTip}>
+            <div className="imgToolTip">
                 <img src={value.flag}/>
             </div>
-            <div className={styles.tooltipText}>{value.name}</div>
-            <div className={styles.tooltipText}> Capital {value.capital}</div>
-            <div className={styles.tooltipText}>Population {value.population}</div>
-            <div className={styles.tooltipText}>Area {value.area}Km</div>
+            <p><span className="">{value.name} Capital {value.capital} with {value.population} souls and area of {value.area}Km</span></p>
+            {/* <div className="tooltipText">{value.name}</div>
+            <div className="tooltipText"> Capital {value.capital}</div>
+            <div className="tooltipText">Population {value.population}</div>
+            <div className="tooltipText">Area {value.area}Km</div> */}
         </div>
        
     )
 };
 const showInfo=()=>{
     return (
-        <div className={styles.tooltipText}>
-            Mouse over a circle to show you some information about the country
-        </div>
+        <p><span className="tooltipText">Mouse over a circle to show you some information about the country</span></p>
+        // <div className="tooltipText">
+        //     Mouse over a circle to show you some information about the country
+        // </div>
     )
 }
 const ForceGraphToolTip=({value})=>{
     return(
-        <div className={styles.containerTooltip}>
+        <div className="containerTooltip">
             {value?showData(value):showInfo()}
         </div>
     )

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
 import DataVisForceGraph from './DataVisForceGraph';
 import ForceGraphToolTip from './ForceGraphToolTip';
-import styles from './force-style.module.css';
+import  './forceGraph.css';
 
+//import styles from './force-style.module.css';
 class ForceDirectContainer extends Component{
     constructor(){
         super();
@@ -13,8 +14,7 @@ class ForceDirectContainer extends Component{
             fullChartData:{},
             isToolTipActive:false,
             countryCode:'',
-            chartWidth:0,
-            chartHeight:0
+            chartWidth:0
         };
     }
     componentDidMount(){
@@ -22,8 +22,9 @@ class ForceDirectContainer extends Component{
             console.log('====================================');
             console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
             console.log('====================================');
-            window.addEventListener('resize',this.resizeWindowHandler);
             this.setChartDimensions();
+            window.addEventListener('resize',this.setChartDimensions);
+           
         }
         setTimeout(() => {
             const storedForce=JSON.parse(Utilities.getStorageData("forcedata"));
@@ -40,34 +41,38 @@ class ForceDirectContainer extends Component{
     }
     componentWillUnmount(){
         if (typeof window!=='undefined'){
-            console.log('====================================');
-            console.log(`componentWillUnmount we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            console.log('====================================');
-            window.removeEventListener('resize',this.resizeWindowHandler);
+            window.removeEventListener('resize',this.setChartDimensions);
         }
     }
-    resizeWindowHandler=()=>{
-        console.log('====================================');
-        console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-        console.log('====================================');
-        this.setChartDimensions();
-        // if (window.innerHeight>=500 || window.innerWidth>=1024){
-        //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
-        // }
-        // else{
-        //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-        // }
-        //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+    setChartWidth=value=>{
+        return value*.80;
     }
     setChartDimensions=()=>{
-        console.log('====================================');
-            console.log(`setChartDimensions`);
-            console.log('====================================');
-        if (window.innerHeight>=500 || window.innerWidth>=1024){
-            this.setState({chartWidth:800,chartHeight:600});
+        const {chartWidth}= this.state;
+        let currentWidth=0;
+        if (this.chartContainer){
+           
+            currentWidth= this.chartContainer.getBoundingClientRect().width;
+
+            currentWidth=this.chartContainer.getBoundingClientRect().width<=768
+                ?this.setChartWidth(this.chartContainer.getBoundingClientRect().width)
+                :this.chartContainer.getBoundingClientRect().width;
+           
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth,
+                });
+            }
         }
         else{
-            this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
+            //currentWidth= window.innerWidth; 
+            currentWidth=this.setChartWidth(window.innerWidth);
+            
+            if (currentWidth!==chartWidth){
+                this.setState({
+                    chartWidth:currentWidth
+                });
+            }
         }
     }
     onShowHideLegend=()=>{
@@ -101,14 +106,13 @@ class ForceDirectContainer extends Component{
         this.setState({isToolTipActive:false,countryCode:''});
     }
     render(){
-        const{isError,isLoading,fullChartData,isToolTipActive,countryCode,labelShow,chartWidth,
-            chartHeight}= this.state;
+        const{isError,isLoading,fullChartData,isToolTipActive,countryCode,labelShow,chartWidth}= this.state;
         if (isError){
-            return (<div className={styles.preloadText}>Lights up the sirens.....Something went wrong</div>);
+            return (<div className="preloadText">Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
             return (
-                <div className={styles.preloadText}>
+                <div className="preloadText">
                     Hold on to your hat...i'm getting the data Chuck Norris style.<p/>
                     And speaking of chuck.....<br/>
                     Here's a random fact about Chuck Norris<br/>
@@ -118,18 +122,19 @@ class ForceDirectContainer extends Component{
             );
         }
         if (fullChartData.nodes.length){
+            const svgWidth=Math.max(chartWidth,300);
             return(
-                <div>
-                    <div className={styles.title}>Force directed graph ilustrating the world countries contiguity</div>
-                    <div className={styles.containerForce}>
-                    <div className={styles.forceGraph}>
+                <div ref={(el) => { this.chartContainer = el;}}> 
+                    <div className="title">Force directed graph ilustrating the world countries contiguity</div>
+                    <div className="stylescontainerForce">
+                    <div className="forceGraph">
                         {/* <DataVisForceGraph graphData={fullChartData} width={800} height={600}  */}
-                        <DataVisForceGraph graphData={fullChartData} width={chartWidth} height={chartHeight} 
+                        <DataVisForceGraph graphData={fullChartData} width={svgWidth} height={600}
                             enableToolTip={this.activateToolTip} 
                             disableToolTip={this.deactivateToolTip}
                             enableLegends={labelShow}/>
                     </div>
-                    <div className={styles.tooltipInfo}>
+                    <div className="tooltipInfo">
                         <ForceGraphToolTip value={isToolTipActive?Utilities.loadCountryInfo(countryCode):null}/>
                     </div>  
                </div>

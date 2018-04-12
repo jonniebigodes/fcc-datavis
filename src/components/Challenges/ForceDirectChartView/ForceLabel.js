@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {select as d3Select } from 'd3-selection';
-import '../../../Assets/css/forceGraph.css';
+//import '../../../Assets/css/forceGraph.css';
 class ForceLabel extends Component{
 
     componentDidMount(){

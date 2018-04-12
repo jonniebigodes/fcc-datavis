@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
-import '../../../Assets/css/forceGraph.css';
+//import '../../../Assets/css/forceGraph.css';
+import styles from './forceGraph.css';
 class ForceLink extends Component{
 
     componentDidMount(){

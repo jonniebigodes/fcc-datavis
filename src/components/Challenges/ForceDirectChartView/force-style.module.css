@@ -31,7 +31,7 @@
   .tooltipInfo{
     width: 80vmax;
     background-color: #efefef;
-    color: #666161;
+    color: hsl(0, 3%, 39%);
     
   }
   .tooltipText{
@@ -41,13 +41,15 @@
     color: #666161;
   }
   .containerForce{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: space-between;
-    align-items: center;
-    background-color: #efefef;
-    
+    align-items: center; 
   }
   .forceGraph{
     padding-top: 2vh;
@@ -78,3 +80,149 @@
     text-align: justify;
     color:#666161
   }
+
+@media  only screen and (max-width: 600px){
+  .title{
+    font-family: 'Merriweather', serif;
+    font-size: .6rem;
+    text-align: center;
+    color:#666161;
+    font-weight: 400;
+  }
+  .preloadText{
+    font-family: 'Merriweather', serif;
+    font-size: .5rem;
+    text-align:center;
+    font-weight: 400;
+  }
+  .tooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #666161;
+    font-weight: 400;
+  }
+  .containerForce{
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    /* background-color: #efefef; */
+    
+  }
+}
+@media only screen and (min-width: 600px){
+  .title{
+    font-family: 'Merriweather', serif;
+    font-size: .75rem;
+    text-align: center;
+    color:#666161;
+    font-weight: 500;
+  }
+  .preloadText{
+    font-family: 'Merriweather', serif;
+    font-size: .75rem;
+    text-align:center;
+    font-weight: 500;
+  }
+  .tooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.65rem;
+    text-align: center;
+    color: #666161;
+    font-weight: 500;
+  }
+  .containerForce{
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    /* background-color: #efefef; */
+  }
+  .tooltipInfo{
+    width: 80%;
+    background-color: #efefef;
+    color: hsl(0, 3%, 39%);
+  }
+  .tooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #666161;
+    font-weight: 500;
+    padding: .85rem .85rem .85rem .85rem;
+  }
+}
+@media only screen and (min-width:768px){
+  .title{
+    font-family: 'Merriweather', serif;
+    font-size: .85rem;
+    text-align: center;
+    color:#666161;
+    font-weight: 600;
+  }
+  .preloadText{
+    font-family: 'Merriweather', serif;
+    font-size: .85rem;
+    text-align:center;
+    font-weight: 500;
+  }
+  .tooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #666161;
+    font-weight: 500;
+    padding: .85rem .85rem .85rem .85rem;
+  }
+  .tooltipInfo{
+    width: 90%;
+    background-color: #efefef;
+    color: hsl(0, 3%, 39%);
+  }
+}
+@media only screen and (min-width:992px){
+  .title{
+    font-family: 'Merriweather', serif;
+    font-size: .75rem;
+    text-align: center;
+    color:#666161;
+    font-weight: 500;
+  }
+  .preloadText{
+    font-family: 'Merriweather', serif;
+    font-size: .75rem;
+    text-align:center;
+    font-weight: 500;
+  }
+  .tooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.65rem;
+    text-align: center;
+    color: #666161;
+    font-weight: 500;
+  }
+  .containerForce{
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    /* background-color: #efefef; */
+  }
+  .tooltipInfo{
+    width: 80%;
+    background-color: #efefef;
+    color: hsl(0, 3%, 39%);
+  }
+  .tooltipText{
+    font-family: 'Merriweather', serif;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #666161;
+    font-weight: 500;
+    padding: .85rem .85rem .85rem .85rem;
+  }
+}

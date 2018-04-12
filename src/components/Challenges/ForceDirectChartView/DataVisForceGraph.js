@@ -11,11 +11,11 @@ class DataVisForceGraph extends Component{
         super(props);
         this.forceSim=forceSimulation()
             .force('link',forceLink())
-            .force('charge',forceManyBody().strength(-50))
-            .force('center',forceCenter(this.props.width/ 2,this.props.height/ 2))
+            .force('charge',forceManyBody().strength(this.setsimForce(this.props.width)))
+            //.force('center',forceCenter(this.props.width/ 2,this.props.height/ 2))
             .force('collide',forceCollide())
-            .force('x',forceX(0))
-            .force('y',forceY(0))
+            .force('x',forceX(this.props.width/ 2))
+            .force('y',forceY(this.props.height/ 2))
             .nodes(this.props.graphData.nodes);
             this.forceSim.force('link').links(this.props.graphData.links);
     }
@@ -34,6 +34,56 @@ class DataVisForceGraph extends Component{
             // labelElement.attr('x', label=>{return label.x+5});
             // labelElement.attr('y', label=>{return label.y+5});
         });
+        
+    }
+    componentWillReceiveProps(nextProps){
+        console.log('====================================');
+        console.log(`current props width:${this.props.width}\nnextProps width:${nextProps.width}`);
+        console.log('====================================');
+        if (this.props.width!==nextProps.width){
+            console.log('====================================');
+            console.log(`current props width:${this.props.width}\nnextProps width:${nextProps.width}`);
+            console.log('====================================');
+            this.resizeSim(nextProps.width);
+        }
+    }
+    
+    setsimForce=value=>{
+        
+        switch (true) {
+            case (value<=300):
+                console.log('====================================');
+                console.log(`setsimForce:${value} <=300`);
+                console.log('====================================');
+                return -6;
+            case (value<=500):
+                console.log('====================================');
+                console.log(`setsimForce:${value} <=500`);
+                console.log('====================================');
+                return -8;
+            case (value<=768):
+                console.log('====================================');
+                console.log(`setsimForce:${value} <=768`);
+                console.log('====================================');
+                return -40;
+            default:
+                console.log('====================================');
+                console.log(`setsimForce:${value} >=768`);
+                console.log('====================================');
+               return -50;
+        }
+        console.log('====================================');
+        console.log(`setsimForce:${value} nan`);
+        console.log('====================================');
+    }
+    resizeSim=value=>{
+        const simForce= this.setsimForce(value);
+        
+        this.forceSim.force('x',forceX(value/2))
+                     .force('y',forceY(this.props.height/ 2))
+                     .force('charge',forceManyBody().strength(simForce));
+        this.forceSim.alpha(0.3).restart();
+
     }
     handleNodeEnter=value=>{
         const{enableToolTip}= this.props;
@@ -46,7 +96,7 @@ class DataVisForceGraph extends Component{
     render(){
         const {graphData,width,height}=this.props;
         return(
-            <svg width={width} height={height}>
+            <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
                 <ForceNodes graphNodes={graphData.nodes} 
                     sim={this.forceSim} 
                     graphNodeEnter={this.handleNodeEnter} 
@@ -62,16 +112,10 @@ DataVisForceGraph.propTypes={
         links:PropTypes.arrayOf(PropTypes.object),
         nodes:PropTypes.arrayOf(PropTypes.shape({
             code:PropTypes.string,
-            country:PropTypes.string,
-            index:PropTypes.number,
-            vx:PropTypes.number,
-            vy:PropTypes.number,
-            x:PropTypes.number,
-            y:PropTypes.number
+            country:PropTypes.string
         }))
     }),
     width:PropTypes.number,
-    height:PropTypes.number,
     enableToolTip:PropTypes.func,
     disableToolTip:PropTypes.func
 }
