@@ -106,15 +106,15 @@ class HeatMapChartContainer extends Component{
     render(){
         const {isError,isLoading,fullchartData,isTooltipActive,tooltipData,chartHeight,chartWidth}= this.state;
         if (isError){
-            return (<p><span className={styles.heatTitle}>Lights up the sirens.....Something went wrong</span></p>);
+            return (<div className={styles.heatPreloader}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<p><span className={styles.heatPreloader}>Hold on to your hat...i'm getting the data at lightspeed</span></p>);
+            return (<div className={styles.heatPreloader}>Hold on to your hat...i'm getting the data at lightspeed</div>);
         }
         if (fullchartData.baseTemperature){
             return(
                 <div ref={(el) => { this.chartContainer = el;}}>
-                    <p><span className={styles.heatTitle}>Monthly Global Surface Temperature between 1753 - 2015</span></p>
+                    <div className={styles.heatTitle}>Monthly Global Surface Temperature between 1753 - 2015</div>
                     <div className={styles.containerHeat}>
                         <div>
                             <HeatInfo/>

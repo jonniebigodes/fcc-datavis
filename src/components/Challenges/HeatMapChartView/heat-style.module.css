@@ -1,11 +1,26 @@
-
-@media  only screen and (max-width: 600px){
-  .Axis path,
+.containerHeatChart{
+  margin: 1 auto;
+}
+.containerHeatToolTip{
+  /* margin-left: 2vw;
+  width: 8vw;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  border: 1px solid;
+  border-color: blueviolet;
+  box-shadow:1px 1px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.Axis path,
   .Axis line {
     /*stroke: #E0E0E0;*/
     stroke: darkslategrey;
-  }
-
+}
+@media  only screen and (max-width: 600px){
+  
   .Axis text {
     font-size: 6px;
     fill: darkslategrey;
@@ -36,20 +51,7 @@
     padding: 1vw 1vh;
   /* margin: 0 auto; */
   }
-  .containerHeatChart{
-    margin: 1 auto;
-  }
-  .containerHeatToolTip{
-     /*margin-left: 2vw;
-    width: 8vw;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    border:1px solid;
-    border-color: blueviolet;
-    box-shadow: 1px 1px;  
-  }
+
   .heatTitle{
     font-size: .5rem;
     text-align: center;
@@ -235,22 +237,7 @@
     align-items: center;
     flex-wrap: wrap;  
   }
-  .containerHeatChart{
-    margin: 1 auto;
-  }
-  .containerHeatToolTip{
-    /* margin-left: 2vw;
-    width: 8vw;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    border: 1px solid;
-    border-color: blueviolet;
-    box-shadow:1px 1px;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-  }
+  
   .heatTitle{
     font-size: .65rem;
     text-align: center;
@@ -271,7 +258,7 @@
     margin-right: 1vw;
     padding-right: 1vw;
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -281,6 +268,7 @@
     color: white;
     width: 25px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -289,6 +277,7 @@
     color: white;
     width: 25px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -297,6 +286,7 @@
     color: white;
     width: 25px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -305,6 +295,7 @@
     color: rgba(112, 91, 63,0.65);
     width: 25px;
     height:20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -313,6 +304,7 @@
     color: rgba(112, 91, 63,0.65);
     width: 25px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -321,6 +313,7 @@
     color: rgba(112, 91, 63,0.65);
     width: 25px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -329,6 +322,7 @@
     color: rgba(112, 91, 63,0.65);
     width: 25px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -337,30 +331,34 @@
     color: rgba(112, 91, 63,0.65);
     width: 25px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
   .tenLabel{
     background-color: #f46d43;
     color: white;
-    width: 25px;
+    width: 30px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
   .elevenLabel{
     background-color: #d53e4f;
     color: white;
-    width: 25px;
+    width: 30px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
   .twelveLabel{
     background-color: #9e0142;
     color: white;
-    width: 25px;
+    width: 30px;
     height: 20px;
+    font-size: .85rem;
     text-align: center;
     font-weight: 400;
   }
@@ -389,11 +387,7 @@
   }
 }
 @media only screen and (min-width:768px){
-  .Axis path,
-  .Axis line {
-    /*stroke: #E0E0E0;*/
-    stroke: darkslategrey;
-  }
+  
 
   .Axis text {
     font-size: 7px;
@@ -414,9 +408,6 @@
     /*background-color: rgba(61, 58, 56, 0.212);*/
     padding: 1vw 1vh;
   /* margin: 0 auto; */
-  }
-  .containerHeatChart{
-    margin: 1 auto;
   }
   .containerHeatToolTip{
     margin-left: 2vw;

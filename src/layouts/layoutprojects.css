@@ -197,7 +197,7 @@ html {
     box-sizing: inherit;
   }
   body {
-    background-color: rgba(214, 255, 233,0.6);
+    /* background-color: rgba(214, 255, 233,0.6); */
     font-family: georgia, serif;
     font-weight: normal;
     word-wrap: break-word;

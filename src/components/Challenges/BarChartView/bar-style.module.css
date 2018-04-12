@@ -1,56 +1,63 @@
+.containerBarChart{
+  margin: 1 auto;
+}
+.containerBar{
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;  
+}
+.containerToolTip{
+  /* width: 220px; */
+  border: 1px solid;
+  border-color: blueviolet;
+  box-shadow:1px 1px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+
+  /* display: -webkit-inline-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  
+
+}
+.Axis path,
+.Axis line {
+  /*stroke: #E0E0E0;*/
+  stroke: darkslategrey;
+}
+.Axis-Bottom text {
+  /* transform: rotate(-45deg);  */
+  transform: rotate(-45deg); 
+  text-anchor: end;
+  
+}
 @media  only screen and (max-width: 600px){
-  .Axis path,
-  .Axis line {
-    /*stroke: #E0E0E0;*/
-    stroke: darkslategrey;
-  }
+
   .Axis text {
     font-size: 6px;
     fill: darkslategrey;
     font-weight: 500;
   }
-  .Axis-Bottom text {
-    /* transform: rotate(-45deg);  */
-    transform: rotate(-45deg); 
-    text-anchor: end;
-  }
+ 
   .BarTitle{
     font-size: .55rem;
     text-align: justify;
     font-family: 'Merriweather', serif;
     color: darkslategrey;
     font-weight: 500;
-  }
-  .containerBar{
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    flex-wrap: wrap;  
-  }
-
-  .containerToolTip{
-    /* width: 220px; */
-    border: 1px solid;
-    border-color: blueviolet;
-    box-shadow:1px 1px;
-    margin-bottom: 1rem;
-
-    /* display: -webkit-inline-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-inline-flex;
-    display: inline-flex;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-
   }
   .BarFooterText{
     font-size: 0.6rem;
@@ -67,6 +74,7 @@
     color: darkslategrey;
     word-wrap: break-word;
     font-weight: 500;
+    word-break: break-all;
   }
   .BarTitle{
     font-size: .5rem;
@@ -86,12 +94,7 @@
 }
 
 @media only screen and (min-width: 600px){
-  .Axis path,
-  .Axis line {
-    /*stroke: #E0E0E0;*/
-    stroke: darkslategrey;
-  }
-
+  
   .Axis text {
     font-size: 6px;
     fill: darkslategrey;
@@ -125,36 +128,7 @@
     color: darkslategrey;
     font-weight: 500;
   }
-  .containerBar{
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    flex-wrap: wrap;  
-  }
-  .containerToolTip{
-    /* width: 220px; */
-    border: 1px solid;
-    border-color: blueviolet;
-    box-shadow:1px 1px;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-
-    /* display: -webkit-inline-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-inline-flex;
-    display: inline-flex;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-  }
+  
   .BarFooterText{
     width: 90%;
     font-size: 0.65rem;
@@ -207,18 +181,6 @@
     color: darkslategrey;
     font-weight: 600;
   }
-  .containerBar{
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    flex-wrap: wrap;  
-  }
   .BarFooterText{
     font-size: 0.7rem;
     text-align: justify;
@@ -227,26 +189,7 @@
     /* margin-top:1vh; */
     font-weight: 500;
   }
-  .containerToolTip{
-    /* width: 220px; */
-    border: 1px solid;
-    border-color: blueviolet;
-    box-shadow:1px 1px;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-
-    /* display: -webkit-inline-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-inline-flex;
-    display: inline-flex;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    
   
-  }
 }
 @media only screen and (min-width:992px){
 
@@ -266,21 +209,6 @@
     transform: rotate(-45deg); 
     text-anchor: end;
     font-weight: 800;
-  }
-  .containerBar{
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: space-around;
-    align-items: center;
-    flex-wrap: nowrap;
-    /* background-color:rgba(34, 143, 5, .65); 
-    /*background-color: rgba(214, 255, 233,0.6);*/
-    
   }
   .BarFooterText{
     font-size: 0.75rem;
@@ -304,23 +232,7 @@
     color: darkslategrey;
     font-weight: 800;
   }
-  .containerToolTip{
-    border: 1px solid;
-    border-color: blueviolet;
-    box-shadow:2px 2px;
-    margin-left: 1rem;
 
-    /* display: -webkit-inline-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-inline-flex;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    
-
-  }
   .bartooltipText{
     font-family: 'Merriweather', serif;
     font-size: 0.85rem;
@@ -330,9 +242,7 @@
     margin: 0 auto;
     padding: 1.5 1.085rem;
   }
-  .containerBarChart{
-    margin: 1 auto;
-  }
+  
 }
 /* @media only screen and (min-width:1200px){
 

@@ -254,7 +254,7 @@ class GlobeViewContainer extends Component{
             return (<div className={styles.globeTitle}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<div className={styles.globeTitle}>Hold on to your hat...i'm getting the data at *insert meteror speed here</div>);
+            return (<div className={styles.globeTitle}>Hold on to your hat...i'm getting the data at *insert meteor speed here</div>);
         }
         if (globeMap.length){
             return (

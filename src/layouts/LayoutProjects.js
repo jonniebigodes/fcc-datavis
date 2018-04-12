@@ -6,7 +6,7 @@ import Footer from '../components/Footer/footer';
 import './layoutprojects.css';
 const TemplateWrapper = ({ children }) => (
   
-    <div style={{background:'#efefef'}}>
+    <div>
       <Helmet
         title="freeCodeCamp Data Visualization Projects"
         meta={[

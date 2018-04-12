@@ -16,12 +16,14 @@ const Header = () => (
       //   padding: '1.15rem 1.0875rem',
       // }}
     >
+     
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
             color: 'white',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            
           }}
         >
           Supercalifragilistic Data Visualization

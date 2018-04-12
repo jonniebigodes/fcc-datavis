@@ -42,12 +42,12 @@ class GlobeViewChart extends Component{
         return (
             // <svg width={svgDimensions.width} height={svgDimensions.height} viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}>
             //     <WorldMap width={svgDimensions.width}  ref="worldmap"
-            <svg width={svgWidth} height={svgHeight}
+            <svg width={svgWidth} height={500}
                 ref={(el)=>{this.worldmap=el;}}
                 viewBox={`0 0 ${svgWidth} ${svgHeight}`}  preserveAspectRatio="xMidYMid meet">
                 <g transform={transform!==null?`translate(${transform.x}, ${transform.y}) scale(${transform.k})`:null}>
                     <WorldMap width={svgWidth} 
-                        height={svgHeight}
+                        height={500}
                         world={globeData} meteorfall={meteorsInfo}
                         pointEnter={this.showToolTipInfo}
                         pointExit={this.hideToolTipInfo}

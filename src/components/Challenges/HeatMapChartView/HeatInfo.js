@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../../Assets/css/heatGraph.css';
 import styles from './heat-style.module.css';
 const HeatInfo=()=>{
     return(
