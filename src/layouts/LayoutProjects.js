@@ -1,12 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import Helmet from 'react-helmet';
-import Header from '../components/Header';
 import Footer from '../components/Footer/footer';
+import Header from '../components/Header';
 import './layoutprojects.css';
+
 const TemplateWrapper = ({ children }) => (
   
-    <div>
+    <div style={{background:'#f4f4f4'}}>
       <Helmet
         title="freeCodeCamp Data Visualization Projects"
         meta={[
@@ -28,12 +29,13 @@ const TemplateWrapper = ({ children }) => (
           maxWidth: 960,
           padding: '0px 1.0875rem 1.45rem',
           paddingTop: 0,
+          background:'#f4f4f4'
           //background:'rgba(214, 255, 233,0.6)'
         }}
       >
         {children()}
       </div>
-      <div>
+      <div style={{marginBottom:'0.02rem',paddingBottom:0}}>
         <Footer/>
       </div>
     </div>

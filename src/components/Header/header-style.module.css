@@ -1,5 +1,6 @@
 .header{
-    background:#06691b;
+    /* background:#06691b; */
+    background:#373737;
     margin-bottom: 1.15rem;
 }
 .containerDataVis{
@@ -9,7 +10,7 @@
 }
 @media screen and (max-width:600px){
     .header{
-        background:#06691b;
+        background:#373737;
         margin-bottom: 1.15rem;
         margin-right: 1.5rem;
         margin-left: 1.5rem;

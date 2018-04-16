@@ -46,7 +46,6 @@ class BarChartContainer extends Component{
     }
     componentWillUnmount(){
         if (typeof window!=='undefined'){
-            
             window.removeEventListener('resize',this.setChartDimensions);
         }
     }
@@ -71,8 +70,10 @@ class BarChartContainer extends Component{
             }
         }
         else{
-            //currentWidth= window.innerWidth; 
-            currentWidth=this.setChartWidth(window.innerWidth);  
+            //currentWidth= window.innerWidth;
+            
+            //currentWidth=this.setChartWidth(window.innerWidth);
+            currentWidth= window.innerWidth>=960?900:window.innerWidth;
             if (currentWidth!==chartWidth){
                 this.setState({
                     chartWidth:currentWidth
@@ -129,7 +130,7 @@ class BarChartContainer extends Component{
         }
         if (fullchartData.length){
             return(
-                <div ref={(el) => { this.chartContainer = el;}}>
+                <div ref={(el) => { this.chartContainer = el;}} className={styles.BarShow}>
                     <div className={styles.BarTitle}>
                         Federal Reserve Economic Data on Gross Domestic Product in the USA
                      </div>

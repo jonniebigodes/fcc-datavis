@@ -9,23 +9,17 @@ class GlobeViewChart extends Component{
         super(props);
         this.state={
             transform:null,
-            //zoomInit:false
+            
         };
-        // this.globeZoom=d3Zoom().scaleExtent([.5,10])
-        //     .on('zoom', this.onZoomHandler);
     }
     componentDidMount(){
-       // d3Select(this.refs.worldmap).call(d3Zoom().scaleExtent([.5,10]).on('zoom',this.onZoomHandler));
        d3Select(this.worldmap).call(d3Zoom().scaleExtent([.5,10]).on('zoom',this.onZoomHandler));
     }
     onZoomHandler=()=>{
-        // console.log('====================================');
-        // console.log(`onZoomHandler :${JSON.stringify(event)}`);
-        // console.log('====================================');
         if (event.type==="zoom"){
             this.setState({transform:event.transform});
         }
-        //
+        
     }
     showToolTipInfo=value=>{
         const {showToolTip}= this.props;
@@ -40,9 +34,7 @@ class GlobeViewChart extends Component{
         const {globeData,meteorsInfo,svgWidth,svgHeight}= this.props;
         const {transform}= this.state;
         return (
-            // <svg width={svgDimensions.width} height={svgDimensions.height} viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}>
-            //     <WorldMap width={svgDimensions.width}  ref="worldmap"
-            <svg width={svgWidth} height={500}
+            <svg width={svgWidth} height={svgHeight}
                 ref={(el)=>{this.worldmap=el;}}
                 viewBox={`0 0 ${svgWidth} ${svgHeight}`}  preserveAspectRatio="xMidYMid meet">
                 <g transform={transform!==null?`translate(${transform.x}, ${transform.y}) scale(${transform.k})`:null}>

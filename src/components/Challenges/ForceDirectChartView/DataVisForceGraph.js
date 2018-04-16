@@ -37,13 +37,13 @@ class DataVisForceGraph extends Component{
         
     }
     componentWillReceiveProps(nextProps){
-        console.log('====================================');
-        console.log(`current props width:${this.props.width}\nnextProps width:${nextProps.width}`);
-        console.log('====================================');
+        // console.log('====================================');
+        // console.log(`current props width:${this.props.width}\nnextProps width:${nextProps.width}`);
+        // console.log('====================================');
         if (this.props.width!==nextProps.width){
-            console.log('====================================');
-            console.log(`current props width:${this.props.width}\nnextProps width:${nextProps.width}`);
-            console.log('====================================');
+            // console.log('====================================');
+            // console.log(`current props width:${this.props.width}\nnextProps width:${nextProps.width}`);
+            // console.log('====================================');
             this.resizeSim(nextProps.width);
         }
     }
@@ -52,29 +52,29 @@ class DataVisForceGraph extends Component{
         
         switch (true) {
             case (value<=300):
-                console.log('====================================');
-                console.log(`setsimForce:${value} <=300`);
-                console.log('====================================');
+                // console.log('====================================');
+                // console.log(`setsimForce:${value} <=300`);
+                // console.log('====================================');
                 return -6;
             case (value<=500):
-                console.log('====================================');
-                console.log(`setsimForce:${value} <=500`);
-                console.log('====================================');
+                // console.log('====================================');
+                // console.log(`setsimForce:${value} <=500`);
+                // console.log('====================================');
                 return -8;
             case (value<=768):
-                console.log('====================================');
-                console.log(`setsimForce:${value} <=768`);
-                console.log('====================================');
+                // console.log('====================================');
+                // console.log(`setsimForce:${value} <=768`);
+                // console.log('====================================');
                 return -40;
             default:
-                console.log('====================================');
-                console.log(`setsimForce:${value} >=768`);
-                console.log('====================================');
+                // console.log('====================================');
+                // console.log(`setsimForce:${value} >=768`);
+                // console.log('====================================');
                return -50;
         }
-        console.log('====================================');
-        console.log(`setsimForce:${value} nan`);
-        console.log('====================================');
+        // console.log('====================================');
+        // console.log(`setsimForce:${value} nan`);
+        // console.log('====================================');
     }
     resizeSim=value=>{
         const simForce= this.setsimForce(value);

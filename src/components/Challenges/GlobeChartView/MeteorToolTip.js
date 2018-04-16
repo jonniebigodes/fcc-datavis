@@ -40,7 +40,6 @@ const MeteorToolTip=({data})=>{
     );
 };
 MeteorToolTip.propTypes={
-
     data:PropTypes.shape({
         name:PropTypes.string,
         meteorclass:PropTypes.string,

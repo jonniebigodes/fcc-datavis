@@ -1,12 +1,14 @@
+import { geoMercator, geoPath } from "d3-geo";
 import React, { Component } from 'react';
 import { feature } from "topojson-client";
-import { geoMercator, geoPath } from "d3-geo";
+import Utilities from '../../../Utils/Utilities';
 import GlobeViewChart from './GlobeViewChart';
 import MeteorToolTip from './MeteorToolTip';
-import Utilities from '../../../Utils/Utilities';
 import styles from './globe-style.module.css';
 class GlobeViewContainer extends Component{
 
+    //region
+    
     constructor(){
         super();
         this.state={
@@ -17,7 +19,9 @@ class GlobeViewContainer extends Component{
             isToolTipActive:false,
             meteorInfo:{},
             chartWidth:0,
-            chartHeight:0
+            chartHeight:0,
+            mapData:[],
+            meteorData:[]
         }
     }
     componentDidMount(){
@@ -31,19 +35,35 @@ class GlobeViewContainer extends Component{
         setTimeout(() => {
             const storedMap=JSON.parse(Utilities.getStorageData("globeMap"));
             const meteorsData=JSON.parse(Utilities.getStorageData("meteors"));
-            // const dataMap=JSON.parse(Utilities.getStorageData("parsedMap"));
-            // console.log('====================================');
-            // console.log(`dataMap:\n${JSON.stringify(dataMap,null,2)}`);
-            // console.log('====================================');
             if (!storedMap){
                 this.fetchData();
                 this.fetchDataMeteor();
             }
             else{
+                let updatedMap=storedMap.map((d,i)=>{
+                    return {
+                        dpath:geoPath().projection(this.project())(d),
+                        fillInfo:`rgba(38,50,56,${1 / storedMap.length * i})`
+                    }
+                });
+                let meteorPoints=meteorsData.map((d,i)=>{
+                    return {
+                        name:d.properties.name,
+                        mass:parseInt(d.properties.mass),
+                        date:d.properties.year,
+                        meteorClass:d.properties.recclass,
+                        radius:this.calculateRadius(parseInt(d.properties.mass)),
+                        latitude:this.project()([Number(d.properties.reclong),Number(d.properties.reclat)])[0],
+                        longitude:this.project()([Number(d.properties.reclong),Number(d.properties.reclat)])[1],
+                        fillOp:parseInt(d.properties.mass)<=179687.5?1:0.5
+                    }
+                });
                 this.setState(prevState=>({
                     // globeMap:feature(storedMap,storedMap.objects.countries).features,
                     globeMap:storedMap,
                     meteors:meteorsData,
+                    meteors:meteorPoints,
+                    globeMap:updatedMap,
                     isLoading:false
                 }));
             }
@@ -58,6 +78,7 @@ class GlobeViewContainer extends Component{
             window.removeEventListener('resize',this.setChartDimensions);
         }
     }
+    //endregion
     setChartWidth=value=>{
         return value*.80;
     }
@@ -78,40 +99,37 @@ class GlobeViewContainer extends Component{
             default:
                 return 12;
         }
-        /* if (value<=range){
-            return 2;
-        }
-        else if (value<=range*2){
-            //return 10;
-            return 4;
-        }
-        else if (value<=range*3){
-            return 6;
-        }
-        else if (value<=range*20){
-            return 8;
-        }
-        else if (value<=range*100){
-            // console.log('====================================');
-            // console.log(`(value<=range*100)`);
-            // console.log('====================================');
-            return 10;
-        }
-        // console.log('====================================');
-        // console.log(`(50)`);
-        // console.log('====================================');
-        return 12; */
     }
     project(){
         const {chartWidth,chartHeight}= this.state;
-        return geoMercator().scale(100).translate([chartWidth/2,chartHeight/2]);
-        // if(chartWidth<768){
-        //     return geoMercator().scale(chartWidth).translate([chartWidth/2,chartHeight/2]);
-        // }
-        // else{
-            
-        // }
-        
+        if (chartWidth<768){
+            return geoMercator().scale(chartWidth).translate([chartWidth/2,chartHeight/2]);
+        }
+        else{
+            return geoMercator().scale(100).translate([chartWidth/2,chartHeight/2]);
+        } 
+    }
+    updateMap=()=>{
+        const {mapData,meteorData}= this.state;
+        let updatedMap=mapData.map((d,i)=>{
+            return {
+                dpath:geoPath().projection(this.project())(d),
+                fillInfo:`rgba(38,50,56,${1 / mapData.length * i})`
+            }
+        });
+        let meteorPoints=meteorData.map((d,i)=>{
+            return {
+                name:d.properties.name,
+                mass:parseInt(d.properties.mass),
+                date:d.properties.year,
+                meteorClass:d.properties.recclass,
+                radius:this.calculateRadius(parseInt(d.properties.mass)),
+                latitude:this.project()([Number(d.properties.reclong),Number(d.properties.reclat)])[0],
+                longitude:this.project()([Number(d.properties.reclong),Number(d.properties.reclat)])[1],
+                fillOp:parseInt(d.properties.mass)<=179687.5?1:0.5
+            }
+        });
+        this.setState({meteors:meteorPoints,globeMap:updatedMap})
     }
     setChartDimensions=()=>{
         const {chartWidth}= this.state;
@@ -136,7 +154,8 @@ class GlobeViewContainer extends Component{
             }
         }
         else{
-            currentWidth=this.setChartWidth(window.innerWidth);
+            //currentWidth=this.setChartWidth(window.innerWidth);
+            currentWidth= window.innerWidth>=960?900:window.innerWidth;
             currentHeight= this.setChartWidth(window.innerHeight);
             if (currentWidth!==chartWidth){
                 this.setState({
@@ -145,29 +164,9 @@ class GlobeViewContainer extends Component{
                 });
             }
         }
-        // console.log('====================================');
-        // console.log(`setChartDimensions`);
-        // console.log('====================================');
-        // if (window.innerHeight>=500 || window.innerWidth>=1024){
-        //     this.setState({chartWidth:800,chartHeight:550});
-        // }
-        // else{
-        //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-        // }
+        this.updateMap;
     }
-    // resizeWindowHandler=()=>{
-    //     console.log('====================================');
-    //     console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-    //     console.log('====================================');
-    //     this.setChartDimensions();
-    //     // if (window.innerHeight>=500 || window.innerWidth>=1024){
-    //     //     this.setState({chartWidth:dataVisConstant.svgDimensions.charts.width,chartHeight:dataVisConstant.svgDimensions.charts.heigth});
-    //     // }
-    //     // else{
-    //     //     this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-    //     // }
-    //     //this.setState({chartWidth:window.innerWidth,chartHeight:window.innerHeight});
-    // }
+    //region
     fetchDataMeteor(){
         fetch('https://data.nasa.gov/resource/y77d-th95.geojson')
             .then(response=>{return response.json()})
@@ -185,19 +184,12 @@ class GlobeViewContainer extends Component{
                         fillOp:parseInt(d.properties.mass)<=179687.5?1:0.5
                     }
                 });
-                console.log('====================================');
-                console.log(`meteor format\n:${JSON.stringify(meteorPoints,null,2)}`);
-                console.log('====================================');
-                // result.features.map((d,i)=>{
-                //     console.log('====================================');
-                //     console.log(`data features:${JSON.stringify(d,null,2)}`);
-                //     console.log('====================================');
-                // }); 
-                // Utilities.setStorageData("meteors",result);
-                Utilities.setStorageData("meteors",meteorPoints);
+                Utilities.setStorageData("meteors",result.features);
+                //Utilities.setStorageData("meteors",meteorPoints);
                 this.setState({
                    // meteors:result,
                     meteors:meteorPoints,
+                    meteorData:result.features,
                     isLoading:false
                 });
             })
@@ -208,6 +200,7 @@ class GlobeViewContainer extends Component{
                 this.setState({isError:true});
             })
     }
+    
     fetchData(){
         fetch('https://d3js.org/world-50m.v1.json')
             .then(response=>{
@@ -224,14 +217,13 @@ class GlobeViewContainer extends Component{
                 });
                
                
-                // console.log('====================================');
-                // console.log(`paths Globe\n:${JSON.stringify(formattedMap,null,2)}`);
-                // console.log('====================================');
-                //Utilities.setStorageData("globeMap",result);
-                Utilities.setStorageData("globeMap",formattedMap);
+                
+                Utilities.setStorageData("globeMap",pathsGlobe);
+                //Utilities.setStorageData("globeMap",formattedMap);
                 this.setState({
                     //globeMap:feature(result,result.objects.countries).features
-                    globeMap:formattedMap
+                    globeMap:formattedMap,
+                    mapData:pathsGlobe
                 });
             })
             .catch(err=>{
@@ -241,13 +233,16 @@ class GlobeViewContainer extends Component{
                 this.setState({isError:true});
             })
     }
-   
+    //endregion
+   //region
     activateToolTip=value=>{
         this.setState({isToolTipActive:true,meteorInfo:value});
     }
     disableToolTip=()=>{
         this.setState({isToolTipActive:false,meteorInfo:{}});
     }
+    //endregion
+    //region
     render(){
         const {isError,isLoading,globeMap,meteors,isToolTipActive,meteorInfo, chartWidth,chartHeight}= this.state;
         if (isError){
@@ -265,8 +260,7 @@ class GlobeViewContainer extends Component{
                             <GlobeViewChart
                                 svgWidth={chartWidth}
                                 svgHeight={chartHeight}
-                                globeData={globeMap} 
-                                // meteorsInfo={meteors.features}
+                                globeData={globeMap}
                                 meteorsInfo={meteors}
                                 showToolTip={this.activateToolTip}
                                 hideToolTip={this.disableToolTip}/>
@@ -280,5 +274,6 @@ class GlobeViewContainer extends Component{
             )
         }
     }
+    //endregion
 }
 export default GlobeViewContainer;

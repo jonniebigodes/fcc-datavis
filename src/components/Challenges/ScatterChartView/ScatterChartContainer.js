@@ -75,7 +75,8 @@ class ScatterChartContainer extends Component{
         }
         else{
             //currentWidth= window.innerWidth; 
-            currentWidth=this.setChartWidth(window.innerWidth);  
+            // currentWidth=this.setChartWidth(window.innerWidth);
+            currentWidth=window.innerWidth>=960?900:window.innerWidth;
             if (currentWidth!==chartWidth){
                 this.setState({
                     chartWidth:currentWidth

@@ -19,11 +19,8 @@ class HeatMapChartContainer extends Component{
     }
     componentDidMount(){
         if (typeof window!=='undefined'){
-            console.log('====================================');
-            console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            console.log('====================================');
-            window.addEventListener('resize',this.setChartDimensions);
             this.setChartDimensions();
+            window.addEventListener('resize',this.setChartDimensions);
         }
         setTimeout(() => {
             const storedHeatData=JSON.parse(Utilities.getStorageData("heatdata"));
@@ -68,7 +65,8 @@ class HeatMapChartContainer extends Component{
         }
         else{
             //currentWidth= window.innerWidth; 
-            currentWidth=this.setChartWidth(window.innerWidth);  
+            //currentWidth=this.setChartWidth(window.innerWidth);
+            currentWidth= window.innerWidth>=960?900:window.innerWidth;
             if (currentWidth!==chartWidth){
                 this.setState({
                     chartWidth:currentWidth

@@ -30,7 +30,7 @@ class DataVisBarChart extends Component {
 
     const xScale= scaleTime().domain([minDate,maxDate]).range([margins.left, 
       svgDimensions.width-margins.right]);
-      const yScale=scaleLinear()
+    const yScale=scaleLinear()
       .domain([0, maxValue])
       .range([svgDimensions.height - margins.bottom, margins.top]);
     

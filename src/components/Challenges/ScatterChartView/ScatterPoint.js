@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class ScatterPoint extends Component{
 
@@ -24,4 +24,21 @@ class ScatterPoint extends Component{
         );
     }
 }
+ScatterPoint.propTypes={
+    pos:PropTypes.shape({
+        x:PropTypes.number,
+        y:PropTypes.number
+    }),
+    scatterItem:PropTypes.shape({
+        Doping:PropTypes.string,
+        Name:PropTypes.string,
+        Nationality:PropTypes.string,
+        Place:PropTypes.number,
+        Seconds:PropTypes.number,
+        Time:PropTypes.string,
+        URL:PropTypes.string,
+        Year:PropTypes.number,
+        behind:PropTypes.number 
+    })
+};
 export default ScatterPoint;

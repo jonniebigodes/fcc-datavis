@@ -1,5 +1,5 @@
 .containerBarChart{
-  margin: 1 auto;
+  margin: 0 auto;
 }
 .containerBar{
   display: -webkit-flex;
@@ -13,10 +13,14 @@
   align-items: center;
   flex-wrap: wrap;  
 }
+.BarShow{
+  background: #f4f4f4;
+  width: 90%;
+}
 .containerToolTip{
   /* width: 220px; */
   border: 1px solid;
-  border-color: blueviolet;
+  border-color:#dcd0c0;
   box-shadow:1px 1px;
   margin-left: 1rem;
   margin-bottom: 1rem;
@@ -45,7 +49,6 @@
   
 }
 @media  only screen and (max-width: 600px){
-
   .Axis text {
     font-size: 6px;
     fill: darkslategrey;

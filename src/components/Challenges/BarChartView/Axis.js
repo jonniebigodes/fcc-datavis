@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as d3Axis from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
 //import '../../../Assets/css/barChart.css';
@@ -44,4 +45,11 @@ class Axis extends Component{
           );
     }
 }
+Axis.propTypes={
+    orient:PropTypes.string,
+    scale:PropTypes.func,
+    translate:PropTypes.string,
+    tickSize:PropTypes.number
+    
+};
 export default Axis;

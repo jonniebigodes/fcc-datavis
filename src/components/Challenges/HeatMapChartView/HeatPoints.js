@@ -43,5 +43,24 @@ class HeatPoints extends Component{
         );
     }
 }
-
+HeatPoints.propTypes={
+    varianceData:PropTypes.shape({
+        maxVariance:PropTypes.number,
+        minVariance:PropTypes.number
+    }),
+    svgDimensions:PropTypes.shape({
+        height:PropTypes.number,
+        innerHeight:PropTypes.number,
+        innerWidth:PropTypes.number,
+        width:PropTypes.number
+    }),
+    heatData:PropTypes.arrayOf(PropTypes.shape({
+        month:PropTypes.number,
+        variance:PropTypes.number,
+        year:PropTypes.number
+    })),
+    baseTemp:PropTypes.number,
+    heatMouseOver:PropTypes.func,
+    heatMouseleave:PropTypes.func
+};
 export default HeatPoints;

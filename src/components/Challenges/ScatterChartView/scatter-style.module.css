@@ -38,7 +38,7 @@
     }
     .scattercontainerToolTip{
         border: 1px solid;
-        border-color: blueviolet;
+        border-color:#dcd0c0;
         box-shadow:1px 1px;
         margin-bottom: 1rem;
         /*width: 310px;
@@ -116,7 +116,7 @@
     }
     .scattercontainerToolTip{
         border: 1px solid;
-        border-color: blueviolet;
+        border-color:#dcd0c0;
         box-shadow:1px 1px;
         margin-bottom: 1rem;
         /*width: 310px;
@@ -194,7 +194,7 @@
     .scattercontainerToolTip{
         margin: 1rem;
         border: 1px solid;
-        border-color: blueviolet;
+        border-color:#dcd0c0;
         box-shadow:1px 1px;
         margin-bottom: 1rem;
         /*width: 310px;
@@ -271,7 +271,7 @@
     .scattercontainerToolTip{
         width: 8em;
         border: 1px solid;
-        border-color: blueviolet;
+        border-color:#dcd0c0;
         box-shadow:2px 2px;
         margin-left: 2rem;
         /* width: 310px;
