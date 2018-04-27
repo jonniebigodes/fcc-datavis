@@ -13,19 +13,6 @@
   font-size: 10px;
   color: rgba(24, 48, 92, 0.39);
 }
-.preloadText{
-  font-family: 'Merriweather', serif;
-  font-size: 1.2rem;
-  text-align:center;
-
-}
-
-.tooltipInfo{
-  width: 90%;
-  background-color: #efefef;
-  color: hsl(0, 3%, 39%);
-  
-}
 .tooltipText{
   font-family: 'Merriweather', serif;
   font-size: 0.9rem;
@@ -34,20 +21,12 @@
 }
 
 .forceGraph{
-  /* padding-top: 2vh;
-  padding-right: 2vw;
-  margin-right: 2vw;
-  margin-top:2vh; */
   margin: 1 auto;
- 
-  /* background-color: #efefef; */
 }
 .imgToolTip{
   width: 40px;
   height: 40px;
   position: relative;
-  /* top: 50%;
-  left: 30%;  */
   top: 2%;
   left: 50%;
   border: 1px rgba(24, 48, 92, 0.39);
@@ -72,12 +51,7 @@
     color:#666161;
     font-weight: 400;
   }
-  .preloadText{
-    font-family: 'Merriweather', serif;
-    font-size: .5rem;
-    text-align:center;
-    font-weight: 400;
-  }
+ 
   .tooltipText{
     padding: 0.4rem 0.4rem 0.4rem 0.4rem;
     font-family: 'Merriweather', serif;
@@ -99,7 +73,6 @@
     align-content: center;
     align-items: center;
     flex-wrap: wrap; 
-    /* background-color: #efefef; */
   }
   .containerTooltip{
     position: relative;
@@ -124,12 +97,6 @@
     color:#666161;
     font-weight: 500;
   }
-  .preloadText{
-    font-family: 'Merriweather', serif;
-    font-size: .75rem;
-    text-align:center;
-    font-weight: 500;
-  }
   .tooltipText{
     padding: 0.4rem 0.4rem 0.4rem 0.4rem;
     font-family: 'Merriweather', serif;
@@ -149,12 +116,6 @@
     align-content: center;
     align-items: center;
     flex-wrap: wrap; 
-    /* background-color: #efefef; */
-  }
-  .tooltipInfo{
-    width: 80%;
-    background-color: #efefef;
-    color: hsl(0, 3%, 39%);
   }
   .tooltipText{
     font-family: 'Merriweather', serif;
@@ -185,12 +146,7 @@
     color:#666161;
     font-weight: 600;
   }
-  .preloadText{
-    font-family: 'Merriweather', serif;
-    font-size: .85rem;
-    text-align:center;
-    font-weight: 500;
-  }
+
   .tooltipText{
     font-family: 'Merriweather', serif;
     font-size: 0.85rem;
@@ -198,11 +154,6 @@
     color: #666161;
     font-weight: 500;
     padding: .85rem .85rem .85rem .85rem;
-  }
-  .tooltipInfo{
-    width: 90%;
-    background-color: #efefef;
-    color: hsl(0, 3%, 39%);
   }
   .containerTooltip{
     position: relative;
@@ -227,7 +178,6 @@
     align-content: center;
     align-items: center;
     flex-wrap: nowrap; 
-    /* background-color: #efefef; */
   }
 }
 @media only screen and (min-width:992px){
@@ -238,12 +188,7 @@
     color:#666161;
     font-weight: 500;
   }
-  .preloadText{
-    font-family: 'Merriweather', serif;
-    font-size: 1.2rem;
-    text-align:center;
-    font-weight: 500;
-  }
+
   .tooltipText{
     font-family: 'Merriweather', serif;
     font-size: 0.75rem;
@@ -262,12 +207,6 @@
     align-content: center;
     align-items: center;
     flex-wrap: nowrap; 
-    /* background-color: #efefef; */
-  }
-  .tooltipInfo{
-    width: 80%;
-    background-color: #efefef;
-    color: hsl(0, 3%, 39%);
   }
   .tooltipText{
     font-family: 'Merriweather', serif;

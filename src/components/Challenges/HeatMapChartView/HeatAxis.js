@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import * as d3Axis from 'd3-axis';
 import {select as d3Select} from 'd3-selection';
 import * as d3Time from 'd3-time';
-//import '../../../Assets/css/heatGraph.css';
 import styles from './heat-style.module.css';
 class HeatAxis extends Component{
 

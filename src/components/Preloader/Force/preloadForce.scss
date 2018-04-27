@@ -1,0 +1,201 @@
+$colorbar:#373737;
+.containerForce{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.itemForce-0,.itemForce-1,
+.itemForce-2,.itemForce-3,
+.itemForce-4,.itemForce-5,
+.itemForce-6,.itemForce-7,
+.itemForce-8,.itemForce-9,
+.itemForce-10,.itemForce-11,
+.itemForce-12,.itemForce-13,
+.itemForce-14,.itemForce-15{
+    min-height: 45px;
+    max-height: 50px;
+    flex: calc(100%/8);
+    border: 3px solid white;
+    background: transparent;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+}
+.itemForce-0:nth-of-type(n){
+    background:$colorbar;
+}
+.itemForce-1:nth-child(n+11):nth-child(-n+14){
+    background:$colorbar; 
+}
+.itemForce-1{
+    &:nth-of-type(14){
+        background:$colorbar; 
+    }
+    &:nth-of-type(20){
+        background:$colorbar; 
+    }
+}
+.itemForce-1:nth-child(n+51):nth-child(-n+54){
+    background:$colorbar;
+}
+.itemForce-2:nth-child(n+13):nth-child(-n+16){
+    background:$colorbar;
+}
+.itemForce-2{
+    &:nth-of-type(27){
+        background:$colorbar;
+    }
+}
+.itemForce-2:nth-child(n+49):nth-child(-n+52){
+    background:$colorbar;
+}
+
+.itemForce-3:nth-child(n+11):nth-child(-n+14){
+    background:$colorbar;
+}
+.itemForce-3{
+    &:nth-of-type(34){
+        background:$colorbar;
+    }
+}
+.itemForce-3:nth-child(n+49):nth-child(-n+52){
+    background:$colorbar;
+}
+.itemForce-4:nth-child(n+10):nth-child(-n+13){
+    background:$colorbar;
+}
+.itemForce-4{
+    &:nth-of-type(41){
+        background:$colorbar;
+    }
+}
+.itemForce-4:nth-child(n+49):nth-child(-n+52){
+    background:$colorbar;
+}
+
+.itemForce-5:nth-child(n+9):nth-child(-n+12){
+    background:$colorbar;
+}
+.itemForce-5{
+    &:nth-of-type(34){
+        background:$colorbar;
+    }
+}
+.itemForce-5:nth-child(n+49):nth-child(-n+52){
+    background:$colorbar;
+}
+
+.itemForce-6:nth-child(n+9):nth-child(-n+12){
+    background:$colorbar;
+}
+.itemForce-6{
+    &:nth-of-type(27){
+        background:$colorbar;
+    }
+}
+.itemForce-6:nth-child(n+49):nth-child(-n+52){
+    background:$colorbar;
+}
+
+.itemForce-7:nth-child(n+10):nth-child(-n+13){
+    background:$colorbar;
+}
+.itemForce-7{
+    &:nth-of-type(20){
+        background:$colorbar;
+    }
+}
+.itemForce-7:nth-child(n+50):nth-child(-n+53){
+    background:$colorbar;
+}
+.itemForce-8:nth-child(n+11):nth-child(-n+14){
+    background:$colorbar;
+}
+.itemForce-8{
+    &:nth-of-type(29){
+        background:$colorbar;
+    }
+}
+.itemForce-8:nth-child(n+51):nth-child(-n+54){
+    background:$colorbar;
+}
+
+.itemForce-9:nth-child(n+12):nth-child(-n+15){
+    background:$colorbar;
+}
+.itemForce-9{
+    &:nth-of-type(38){
+        background:$colorbar;
+    }
+}
+.itemForce-9:nth-child(n+52):nth-child(-n+55){
+    background:$colorbar;
+}
+
+.itemForce-10:nth-child(n+13):nth-child(-n+16){
+    background:$colorbar;
+}
+.itemForce-10{
+    &:nth-of-type(47){
+        background:$colorbar;
+    }
+}
+.itemForce-10:nth-child(n+53):nth-child(-n+56){
+    background:$colorbar;
+}
+
+.itemForce-11:nth-child(n+13):nth-child(-n+16){
+    background:$colorbar;
+}
+.itemForce-11{
+    &:nth-of-type(40){
+        background:$colorbar;
+    }
+}
+.itemForce-11:nth-child(n+53):nth-child(-n+56){
+    background:$colorbar;
+}
+
+.itemForce-12:nth-child(n+11):nth-child(-n+14){
+    background:$colorbar;
+}
+.itemForce-12{
+    &:nth-of-type(31){
+        background:$colorbar;
+    }
+}
+.itemForce-12:nth-child(n+51):nth-child(-n+54){
+    background:$colorbar;
+}
+
+.itemForce-13:nth-child(n+10):nth-child(-n+13){
+    background:$colorbar;
+}
+.itemForce-13{
+    &:nth-of-type(22){
+        background:$colorbar;
+    }
+}
+.itemForce-13:nth-child(n+51):nth-child(-n+54){
+    background:$colorbar;
+}
+
+.itemForce-14:nth-child(n+9):nth-child(-n+13){
+    background:$colorbar;
+}
+.itemForce-14:nth-child(n+50):nth-child(-n+53){
+    background:$colorbar;
+}
+
+.itemForce-15:nth-child(n+9):nth-child(-n+12){
+    background:$colorbar;
+}
+.itemForce-15{
+    &:nth-of-type(4){
+        background:$colorbar;
+    }
+}
+.itemForce-15:nth-child(n+50):nth-child(-n+53){
+    background:$colorbar;
+}

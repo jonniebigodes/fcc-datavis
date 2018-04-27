@@ -1,0 +1,227 @@
+$backColor:#373737;
+.containerWorld{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.itemWorld-0,.itemWorld-1,
+.itemWorld-2,.itemWorld-3,
+.itemWorld-4,.itemWorld-5,
+.itemWorld-6,.itemWorld-7,
+.itemWorld-8,.itemWorld-9,
+.itemWorld-10,.itemWorld-11,
+.itemWorld-12{
+    min-height: 45px;
+    max-height: 50px;
+    flex: calc(100%/8);
+    border: 3px solid white;
+    background: transparent;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+}
+.itemWorld-0:nth-of-type(n){
+    background:$backColor;
+}
+.itemWorld-1:nth-child(n+11):nth-child(-n+14),
+.itemWorld-1:nth-child(n+19):nth-child(-n+22),
+.itemWorld-1:nth-child(n+27):nth-child(-n+30),
+.itemWorld-1:nth-child(n+35):nth-child(-n+38),
+.itemWorld-1:nth-child(n+43):nth-child(-n+46),
+.itemWorld-1:nth-child(n+51):nth-child(-n+54){
+    background:$backColor;
+}
+.itemWorld-2:nth-child(n+14):nth-child(-n+15),
+.itemWorld-2:nth-child(n+18):nth-child(-n+19),
+.itemWorld-2:nth-child(n+22):nth-child(-n+23),
+.itemWorld-2:nth-child(n+10):nth-child(-n+11),
+.itemWorld-2:nth-child(n+27):nth-child(-n+30),
+.itemWorld-2:nth-child(n+35):nth-child(-n+38),
+.itemWorld-2:nth-child(n+43):nth-child(-n+46),
+.itemWorld-2:nth-child(n+51):nth-child(-n+54),
+{
+    background:$backColor;
+}
+.itemWorld-3:nth-child(n+10):nth-child(-n+11),
+.itemWorld-3:nth-child(n+14):nth-child(-n+15),
+.itemWorld-3:nth-child(n+18):nth-child(-n+19),
+.itemWorld-3:nth-child(n+22):nth-child(-n+23),
+.itemWorld-3:nth-child(n+26):nth-child(-n+27),
+.itemWorld-3:nth-child(n+30):nth-child(-n+31),
+.itemWorld-3:nth-child(n+34):nth-child(-n+35),
+.itemWorld-3:nth-child(n+38):nth-child(-n+39),
+.itemWorld-3:nth-child(n+43):nth-child(-n+46),
+.itemWorld-3:nth-child(n+51):nth-child(-n+54),
+{
+    background:$backColor;
+}
+
+.itemWorld-4:nth-child(n+10):nth-child(-n+11),
+.itemWorld-4:nth-child(n+14):nth-child(-n+15),
+.itemWorld-4:nth-child(n+18):nth-child(-n+19),
+.itemWorld-4:nth-child(n+22):nth-child(-n+23),
+.itemWorld-4:nth-child(n+26):nth-child(-n+27),
+.itemWorld-4:nth-child(n+30):nth-child(-n+31),
+.itemWorld-4:nth-child(n+34):nth-child(-n+35),
+.itemWorld-4:nth-child(n+38):nth-child(-n+39),
+.itemWorld-4:nth-child(n+42):nth-child(-n+43),
+.itemWorld-4:nth-child(n+46):nth-child(-n+47),
+.itemWorld-4:nth-child(n+50):nth-child(-n+51),
+.itemWorld-4:nth-child(n+54):nth-child(-n+55)
+
+{
+    background:$backColor;
+}
+.itemWorld-5:nth-child(n+10):nth-child(-n+11),
+.itemWorld-5:nth-child(n+14):nth-child(-n+15),
+.itemWorld-5:nth-child(n+18):nth-child(-n+19),
+.itemWorld-5:nth-child(n+22):nth-child(-n+23),
+.itemWorld-5:nth-child(n+26):nth-child(-n+27),
+.itemWorld-5:nth-child(n+30):nth-child(-n+31),
+.itemWorld-5:nth-child(n+34):nth-child(-n+35),
+.itemWorld-5:nth-child(n+38):nth-child(-n+39),
+.itemWorld-5:nth-child(n+42):nth-child(-n+43),
+.itemWorld-5:nth-child(n+46):nth-child(-n+47),
+.itemWorld-5:nth-child(n+50):nth-child(-n+51),
+.itemWorld-5:nth-child(n+54):nth-child(-n+55)
+{
+    background:$backColor;
+    transform: rotate(-90deg);
+}
+.itemWorld-6:nth-child(n+10):nth-child(-n+11),
+.itemWorld-6:nth-child(n+14):nth-child(-n+15),
+.itemWorld-6:nth-child(n+18):nth-child(-n+19),
+.itemWorld-6:nth-child(n+22):nth-child(-n+23),
+.itemWorld-6:nth-child(n+26):nth-child(-n+27),
+.itemWorld-6:nth-child(n+30):nth-child(-n+31),
+.itemWorld-6:nth-child(n+34):nth-child(-n+35),
+.itemWorld-6:nth-child(n+38):nth-child(-n+39),
+.itemWorld-6:nth-child(n+42):nth-child(-n+43),
+.itemWorld-6:nth-child(n+46):nth-child(-n+47),
+.itemWorld-6:nth-child(n+50):nth-child(-n+51),
+.itemWorld-6:nth-child(n+54):nth-child(-n+55)
+{
+    background:$backColor;
+}
+.itemWorld-7{
+    &:nth-of-type(10){
+        background:$backColor;
+    }
+    &:nth-of-type(12){
+        background:$backColor;
+    }
+    &:nth-of-type(13){
+        background:$backColor;
+    }
+    &:nth-of-type(15){
+        background:$backColor;
+    }
+    &:nth-of-type(18){
+        background:$backColor;
+    }
+    &:nth-of-type(20){
+        background:$backColor;
+    }
+    &:nth-of-type(21){
+        background:$backColor;
+    }
+    &:nth-of-type(23){
+        background:$backColor;
+    }
+    &:nth-of-type(26){
+        background:$backColor;
+    }
+    &:nth-of-type(28){
+        background:$backColor;
+    }
+    &:nth-of-type(29){
+        background:$backColor;
+    }
+    &:nth-of-type(31){
+        background:$backColor;
+    }
+    &:nth-of-type(34){
+        background:$backColor;
+    }
+    &:nth-of-type(36){
+        background:$backColor;
+    }
+    &:nth-of-type(37){
+        background:$backColor;
+    }
+    &:nth-of-type(39){
+        background:$backColor;
+    }
+    &:nth-of-type(42){
+        background:$backColor;
+    }
+    &:nth-of-type(44){
+        background:$backColor;
+    }
+    &:nth-of-type(45){
+        background:$backColor;
+    }
+    &:nth-of-type(47){
+        background:$backColor;
+    }
+    &:nth-of-type(50){
+        background:$backColor;
+    }
+    &:nth-of-type(52){
+        background:$backColor;
+    }
+    &:nth-of-type(53){
+        background:$backColor;
+    }
+    &:nth-of-type(55){
+        background:$backColor;
+    }
+}
+.itemWorld-8:nth-child(n+10):nth-child(-n+11),
+.itemWorld-8:nth-child(n+14):nth-child(-n+15),
+.itemWorld-8:nth-child(n+18):nth-child(-n+19),
+.itemWorld-8:nth-child(n+22):nth-child(-n+23),
+.itemWorld-8:nth-child(n+26):nth-child(-n+27),
+.itemWorld-8:nth-child(n+30):nth-child(-n+31),
+.itemWorld-8:nth-child(n+34):nth-child(-n+35),
+.itemWorld-8:nth-child(n+38):nth-child(-n+39),
+.itemWorld-8:nth-child(n+42):nth-child(-n+43),
+.itemWorld-8:nth-child(n+46):nth-child(-n+47),
+.itemWorld-8:nth-child(n+50):nth-child(-n+51),
+.itemWorld-8:nth-child(n+54):nth-child(-n+55){
+    background:$backColor;
+}
+.itemWorld-9:nth-child(n+11):nth-child(-n+14),
+.itemWorld-9:nth-child(n+19):nth-child(-n+22),
+.itemWorld-9:nth-child(n+26):nth-child(-n+27),
+.itemWorld-9:nth-child(n+30):nth-child(-n+31),
+.itemWorld-9:nth-child(n+34):nth-child(-n+35),
+.itemWorld-9:nth-child(n+38):nth-child(-n+39),
+.itemWorld-9:nth-child(n+42):nth-child(-n+43),
+.itemWorld-9:nth-child(n+46):nth-child(-n+47),
+.itemWorld-9:nth-child(n+50):nth-child(-n+51),
+.itemWorld-9:nth-child(n+54):nth-child(-n+55){
+    background:$backColor;
+}
+.itemWorld-10:nth-child(n+11):nth-child(-n+14),
+.itemWorld-10:nth-child(n+19):nth-child(-n+22),
+.itemWorld-10:nth-child(n+27):nth-child(-n+30),
+.itemWorld-10:nth-child(n+35):nth-child(-n+38),
+.itemWorld-10:nth-child(n+42):nth-child(-n+43),
+.itemWorld-10:nth-child(n+46):nth-child(-n+47),
+.itemWorld-10:nth-child(n+50):nth-child(-n+51),
+.itemWorld-10:nth-child(n+54):nth-child(-n+55){
+    background:$backColor;
+}
+.itemWorld-11:nth-child(n+11):nth-child(-n+14),
+.itemWorld-11:nth-child(n+19):nth-child(-n+22),
+.itemWorld-11:nth-child(n+27):nth-child(-n+30),
+.itemWorld-11:nth-child(n+35):nth-child(-n+38),
+.itemWorld-11:nth-child(n+43):nth-child(-n+46),
+.itemWorld-11:nth-child(n+51):nth-child(-n+54){
+    background:$backColor;
+}
+.itemWorld-12:nth-of-type(n){
+    background:$backColor;
+}

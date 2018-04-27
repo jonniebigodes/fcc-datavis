@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { dataVisConstant } from '../../../Utils/Constants';
 import Utilities from '../../../Utils/Utilities';
+import Preload from '../../Preloader/index';
 import DataVisScatterChart from './DataVisScatterChart';
 import ScatterTooltip from './ScatterTooltip';
 import styles from './scatter-style.module.css';
@@ -18,9 +18,6 @@ class ScatterChartContainer extends Component{
     }
     componentDidMount(){
         if (typeof window!=='undefined'){
-            // console.log('====================================');
-            // console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            // console.log('====================================');
             this.setChartDimensions();
             window.addEventListener('resize',this.setChartDimensions);
             
@@ -43,7 +40,9 @@ class ScatterChartContainer extends Component{
                         Year:item.Year
                     }
                 });
-                this.setState({fullchartData:storedScatterdata,isLoading:false});
+                this.setState({
+                    fullchartData:storedScatterdata,
+                });
                 
             }
         }, 2500);
@@ -74,8 +73,6 @@ class ScatterChartContainer extends Component{
             }
         }
         else{
-            //currentWidth= window.innerWidth; 
-            // currentWidth=this.setChartWidth(window.innerWidth);
             currentWidth=window.innerWidth>=960?900:window.innerWidth;
             if (currentWidth!==chartWidth){
                 this.setState({
@@ -111,16 +108,22 @@ class ScatterChartContainer extends Component{
                 }
               });
             Utilities.setStorageData("scatterData",dataToStore);
-            this.setState({fullchartData:dataToStore,isLoading:false});
+            this.setState({
+                fullchartData:dataToStore,
+            });
         })
         .catch(Err=>{
             console.log('====================================');
             console.log(`error getting the chart data:${JSON.stringify(Err,null,2)}`);
             console.log('====================================');
-                //this.setState({isError:true});
             this.setState(prevState=>({
                 isError:true
             }));
+        })
+    }
+    handlePreloadShutdown=()=>{
+        this.setState({
+            isLoading:false
         })
     }
     render(){
@@ -129,7 +132,7 @@ class ScatterChartContainer extends Component{
             return (<p><span className={styles.scatterPreload}>Lights up the sirens.....Something went wrong</span></p>);
         }
         if (isLoading){
-            return (<p><span className={styles.scatterPreload}>Hold on to your hat...i'm getting the data at Lance Armstrong speed</span></p>);
+            return(<Preload chartName={'scatter'} turnDownPreload={this.handlePreloadShutdown}/>);
         }
         if (fullchartData.length){
             return(
@@ -145,7 +148,6 @@ class ScatterChartContainer extends Component{
                                 scatterEnter={this.onToolTipShow} 
                                 svgWidth={chartWidth}/>
                         </div>
-                       
                         <div>
                             <ScatterTooltip data={isTooltipActive?tooltipData.data:null}/>
                         </div>

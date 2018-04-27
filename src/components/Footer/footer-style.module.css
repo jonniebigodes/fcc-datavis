@@ -1,6 +1,5 @@
 
 .footerText{
-    /* background: #373737; */
     color: #f4f4d4;
     text-align: center;
     font-size: 1.2rem;
@@ -9,11 +8,9 @@
 .foots{
     background: #373737;
     padding: 1.15rem 1.0875rem;
-    /* height: 8rem; */
 }
 @media only screen and (min-width: 600px){
     .footerText{
-       /* background: #373737; */
         text-align: center;
         font-size: .75rem;
         font-family: 'Mukta Mahee';
@@ -22,7 +19,6 @@
 }
 @media screen and (max-width:600px){
     .footerText{
-        /* background: #373737; */
         text-align: center;
         font-size: .85rem;
         font-family: 'Mukta Mahee';
@@ -31,7 +27,6 @@
 }
 @media only screen and (min-width:768px){
     .footerText{
-        /* background: #373737; */
         text-align: center;
         font-size: 1rem;
         font-family: 'Mukta Mahee';
@@ -40,17 +35,9 @@
 }
 @media only screen and (min-width:992px){
     .footerText{
-       /* background: #373737; */
         text-align: center;
         font-size: 1.2rem;
         font-family: 'Mukta Mahee';
         font-weight: 300;
     }
 }
-/* @media only screen and (min-width:1366){
-    .foots{
-        background: #373737;
-        margin: 0auto;
-        
-    }
-} */

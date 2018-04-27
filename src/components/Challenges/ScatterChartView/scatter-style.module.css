@@ -1,11 +1,9 @@
 @media  only screen and (max-width: 600px){
     .Axis path,
     .Axis line {
-      /*stroke: #E0E0E0;*/
       stroke: darkslategrey;
     }
     .Axis-Bottom text {
-        /* transform: rotate(-45deg);  */
         transform: rotate(-45deg); 
         text-anchor: end;
         font-weight: 500;
@@ -29,25 +27,12 @@
         color: darkslategrey;
         font-weight: 500;
     }
-    .scatterPreload{
-        font-family: 'Merriweather',serif;
-        font-size: .5rem;
-        text-align: center;
-        color: darkslategrey;
-        font-weight: 500;
-    }
+    
     .scattercontainerToolTip{
         border: 1px solid;
         border-color:#dcd0c0;
         box-shadow:1px 1px;
         margin-bottom: 1rem;
-        /*width: 310px;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-left: 1vw;
-        background-color: #144d83;*/
     }
     .scattertoolTipText{
         font-family: 'Merriweather',serif;
@@ -58,7 +43,6 @@
         font-weight: 500;
     }
     .containerScatter{
-        /* background-color: #144d83; */
         display: -webkit-flex;
         display: -moz-box;
         display: -ms-flexbox;
@@ -77,7 +61,6 @@
 @media only screen and (min-width: 600px){
     .Axis path,
     .Axis line {
-      /*stroke: #E0E0E0;*/
       stroke: darkslategrey;
     }
     .Axis text {
@@ -86,7 +69,6 @@
       font-weight: 500;
     }
     .Axis-Bottom text {
-        /* transform: rotate(-45deg);  */
         transform: rotate(-45deg); 
         text-anchor: end;
         font-weight: 500;
@@ -107,25 +89,12 @@
         color: darkslategrey;
         font-weight: 500;
     }
-    .scatterPreload{
-        font-family: 'Merriweather',serif;
-        font-size: .65rem;
-        text-align: center;
-        color: darkslategrey;
-        font-weight: 500;
-    }
+    
     .scattercontainerToolTip{
         border: 1px solid;
         border-color:#dcd0c0;
         box-shadow:1px 1px;
         margin-bottom: 1rem;
-        /*width: 310px;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-left: 1vw;
-        background-color: #144d83;*/
     }
     .scattertoolTipText{
         font-family: 'Merriweather',serif;
@@ -136,7 +105,6 @@
         font-weight: 500;
     }
     .containerScatter{
-        /* background-color: #144d83; */
         display: -webkit-flex;
         display: -moz-box;
         display: -ms-flexbox;
@@ -155,7 +123,6 @@
 @media only screen and (min-width:768px){
     .Axis path,
     .Axis line {
-      /*stroke: #E0E0E0;*/
       stroke: darkslategrey;
     }
     .Axis text {
@@ -164,7 +131,6 @@
         font-weight: 600;
     }
     .Axis-Bottom text {
-        /* transform: rotate(-45deg);  */
         transform: rotate(-45deg); 
         text-anchor: end;
         font-weight: 600;
@@ -184,26 +150,13 @@
         color: darkslategrey;
         font-weight: 500;
     }
-    .scatterPreload{
-        font-family: 'Merriweather',serif;
-        font-size: .7rem;
-        text-align: center;
-        color: darkslategrey;
-        font-weight: 600;
-    }
+    
     .scattercontainerToolTip{
         margin: 1rem;
         border: 1px solid;
         border-color:#dcd0c0;
         box-shadow:1px 1px;
         margin-bottom: 1rem;
-        /*width: 310px;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-left: 1vw;
-        background-color: #144d83;*/
     }
     .scattertoolTipText{
         font-family: 'Merriweather',serif;
@@ -214,7 +167,6 @@
         font-weight: 500;
     }
     .containerScatter{
-        /* background-color: #144d83; */
         display: -webkit-flex;
         display: -moz-box;
         display: -ms-flexbox;
@@ -233,7 +185,6 @@
 @media only screen and (min-width:992px){
     .Axis path,
     .Axis line {
-      /*stroke: #E0E0E0;*/
       stroke: darkslategrey;
     }
     .Axis text {
@@ -242,7 +193,6 @@
         font-weight: 800;
     }
     .Axis-Bottom text {
-        /* transform: rotate(-45deg);  */
         transform: rotate(-45deg); 
         text-anchor: end;
         font-weight: 600;
@@ -274,13 +224,6 @@
         border-color:#dcd0c0;
         box-shadow:2px 2px;
         margin-left: 2rem;
-        /* width: 310px;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-left: 1vw; */
-        /*background-color: #144d83;*/
     }
     .scattertoolTipText{
         font-family: 'Merriweather',serif;
@@ -291,7 +234,6 @@
         font-weight: 500;
     }
     .containerScatter{
-        /* background-color: #144d83; */
         display: -webkit-flex;
         display: -moz-box;
         display: -ms-flexbox;

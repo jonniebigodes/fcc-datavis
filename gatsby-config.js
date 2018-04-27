@@ -14,6 +14,12 @@ module.exports = {
           'source serif'
         ]
       }
+    },
+    {
+      resolve: `gatsby-plugin-postcss-sass`,
+      options:[
+        require('postcss-import')()
+      ]
     }
-  ],
+  ]
 };

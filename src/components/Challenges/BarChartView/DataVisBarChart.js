@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import { scaleLinear, scaleTime } from 'd3-scale';
 import PropTypes from 'prop-types';
-import {scaleBand, scaleLinear,scaleTime} from 'd3-scale';
-import Bars from './Bars';
+import React, { Component } from 'react';
 import Axes from './Axes';
+import Bars from './Bars';
 
 class DataVisBarChart extends Component {
   
@@ -23,8 +23,6 @@ class DataVisBarChart extends Component {
     };
     
     const maxValue= Math.max(...dataChart.map(d=>d.domesticValue));
-
-    
     const minDate= new Date(dataChart[0].dateTime);
     const maxDate= new Date(dataChart[dataChart.length-1].dateTime);
 
@@ -33,11 +31,6 @@ class DataVisBarChart extends Component {
     const yScale=scaleLinear()
       .domain([0, maxValue])
       .range([svgDimensions.height - margins.bottom, margins.top]);
-    
-    /*
-    viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
-        preserveAspectRatio="xMidYMid meet"
-    */
     return(
       <svg width={svgDimensions.width} 
         height={svgDimensions.height}
@@ -63,7 +56,6 @@ class DataVisBarChart extends Component {
   }
 }
 DataVisBarChart.propTypes={
-  
   dataChart:PropTypes.arrayOf(PropTypes.shape({
     dateTime:PropTypes.string,
     domesticValue:PropTypes.number

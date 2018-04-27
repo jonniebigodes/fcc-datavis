@@ -21,7 +21,6 @@ class DataVisHeatChart extends Component{
         let high= Number.NEGATIVE_INFINITY;
         let tmp=0;
         for (const item in dataChart.monthlyVariance){
-           
             tmp= dataChart.monthlyVariance[item].variance;
             if (tmp<min){
                 min=tmp;
@@ -56,8 +55,6 @@ class DataVisHeatChart extends Component{
         const maxDate= new Date(dataChart.monthlyVariance[dataChart.monthlyVariance.length-1].year,0);
         let databyYears=this.countDups();
         const dataIntervals=this.findMin();
-        //const listOfMonts=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-       
         const margin={
             top: 30,
             right: 10,
@@ -75,19 +72,12 @@ class DataVisHeatChart extends Component{
         svgDimensions.innerWidth=svgDimensions.width/databyYears;
 
         const xScale= scaleTime().domain([minDate,maxDate]).range([0,svgDimensions.width-1]);
-        //const xScale= scaleTime().domain([minDate,maxDate]).range([margin.left,svgDimensions.width-margin.right]);
-
-
         const yScale=scaleBand()
         .domain(dataVisConstant.Months)
-        //.range([0,chartDimensions.svgHeight]);
-        //.domain(listOfMonts)
         .range([0,svgDimensions.height]);
         return(
             <svg width={svgDimensions.width+margin.left+margin.right} 
                 height={svgDimensions.height+margin.top+margin.bottom} 
-                // <svg width={svgDimensions.width} 
-                // height={svgDimensions.height}
                 viewBox={`0 0 ${svgDimensions.width+margin.left+margin.right} ${svgDimensions.height+margin.top+margin.bottom}`} preserveAspectRatio="xMidYMid meet"
                 className="animated bounceInLeft">
                 <HeatAxes

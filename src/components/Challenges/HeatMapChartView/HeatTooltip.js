@@ -4,54 +4,22 @@ import styles from './heat-style.module.css';
 import { dataVisConstant } from '../../../Utils/Constants';
 const getMonths=value=>{
     return dataVisConstant.Months[value-1];
-    // const listOfMonts=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    // return listOfMonts[value-1];
 }
 const showInfo=()=>{
     return (
         <p><span className={styles.heattooltipText}>Mouse over a bar to show you information</span></p>
-       
-        
-            /* <div>
-            <div className={styles.heattooltipText}>
-                Mouse over a bar 
-            </div>
-            <div className={styles.heattooltipText}>
-                to show you information
-            </div>
-        </div> */
     )
 };
 const showData=value=>{
     return(
         <p><span className={styles.heattooltipText}>{getMonths(value.month)} {value.year} temperature was: {value.baseTemp} with variance:{value.variance}</span></p>
-        // <div>
-        //     <div className={styles.heattooltipText}>{getMonths(value.month)} {value.year}</div>
-        //     <div className={styles.heattooltipText}>Temperature was: {value.baseTemp}</div>
-        //     <div className={styles.heattooltipText}>with variance of: {value.variance}</div>
-        // </div>
     )
 };
 const HeatToolTip=({data})=>{
-    // console.log('====================================');
-    // console.log(`fill color:${data.toolColor}`);
-    // console.log('====================================');
-    // const styles={
-    //     toolTip:{
-    //         width:600,
-    //         height:30,
-    //         fontSize:14,
-    //         backgroundColor:data.toolColor
-    //     }
-    // }
     return (
         <div className={styles.heatcontainerToolTip}>
             {data?showData(data):showInfo()}
         </div>
-
-        // <div style={styles.toolTip}>
-        //     <span>  In {getMonts(data.month)} of {data.year} the temperature was:{dataTemp} with a variance of: {data.variance}</span>
-        // </div>
     );
 };
 HeatToolTip.propTypes={

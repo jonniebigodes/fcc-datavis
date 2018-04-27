@@ -7,15 +7,13 @@ const HeatAxes=({scales,margins,svgDimensions})=>{
     const xProps={
         orient: 'Bottom',
         scale: scales.xScale,
-        translate: `translate(0, ${height+1})`, //full width
-        //translate: `translate(0, ${(height - margins.bottom)})`,
+        translate: `translate(0, ${height+1})`,
         tickSize: height - margins.top - margins.bottom,
     };
     const yProps={
         orient: 'Right',
         scale: scales.yScale,
        translate: `translate(${svgDimensions.width+1},0)`,
-       //translate:`translate(${margins.left},0)`
     };
     return(
         <g>

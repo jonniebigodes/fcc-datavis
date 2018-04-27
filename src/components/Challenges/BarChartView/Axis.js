@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import * as d3Axis from 'd3-axis';
-import { select as d3Select } from 'd3-selection';
-//import '../../../Assets/css/barChart.css';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import styles from './bar-style.module.css';
+import { select as d3Select } from 'd3-selection';
 class Axis extends Component{
     componentDidMount() {
         this.renderAxis()
@@ -16,20 +15,10 @@ class Axis extends Component{
     renderAxis(){
         const{orient,scale,tickSize}= this.props;
         const axisType = `axis${orient}`;
-        
-        
         // uncoment after tests
         const axis = d3Axis[axisType]()
         .scale(scale)
         .tickSize(-tickSize)
-        //if (orient=='Bottom'){
-           // axis.tickFormat(D3TimeFormat.timeFormat("%Y-%m"))
-            //axis.ticks(D3Time.timeYear,5)
-        //}
-        //else{
-            //axis.ticks([6])
-            //axis.tickPadding([12])
-        //}
         d3Select(this.axisElement).call(axis)
         //
     }
@@ -37,7 +26,6 @@ class Axis extends Component{
         const {orient,translate}= this.props;
         return (
             <g
-            //   className={`Axis Axis-${orient}`}
               className={`${styles.Axis} ${styles.Axis}-${orient}`}
               ref={(el) => { this.axisElement = el; }}
               transform={translate}

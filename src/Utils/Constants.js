@@ -1174,53 +1174,6 @@ const countryInfo={
         flag:Flags.za
     }
 };
-const forcePreloader=[
-    'Don´t worry about tests, Chuck Norris´s test cases cover your code too.',
-    '21 December 2012 was to be the day the Mayans predicted somebody would tell Chuck Norris that he´s not so cool after all.',
-    'Chuck Norris eats soup with a fork, KFC with chopsticks, and bananas with his feet.',
-    'Chuck Norris once caught an eighty pound tuna while spearfishing in a mirage.',
-    'Chuck Norris can literally kill time.',
-    'Chuck Norris changed the law of BODMAS to ROUNDHOUSE',
-    'It should go without saying Chuck Norris leaves a trail of vanquished supermodels in his wake wherever he goes.',
-    'Chuck Norris hides in plain sight.',
-    'A circus clown once bumped into Chuck Norris. It took him only three seconds to twist the clown into an animal balloon.',
-    'A Chuck Norris fact a day keeps his roundhouse kicks away.',
-    'One time, at band camp, Chuck Norris ate a percussionist.',
-    'Chuck norris once gave his grandma a ball of steal wool and she knitted him a bmx.',
-    'Chuck Norris ordered some sushi in a Chinese restaurant and got one.',
-    'Chuck Norris can build a computer with Windows 7.',
-    'Only God is allowed to edit Chuck Norris´s Wikipedia page.',
-    'Chuck Norris was born December 32nd',
-    'Chuck Norris can squeeze carviar out of a lemon.',
-    'When life gives Chuck Norris lemons, he destroys an orphanage',
-    'When Chuck Norris cuts onions, the onions cry!',
-    'Chuck Norris irons his clothes by wearing them.',
-    'Chuck Norris heartbeat was the cause of the 1906 earthquake',
-    'Chuck Norris can deny the License Agreement and still be able to install the software',
-    'Zeus from Greek myth fathered many children, has a beard, and killed his own father. No, Zeus is not Chuck Norris. Chuck Norris killed Zeus for copying him.',
-    'Chuck Norris will roundhouse kick you to death if you laugh at Chuck Norris jokes. He will also roundhouse kick you to death if you don`t laugh at Chuck Norris jokes. The choice is yours.',
-    'The only things you can be sure of are Chuck Norris and taxes.',
-    'Chuck Norris dunks onion rings in his morning coffee.',
-    'Chuck Norris knew where the stolen Death Star plans were.(and he also knew where that shuttle was going.)',
-    'Einstein may have invented the therory of relativity- Chuck Norris invented the reality of kicking ass.',
-    'When Chuck Norris wants an egg, he cracks open a chicken.',
-    'Chuck Norris shaves with a belt sander',
-    'Chuck Norris regularly performs mind tricks on Jedi Knights.',
-    'Chuck Norris abducts aliens',
-    'The Avatar was created by Chuck Norris uppercutting a smurf.',
-    'Chuck Norris can play Angry Birds from a payphone.'
-];
-const svgDimensions={
-    charts:{
-        width:820,
-        height:470,
-    },
-    margins:{
-        top: 30,
-        right: 20,
-        bottom: 30,
-        left: 20
-    }
-};
+
 const Months=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-export const dataVisConstant={forcePreloader,countryInfo,svgDimensions,Months};
+export const dataVisConstant={countryInfo,Months};

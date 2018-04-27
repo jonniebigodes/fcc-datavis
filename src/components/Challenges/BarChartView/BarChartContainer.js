@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
+import Preload from '../../Preloader/index';
+import ErrorViewer from '../../ErrorViewer/ViewError';
 import BarChartToolTip from './BarToolTip';
 import DataVisBarChart from './DataVisBarChart';
 import styles from './bar-style.module.css';
@@ -18,12 +20,8 @@ class BarChartContainer extends Component{
     
     componentDidMount(){
         if (typeof window!=='undefined'){
-            // console.log('====================================');
-            // console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            // console.log('====================================');
             this.setChartDimensions();
             window.addEventListener('resize',this.setChartDimensions);
-            
         }
         setTimeout(() => {
             const storedbars=JSON.parse(Utilities.getStorageData("barsdata"));
@@ -39,7 +37,6 @@ class BarChartContainer extends Component{
                 });
                 this.setState({
                 fullchartData:storedBarsData,
-                isLoading:false
                 });
             }
         }, 2500);
@@ -56,9 +53,7 @@ class BarChartContainer extends Component{
         const {chartWidth}= this.state;
         let currentWidth=0;
         if (this.chartContainer){
-           
             currentWidth= this.chartContainer.getBoundingClientRect().width;
-
             currentWidth=this.chartContainer.getBoundingClientRect().width<=768
                 ?this.setChartWidth(this.chartContainer.getBoundingClientRect().width)
                 :this.chartContainer.getBoundingClientRect().width;
@@ -70,9 +65,6 @@ class BarChartContainer extends Component{
             }
         }
         else{
-            //currentWidth= window.innerWidth;
-            
-            //currentWidth=this.setChartWidth(window.innerWidth);
             currentWidth= window.innerWidth>=960?900:window.innerWidth;
             if (currentWidth!==chartWidth){
                 this.setState({
@@ -101,7 +93,6 @@ class BarChartContainer extends Component{
                 Utilities.setStorageData("barsdata",itemsResult);
                 this.setState({
                     fullchartData:itemsResult,
-                    isLoading:false
                 });
             })
             .catch(error=>{
@@ -120,13 +111,17 @@ class BarChartContainer extends Component{
     deactivateToolTip=()=>{
         this.setState({isToolTipActive:false,gdpInfo:{}});
     }
+    handlePreloadShutdown=()=>{
+        this.setState({isLoading:false});
+    }
     render(){
         const {isError,isLoading,fullchartData,isToolTipActive,gdpInfo,chartHeight,chartWidth}= this.state;
         if (isError){
-            return (<span> className={styles.Preload}>Lights up the sirens.....Something went wrong</span>);
+            //return (<span> className={styles.Preload}>Lights up the sirens.....Something went wrong</span>);
+            return (<ErrorViewer/>)
         }
         if (isLoading){
-            return (<div className={styles.Preload}>Hold on to your hat...i'm getting the data at lightspeed</div>);
+            return(<Preload chartName={'bar'} turnDownPreload={this.handlePreloadShutdown}/>);
         }
         if (fullchartData.length){
             return(
@@ -148,7 +143,6 @@ class BarChartContainer extends Component{
                      </div>
                      <p><span className={styles.BarFooterText}>
                         Units: Billions of Dollars.
-                    
                         Seasonal Adjustment: Seasonally Adjusted Annual Rate
                         Notes: A Guide to the National Income and Product Accounts of the United States (NIPA) (http://www.bea.gov/national/pdf/nipaguid.pdf)
                      </span></p>

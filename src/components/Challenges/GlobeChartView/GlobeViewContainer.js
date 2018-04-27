@@ -2,6 +2,7 @@ import { geoMercator, geoPath } from "d3-geo";
 import React, { Component } from 'react';
 import { feature } from "topojson-client";
 import Utilities from '../../../Utils/Utilities';
+import Preload from '../../Preloader/index';
 import GlobeViewChart from './GlobeViewChart';
 import MeteorToolTip from './MeteorToolTip';
 import styles from './globe-style.module.css';
@@ -26,9 +27,7 @@ class GlobeViewContainer extends Component{
     }
     componentDidMount(){
         if (typeof window!=='undefined'){
-            console.log('====================================');
-            console.log(`we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            console.log('====================================');
+           
             this.setChartDimensions();
             window.addEventListener('resize',this.setChartDimensions);
         }
@@ -59,12 +58,10 @@ class GlobeViewContainer extends Component{
                     }
                 });
                 this.setState(prevState=>({
-                    // globeMap:feature(storedMap,storedMap.objects.countries).features,
                     globeMap:storedMap,
                     meteors:meteorsData,
                     meteors:meteorPoints,
                     globeMap:updatedMap,
-                    isLoading:false
                 }));
             }
         }, 2500);
@@ -72,9 +69,6 @@ class GlobeViewContainer extends Component{
     }
     componentWillUnmount(){
         if (typeof window!=='undefined'){
-            console.log('====================================');
-            console.log(`componentWillUnmount we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            console.log('====================================');
             window.removeEventListener('resize',this.setChartDimensions);
         }
     }
@@ -154,7 +148,6 @@ class GlobeViewContainer extends Component{
             }
         }
         else{
-            //currentWidth=this.setChartWidth(window.innerWidth);
             currentWidth= window.innerWidth>=960?900:window.innerWidth;
             currentHeight= this.setChartWidth(window.innerHeight);
             if (currentWidth!==chartWidth){
@@ -185,12 +178,9 @@ class GlobeViewContainer extends Component{
                     }
                 });
                 Utilities.setStorageData("meteors",result.features);
-                //Utilities.setStorageData("meteors",meteorPoints);
                 this.setState({
-                   // meteors:result,
                     meteors:meteorPoints,
                     meteorData:result.features,
-                    isLoading:false
                 });
             })
             .catch(err=>{
@@ -219,9 +209,7 @@ class GlobeViewContainer extends Component{
                
                 
                 Utilities.setStorageData("globeMap",pathsGlobe);
-                //Utilities.setStorageData("globeMap",formattedMap);
                 this.setState({
-                    //globeMap:feature(result,result.objects.countries).features
                     globeMap:formattedMap,
                     mapData:pathsGlobe
                 });
@@ -241,6 +229,11 @@ class GlobeViewContainer extends Component{
     disableToolTip=()=>{
         this.setState({isToolTipActive:false,meteorInfo:{}});
     }
+    handlePreloadShutdown=()=>{
+        this.setState({
+            isLoading:false
+        });
+    }
     //endregion
     //region
     render(){
@@ -249,7 +242,7 @@ class GlobeViewContainer extends Component{
             return (<div className={styles.globeTitle}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<div className={styles.globeTitle}>Hold on to your hat...i'm getting the data at *insert meteor speed here</div>);
+            return ( <Preload chartName={'world'} turnDownPreload={this.handlePreloadShutdown}/>);
         }
         if (globeMap.length){
             return (

@@ -4,7 +4,6 @@ const BarchartPage = () => {
   return (
     <div>
       <BarChartContainer/>
-      {/* <Link to="/">Go back to the homepage</Link> */}
     </div>
   )
 }

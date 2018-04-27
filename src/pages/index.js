@@ -28,26 +28,6 @@ const IndexPage = () => (
           <div className={styles.textContainer}>Placeholder to get you to the...</div>
           <div className={styles.textContainer}><Link to="/globeview/">Globe Chart Project</Link></div>
         </div>
-        {/* <Paper zDepth={5} style={paperStyles}>
-            <div className={styles.textContainer}>Placeholder to get you to the....</div>
-            <div className={styles.textContainer}><Link to="/viewbarchart/">Bar Chart Project</Link></div>
-        </Paper> 
-        <Paper zDepth={5} style={paperStyles}>
-          <div className={styles.textContainer}>Placeholder to get you to the...</div>
-          <div className={styles.textContainer}><Link to="/viewscatter/">Scatterplot Graph Project</Link></div>
-        </Paper>
-        <Paper zDepth={5} style={paperStyles}>
-          <div className={styles.textContainer}>Placeholder to get you to the...</div>
-          <div className={styles.textContainer}><Link to="/heatview/">Heat Chart Project</Link></div>
-        </Paper>
-        <Paper zDepth={5} style={paperStyles}>
-          <div className={styles.textContainer}>Placeholder to get you to the...</div>
-          <div className={styles.textContainer}><Link to="/forceview/">Force Directed Chart Project</Link></div>
-        </Paper>
-        <Paper zDepth={5} style={paperStyles}>
-          <div className={styles.textContainer}>Placeholder to get you to the...</div>
-          <div className={styles.textContainer}><Link to="/globeview/">Globe Chart Project</Link></div>
-        </Paper>*/}
       </div>
     </div>
 )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Utilities from '../../../Utils/Utilities';
+import Preload from '../../Preloader/index';
 import DataVisHeatChart from './DataVisHeatChart';
 import HeatInfo from './HeatInfo';
 import HeatToolTip from './HeatTooltip';
@@ -30,16 +31,12 @@ class HeatMapChartContainer extends Component{
             else{
                 this.setState(prevState=>({
                     fullchartData:storedHeatData,
-                    isLoading:false
                 }));
             }
         }, 2500);
     }
     componentWillUnmount(){
         if (typeof window!=='undefined'){
-            // console.log('====================================');
-            // console.log(`componentWillUnmount we's gots windows ${window.innerHeight} ${window.innerWidth}`);
-            // console.log('====================================');
             window.removeEventListener('resize',this.setChartDimensions);
         }
     }
@@ -64,8 +61,6 @@ class HeatMapChartContainer extends Component{
             }
         }
         else{
-            //currentWidth= window.innerWidth; 
-            //currentWidth=this.setChartWidth(window.innerWidth);
             currentWidth= window.innerWidth>=960?900:window.innerWidth;
             if (currentWidth!==chartWidth){
                 this.setState({
@@ -88,17 +83,25 @@ class HeatMapChartContainer extends Component{
         })
         .then(result=>{
             Utilities.setStorageData("heatdata",result);
-            this.setState({fullchartData:result,isLoading:false});
+            this.setState(
+                {
+                    fullchartData:result,
+                }
+            );
             
         })
         .catch(Err=>{
             console.log('====================================');
             console.log(`error getting the chart data:${JSON.stringify(Err,null,2)}`);
             console.log('====================================');
-                //this.setState({isError:true});
             this.setState(prevState=>({
                 isError:true
             }));
+        });
+    }
+    handlePreloadShutdown=()=>{
+        this.setState({
+            isLoading:false
         });
     }
     render(){
@@ -107,7 +110,7 @@ class HeatMapChartContainer extends Component{
             return (<div className={styles.heatPreloader}>Lights up the sirens.....Something went wrong</div>);
         }
         if (isLoading){
-            return (<div className={styles.heatPreloader}>Hold on to your hat...i'm getting the data at lightspeed</div>);
+            return(<Preload chartName={'heat'} turnDownPreload={this.handlePreloadShutdown}/>);
         }
         if (fullchartData.baseTemperature){
             return(
@@ -123,9 +126,9 @@ class HeatMapChartContainer extends Component{
                             hideToolTip={this.onHideToolTip}
                             svgWidth={chartWidth}/>
                         </div>
-                        <div>
-                            <HeatToolTip data={isTooltipActive?tooltipData:null}/>
-                        </div>
+                    </div>
+                    <div className={styles.heatInfo}>
+                        <HeatToolTip data={isTooltipActive?tooltipData:null}/>
                     </div>
                 </div>
                 

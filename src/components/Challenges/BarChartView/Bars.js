@@ -1,13 +1,9 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { scaleLinear } from 'd3-scale';
 import { interpolateLab } from 'd3-interpolate';
+import { scaleLinear } from 'd3-scale';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 import GdPBar from './GdPBar';
 class Bars extends PureComponent {
-  
-    constructor(props){
-        super(props);
-    }
     barMouseOverHandler=value=>{
         const{barMouseOver}= this.props;
         barMouseOver(value);
@@ -23,9 +19,7 @@ class Bars extends PureComponent {
         const { xScale, yScale } = scales
         const { height,width } = svgDimensions
         const barwidth=Math.ceil(width/bardata.length);
-        
         const colorScale= scaleLinear().domain([0,maxValue]).range(['#d2c9aa','#c0b283']).interpolate(interpolateLab);
-        //const colorScale= scaleLinear().domain([0,maxValue]).range(['#5cdb77','#136324']).interpolate(interpolateLab);
         const bars = (
             bardata.map(datum =>
               <GdPBar key={`gdpbar_${datum.dateTime}`}

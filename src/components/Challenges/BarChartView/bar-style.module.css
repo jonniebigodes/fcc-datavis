@@ -18,35 +18,19 @@
   width: 90%;
 }
 .containerToolTip{
-  /* width: 220px; */
   border: 1px solid;
   border-color:#dcd0c0;
   box-shadow:1px 1px;
   margin-left: 1rem;
   margin-bottom: 1rem;
-
-  /* display: -webkit-inline-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-inline-flex;
-  display: inline-flex;
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  
-
 }
 .Axis path,
 .Axis line {
-  /*stroke: #E0E0E0;*/
   stroke: darkslategrey;
 }
 .Axis-Bottom text {
-  /* transform: rotate(-45deg);  */
   transform: rotate(-45deg); 
   text-anchor: end;
-  
 }
 @media  only screen and (max-width: 600px){
   .Axis text {
@@ -68,7 +52,6 @@
     font-family: 'Merriweather', serif;
     color: darkslategrey;
     font-weight: 500;
-    /* margin-top:1vh; */
   }
   .bartooltipText{
     font-family: 'Merriweather',serif;
@@ -86,34 +69,17 @@
     color: darkslategrey;
     font-weight: 500;
   }
-  .Preload{
-    font-family: 'Merriweather',serif;
-    font-size: .5rem;
-    text-align: center;
-    color: darkslategrey;
-    font-weight: 500;
-  }
-  
 }
 
 @media only screen and (min-width: 600px){
-  
   .Axis text {
     font-size: 6px;
     fill: darkslategrey;
     font-weight: 500;
   }
   .Axis-Bottom text {
-    /* transform: rotate(-45deg);  */
     transform: rotate(-45deg); 
     text-anchor: end;
-    font-weight: 500;
-  }
-  .Preload{
-    font-family: 'Merriweather',serif;
-    font-size: .65rem;
-    text-align: center;
-    color: darkslategrey;
     font-weight: 500;
   }
   .bartooltipText{
@@ -140,14 +106,11 @@
     color: darkslategrey;
     font-weight: 500;
     overflow-wrap: break-word;
-
-    /* margin-top:1vh; */
   }
 }
 @media only screen and (min-width:768px){
   .Axis path,
   .Axis line {
-    /*stroke: #E0E0E0;*/
     stroke: darkslategrey;
   }
 
@@ -157,7 +120,6 @@
     font-weight: 600;
   }
   .Axis-Bottom text {
-    /* transform: rotate(-45deg);  */
     transform: rotate(-45deg); 
     text-anchor: end;
     font-weight: 600;
@@ -177,38 +139,26 @@
     font-weight: 500;
     margin: 1.05rem 1.85rem;
   }
-  .Preload{
-    font-family: 'Merriweather',serif;
-    font-size: .7rem;
-    text-align: center;
-    color: darkslategrey;
-    font-weight: 600;
-  }
   .BarFooterText{
     font-size: 0.7rem;
     text-align: justify;
     font-family: 'Merriweather', serif;
     color: darkslategrey;
-    /* margin-top:1vh; */
     font-weight: 500;
   }
   
 }
 @media only screen and (min-width:992px){
-
   .Axis path,
   .Axis line {
-    /*stroke: #E0E0E0;*/
     stroke: darkslategrey;
   }
-
   .Axis text {
     font-size: 10px;
     fill: darkslategrey;
     font-weight: 800;
   }
   .Axis-Bottom text {
-    /* transform: rotate(-45deg);  */
     transform: rotate(-45deg); 
     text-anchor: end;
     font-weight: 800;
@@ -219,19 +169,11 @@
     font-family: 'Merriweather', serif;
     color: darkslategrey;
     font-weight: 600;
-    /* margin-top:1vh; */
   }
   .BarTitle{
     font-size: .90rem;
     text-align: center;
     font-family: 'Merriweather', serif;
-    color: darkslategrey;
-    font-weight: 800;
-  }
-  .Preload{
-    font-family: 'Merriweather',serif;
-    font-size: 1.5rem;
-    text-align: center;
     color: darkslategrey;
     font-weight: 800;
   }
@@ -245,8 +187,4 @@
     margin: 0 auto;
     padding: 1.5 1.085rem;
   }
-  
 }
-/* @media only screen and (min-width:1200px){
-
-} */

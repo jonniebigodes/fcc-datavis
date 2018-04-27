@@ -1,0 +1,121 @@
+$colorbar:#373737;
+.containerBars{
+    display: flex;
+    flex-wrap: wrap;
+    margin:0 auto;
+}
+.itemBars-0,.itemBars-1,
+.itemBars-2,.itemBars-3,
+.itemBars-4,.itemBars-5,
+.itemBars-6,.itemBars-7,
+.itemBars-8,.itemBars-9,
+.itemBars-10{
+    min-height: 45px;
+    max-height: 50px;
+    flex: calc(100%/7);
+    border: 3px solid white;
+    background: transparent;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+}
+.itemBars-0:nth-of-type(n){
+    background:$colorbar;
+}
+.itemBars-1:nth-of-type(n+22){
+    background:$colorbar;
+}
+.itemBars-2{
+    &:nth-of-type(15){
+        background:$colorbar;
+    }
+    &:nth-of-type(22){
+        background:$colorbar;
+    }
+    &:nth-of-type(29){
+        background:$colorbar;
+    }
+    &:nth-of-type(36){
+        background:$colorbar;
+    }
+    &:nth-of-type(n+23){
+        background:$colorbar;
+    }
+    &:nth-of-type(43){
+        background:transparent;
+    }
+}
+.itemBars-3{
+    &:nth-child(n+22){
+        background:$colorbar;
+    }
+    &:nth-child(16){
+        background:$colorbar;
+    }
+    &:nth-child(44){
+        background: transparent;
+    }
+}
+.itemBars-4{
+    &:nth-of-type(n+22){
+        background:$colorbar;
+    }
+    &:nth-of-type(17){
+        background:$colorbar;
+    }
+    &:nth-of-type(45){
+        background:transparent;
+    }
+}
+.itemBars-5{
+    &:nth-of-type(n+22){
+        background:$colorbar;
+    }
+    &:nth-of-type(18){
+        background:$colorbar;
+    }
+    &:nth-of-type(46){
+        background:transparent;
+    }
+}
+.itemBars-6{
+    &:nth-of-type(n+22){
+        background:$colorbar;
+    }
+    &:nth-of-type(19){
+        background:$colorbar;
+    }
+    &:nth-of-type(47){
+        background:transparent;
+    }
+}
+.itemBars-7{
+    &:nth-of-type(n+22){
+        background:$colorbar;
+    }
+    &:nth-of-type(20){
+        background:$colorbar;
+    }
+    &:nth-of-type(48){
+        background: transparent;
+    }
+}
+.itemBars-8{
+    &:nth-of-type(n+22){
+        background:$colorbar;
+    }
+    &:nth-of-type(21){
+        background:$colorbar;
+    }
+    &:nth-of-type(49){
+        background: transparent;
+    }
+}
+
+.itemBars-9:nth-of-type(n+22){
+    background:$colorbar;
+}
+.itemBars-10:nth-of-type(n){
+    background:$colorbar;
+}

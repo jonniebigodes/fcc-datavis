@@ -5,7 +5,6 @@ const ScatterChartPage=()=>{
     return(
         <div>
             <ScatterChartContainer/>
-            {/* <Link to="/">Go back to the homepage</Link> */}
         </div>
     );
 };

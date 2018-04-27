@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {select as d3Select } from 'd3-selection';
 import PropTypes from 'prop-types';
-//import '../../../Assets/css/forceGraph.css';
-//import styles from './force-style.module.css';
 import './forceGraph.css';
 class ForceNode extends Component{
     componentDidMount() {

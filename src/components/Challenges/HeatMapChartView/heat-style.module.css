@@ -1,33 +1,26 @@
-.containerHeatChart{
-  margin: 1 auto;
-}
-.containerHeatToolTip{
-  /* margin-left: 2vw;
-  width: 8vw;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  border: 1px solid;
-  border-color:#dcd0c0;
-  box-shadow:1px 1px;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
-}
+
 .Axis path,
   .Axis line {
-    /*stroke: #E0E0E0;*/
     stroke: darkslategrey;
 }
 @media  only screen and (max-width: 600px){
-  
+  .heatcontainerToolTip{
+    margin: 1 auto;
+    width: 80%;
+    border: 1px solid;
+    border-color:#dcd0c0;
+    box-shadow:1px 1px;
+    
+  }
+  containerHeatChart{
+    margin: 2 auto;
+  }
   .Axis text {
-    font-size: 6px;
+    font-size: 5px;
     fill: darkslategrey;
     font-weight: 300;
   }
   .Axis-Bottom text {
-    /* transform: rotate(-45deg);  */
     transform: rotate(-45deg); 
     text-anchor: end;
   }
@@ -47,9 +40,7 @@
     align-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    /*background-color: rgba(61, 58, 56, 0.212);*/
     padding: 1vw 1vh;
-  /* margin: 0 auto; */
   }
 
   .heatTitle{
@@ -60,17 +51,8 @@
     font-weight: 300;
     padding-bottom: 2vh;
   }
-  .heatPreloader{
-    font-size: .55rem;
-    text-align: center;
-    font-weight: 300;
-    font-family: 'Merriweather', serif;
-  }
+  
   .containerColors{
-    /* width: 4vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    padding-right: 1vw; */
     width: 90%;
     padding-bottom: .5rem;
     display: -webkit-flex;
@@ -78,7 +60,6 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    /* display: inline-flex; */
     flex-direction: row;
     justify-content: space-around;
     align-content: space-around;
@@ -103,6 +84,7 @@
     font-weight: 300;
     text-align: center;
   }
+  
   .thirdLabel{
     background-color: #66c2a5;
     color: white;
@@ -184,19 +166,7 @@
     font-weight: 300;
     text-align: center;
   }
-  .heatcontainerToolTip{
-     /*display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(61, 58, 56, 0.212); 
-    margin-left: 2vw;
-    width: 10vw;*/
-    border: 1px solid;
-    border-color:#dcd0c0;
-    box-shadow:1px 1px;
-    margin-bottom: 1rem;
-  }
+
   .heattooltipText{
     font-family: 'Merriweather',serif;
     font-size: .5rem;
@@ -210,7 +180,6 @@
 @media only screen and (min-width: 600px){
   .Axis path,
   .Axis line {
-    /*stroke: #E0E0E0;*/
     stroke: darkslategrey;
   }
 
@@ -221,7 +190,6 @@
 
   }
   .Axis-Right text {
-    /* transform: rotate(-45deg);  */
     transform: rotate(20deg); 
     text-anchor: end;
   }
@@ -245,15 +213,8 @@
     color: darkslategrey;
     font-weight: 400;
   }
-  .heatPreloader{
-    font-family: 'Merriweather',serif;
-    font-size: .65rem;
-    text-align: center;
-    color: darkslategrey;
-    font-weight: 400;
-  }
+
   .containerColors{
-    /* width: 4vw; */
     margin-left: 1vw;
     margin-right: 1vw;
     padding-right: 1vw;
@@ -362,20 +323,6 @@
     text-align: center;
     font-weight: 400;
   }
-  .heatcontainerToolTip{
-    /*display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-     background-color: rgba(61, 58, 56, 0.212);
-    margin-left: 2vw;
-    width: 10vw; */
-    border: 1px solid;
-    border-color:#dcd0c0;
-    box-shadow:1px 1px;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-  }
   .heattooltipText{
     font-family: 'Merriweather',serif;
     font-size: .65rem;
@@ -387,15 +334,22 @@
   }
 }
 @media only screen and (min-width:768px){
-  
-
+  .heatcontainerToolTip{
+    margin:0 auto;
+    width: 55%;
+    border: 1px solid;
+    border-color:#dcd0c0;
+    box-shadow:1px 1px;
+    
+  }
+  .containerHeatChart{
+    margin: 1 auto;
+  }
   .Axis text {
-    font-size: 7px;
-    /* font-weight: 500; */
+    font-size: 8px;
     fill: darkslategrey;
   }
   .Axis-Left Right {
-    /* transform: rotate(-45deg);  */
     transform: rotate(20deg); 
     text-anchor: end;
   }
@@ -405,17 +359,7 @@
     justify-content: space-between;
     align-content: space-between;
     align-items: center;
-    /*background-color: rgba(61, 58, 56, 0.212);*/
     padding: 1vw 1vh;
-  /* margin: 0 auto; */
-  }
-  .containerHeatToolTip{
-    margin-left: 2vw;
-    width: 8vw;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .heatTitle{
     font-size: .75rem;
@@ -424,18 +368,8 @@
     color: darkslategrey;
     font-weight: 500;
   }
-  .heatPreloader{
-    font-family: 'Merriweather',serif;
-    font-size: .7rem;
-    text-align: center;
-    color: darkslategrey;
-    font-weight: 500;
-  }
+
   .containerColors{
-    /* width: 4vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    padding-right: 1vw; */
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
@@ -531,21 +465,6 @@
     text-align: center;
     font-size: 0.85em;
   }
-  .heatcontainerToolTip{
-     /*display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(61, 58, 56, 0.212); */
-    border: 1px solid;
-    border-color:#dcd0c0;
-    box-shadow:1px 1px;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-
-    /* margin-left: 2vw;
-    width: 10vw; */
-  }
   .heattooltipText{
     font-family: 'Merriweather', serif;
     font-size: 0.7rem;
@@ -556,7 +475,7 @@
 @media only screen and (min-width:992px){
   .Axis path,
   .Axis line {
-    /*stroke: #E0E0E0;*/
+   
     stroke: darkslategrey;
   }
 
@@ -565,7 +484,6 @@
     fill: darkslategrey;
   }
   .Axis-Right text {
-    /* transform: rotate(-45deg);  */
     transform: rotate(20deg); 
     text-anchor: end;
   }
@@ -580,35 +498,18 @@
     align-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
-    /*background-color: rgba(61, 58, 56, 0.212);*/
-    /*padding: 1vw 1vh;
-
-   margin: 0 auto; */
+   
   }
   .containerHeatChart{
     margin: 1 auto;
-  }
-  .containerHeatToolTip{
-    margin-left: 2vw;
-    width: 8vw;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .heatTitle{
     font-size: 1rem;
     text-align: center;
     font-family: 'Merriweather', serif;
-    /* padding-bottom: 2vh; */
   }
-  .heatPreloader{
-    font-size: 1.5rem;
-    text-align: center;
-    font-family: 'Merriweather', serif;
-  }
+  
   .containerColors{
-    /* width: 4vw; */
     margin-left: 1vw;
     margin-right: 1vw;
     padding-right: 1vw;
@@ -694,21 +595,6 @@
     width: 35px;
     height: 30px;
     text-align: center;
-  }
-  .heatcontainerToolTip{
-    /*display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-     background-color: rgba(61, 58, 56, 0.212); 
-    margin-left: 2vw;
-    width: 10vw;*/
-    border: 1px solid;
-    border-color:#dcd0c0;
-    box-shadow:1px 1px;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-
   }
   .heattooltipText{
     font-family: 'Merriweather', serif;

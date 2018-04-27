@@ -1,0 +1,55 @@
+$colorbar:#373737;
+.containerHeat{
+    display: flex;
+    flex-wrap: wrap;
+    margin:0 auto;
+}
+.itemHeat-0,.itemHeat-1,
+.itemHeat-2,.itemHeat-3,
+.itemHeat-4,.itemHeat-5,
+.itemHeat-6,.itemHeat-7,
+.itemHeat-8,.itemHeat-9,
+.itemHeat-10{
+    min-height: 45px;
+    max-height: 50px;
+    flex: calc(100%/7);
+    border: 3px solid white;
+    background: transparent;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+}
+.itemHeat-0:nth-of-type(n){
+    background:$colorbar;
+}
+.itemHeat-1:nth-of-type(n+8){
+    background:$colorbar;
+}
+.itemHeat-2:nth-of-type(n+15){
+    background:$colorbar;
+}
+.itemHeat-3:nth-of-type(n+22){
+    background:$colorbar;
+}
+.itemHeat-4:nth-of-type(n+29){
+    background:$colorbar;
+}
+.itemHeat-5:nth-of-type(n+36){
+    background:$colorbar;
+}
+.itemHeat-6:nth-of-type(n+43){
+    background:$colorbar;
+}
+.itemHeat-7:nth-child(n+45){
+    background:$colorbar;
+}
+.itemHeat-8:nth-child(n+47){
+    background:$colorbar;
+}
+.itemHeat-9:nth-child(n+49){
+    background:$colorbar;
+}
+.itemHeat-10:nth-of-type(n){
+    background:$colorbar;
+}
