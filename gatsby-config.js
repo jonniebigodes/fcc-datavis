@@ -4,6 +4,7 @@ module.exports = {
   },
   pathPrefix: `/fcc-datavis`,
   plugins: ['gatsby-plugin-react-helmet',
+  'gatsby-plugin-react-next',
     {
       resolve: 'gatsby-plugin-google-fonts',
       options:{

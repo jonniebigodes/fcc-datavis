@@ -1,0 +1,17 @@
+.containerLegend{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.infoLegend{
+    font-weight: bold;
+    font-size: 10px;
+    color: #373737;
+    text-anchor: start;
+}
