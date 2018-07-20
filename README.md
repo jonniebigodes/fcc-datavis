@@ -1,7 +1,5 @@
 # Freecodecamp Data Visualization Challenges
 
-
-
 This repository contains the implementation of the Data Visualization challenges for freecodecamp.
 The challenges are the following
   - [Visualize Data with a Bar Chart]
@@ -9,6 +7,8 @@ The challenges are the following
   - [Visualize Data with a Heat Map]
   - [Show National Contiguity with a Force Directed Graph]
   - [Map Data Across the Globe]
+  - [Visualize Data with a Choropleth Map]
+  - [Visualize Data with a Treemap Diagram]
 
 # Methodology used
 This repo contains the implementation of all the challenges.  
@@ -21,6 +21,8 @@ In terms of development methodology i used the following folder structure:
       And also the logic applied to the server interactions. 
   - /src/Assets/
     - This folder contains the stylesheets and other types of media.
+  - /src/contexts/
+    - Folder that contains global state using the revamped context feature
   - /src/components/Challenges/
     - Inside this folder are the components i.e views used for the challenges.
   - /src/client/layouts/
@@ -35,15 +37,16 @@ In terms of development methodology i used the following folder structure:
 This set of challenges uses a number of open source projects to work properly:
 * [React] - Great Javascript library for Building user interfaces
 * [node.js] - evented I/O for the backend
-* [Material-UI] - Google inspired material design framework
 * [Gatsby] - A static site generator for React.
+* [d3] - JavaScript library for manipulating documents based on data
+
 
 And of course the implementation of the challenges themselves are open source with a [git-repo-url]
  on GitHub.
 
 ### Installation from source
 
-freecodecamp api  requires [Node.js](https://nodejs.org/) v4+ to run.
+fcc-datavis requires [Node.js](https://nodejs.org/) v4+ to run.
 
 Download and extract the [latest pre-built release](https://github.com/jonniebigodes/freecodecampdynamicwebapps/releases).
 
@@ -77,9 +80,12 @@ MIT
    [Map Data Across the Globe]:<https://jonniebigodes.github.io/fcc-datavis/globeview/>
    [Visualize Data with a Heat Map]:<https://jonniebigodes.github.io/fcc-datavis/heatview/>
    [Show National Contiguity with a Force Directed Graph]:<https://jonniebigodes.github.io/fcc-datavis/forceview/>
+   [Visualize Data with a Choropleth Map]:<https://jonniebigodes.github.io/fcc-datavis/viewcloro/>
+   [Visualize Data with a Treemap Diagram]:<https://jonniebigodes.github.io/fcc-datavis/viewtreemap/>
    [Gatsby]: <https://www.gatsbyjs.org/>
    [git-repo-url]: <https://github.com/jonniebigodes/fcc-datavis.git>
    [node.js]: <http://nodejs.org>
    [React]: <https://facebook.github.io/react/>
    [Material-UI]:<http://www.material-ui.com>
+   [d3]:<https://d3js.org/>
    [PlGh]:  <https://github.com/jonniebigodes/fcc-datavis/tree/master/plugins/github/readme.md>

@@ -1,18 +1,21 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "fcc-data-vis",
+  "description": "Fcc datavis challenges",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jonniebigodes",
   "dependencies": {
     "animate.css": "^3.6.1",
+    "axios": "^0.18.0",
     "d3-array": "^1.2.1",
     "d3-axis": "^1.0.8",
     "d3-brush": "^1.0.4",
     "d3-drag": "^1.2.1",
     "d3-force": "^1.1.0",
     "d3-geo": "^1.10.0",
+    "d3-hierarchy": "^1.1.6",
     "d3-interpolate": "^1.1.6",
     "d3-scale": "^2.0.0",
+    "d3-scale-chromatic": "^1.3.0",
     "d3-selection": "^1.3.0",
     "d3-shape": "^1.2.0",
     "d3-time": "^1.0.8",
@@ -22,14 +25,20 @@
     "gatsby": "^1.9.158",
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-google-fonts": "0.0.3",
-    "gatsby-plugin-postcss-sass": "^1.0.20",
+    "gatsby-plugin-postcss-sass": "^1.0.22",
     "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-react-next": "^1.0.11",
     "postcss-import": "^11.1.0",
+    "prop-types": "^15.6.1",
     "react-helmet": "^5.2.0",
-    "topojson-client": "^3.0.0"
+    "topojson-client": "^3.0.0",
+    "uuid": "^3.2.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "d3",
+    "fcc",
+    "data visualization"
   ],
   "license": "MIT",
   "main": "n/a",
@@ -37,11 +46,20 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "lint": "eslint **/*.{js,jsx} --quiet -o linterrors.txt",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -b gh-pages -d public",
     "pre-deploy": "gatsby build --prefix-paths"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.9.1",
     "gh-pages": "^1.1.0",
     "prettier": "^1.12.1"
   }

@@ -1,0 +1,107 @@
+$background: lighten(#000, 10%);
+$foreground: darken(#fff, 10%); 
+$activeBackground: $foreground;
+$activeForeground: $background;
+
+.containerTreeMap{
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;  
+
+}
+.svgInfo{
+    font: 9px sans-serif;
+    text-align: center;
+    display: block;
+    // margin: auto;
+}
+.treeInfo{
+  text-align: center;
+  font-size: .75rem;
+  font-family: 'Merriweather', serif;
+  
+}
+.treetitle{
+    text-align: center;
+    font-size: .95rem;
+    font-family: 'Merriweather', serif;
+}
+.treeDescription{
+    text-align: center;
+    font-size: .75rem;
+    font-family: 'Merriweather', serif;
+}
+.tabs.vertical{
+    
+    display: table;
+    border-spacing: 3px;
+    ul.tabs-nav {
+        display: table-cell;
+        white-space: nowrap;
+        
+        li {
+          display: block;
+          margin: 3px 0;
+          
+          &:first-child {
+            border-radius: 15px 0 0 0;
+          }
+          &:last-child {
+            border-radius: 0 0 0 15px;
+          }
+        }
+      }
+    .tabs-contents {
+        border-radius: 0 15px 15px 0;
+    }
+}
+.tabs{
+    
+    ul.tabs-nav {
+        list-style-type: none;
+        padding: 0;
+        margin: 15px 0 3px;
+        margin-top: 1.075rem;
+        li {
+         
+          transition: background 100ms ease 0ms;
+          text-transform: uppercase;
+          display: inline-block;
+          font-weight: bold;
+          padding: 15px;
+          border: 3px $foreground solid;
+          cursor: pointer;
+          
+          &.active {
+            background: $activeBackground;
+            color: $activeForeground;
+          }
+          
+          &:first-child {
+            border-radius: 15px 0 0 0;
+          }
+          
+          &:last-child {
+            border-radius: 0 15px 0 0;
+          }
+        }
+      }
+    .tabs-contents {
+        border: 3px solid $foreground;
+        padding: 15px;
+        border-radius: 0 15px 15px 15px;
+        background: $activeBackground;
+        color: $activeForeground;
+        height: 80%;
+       /*  > div {
+          display: none;
+        } */
+    }
+}
