@@ -10,10 +10,10 @@ import { schemeBlues as bluecolors } from 'd3-scale-chromatic'
 export const CloroContext = React.createContext()
 
 export class CloroProvider extends Component {
-  static  propTypes={
-    children:PropTypes.func
+  static propTypes = {
+    children: PropTypes.func,
   }
-  
+
   constructor(props) {
     super(props)
     this.state = {

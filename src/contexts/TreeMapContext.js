@@ -8,10 +8,9 @@ import uuid from 'uuid'
 export const TreeContext = React.createContext()
 
 export class TreeMapProvider extends Component {
-  
   // #region Props
   static propTypes = {
-    children:PropTypes.func
+    children: PropTypes.func,
   }
 
   // #endregion
@@ -87,7 +86,7 @@ export class TreeMapProvider extends Component {
             .eachBefore(
               d =>
                 (d.data.id =
-                  (d.parent ? `${d.parent.data.id  }.` : '') + d.data.name)
+                  (d.parent ? `${d.parent.data.id}.` : '') + d.data.name)
             )
           const rootVideoGames = hierarchy(videos.data, d => d.children)
             .sum(d => d.value)
@@ -95,7 +94,7 @@ export class TreeMapProvider extends Component {
             .eachBefore(
               d =>
                 (d.data.id =
-                  (d.parent ? `${d.parent.data.id  }.` : '') + d.data.name)
+                  (d.parent ? `${d.parent.data.id}.` : '') + d.data.name)
             )
           const rootkickstarter = hierarchy(kicks.data, d => d.children)
             .sum(d => d.value)
@@ -103,7 +102,7 @@ export class TreeMapProvider extends Component {
             .eachBefore(
               d =>
                 (d.data.id =
-                  (d.parent ? `${d.parent.data.id  }.` : '') + d.data.name)
+                  (d.parent ? `${d.parent.data.id}.` : '') + d.data.name)
             )
 
           DataTreeMap(rootMovie)
@@ -275,4 +274,3 @@ export class TreeMapProvider extends Component {
     )
   }
 }
-
