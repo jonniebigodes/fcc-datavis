@@ -1,6 +1,6 @@
 .projects{
     width:90%;
-    height: 90%;
+    height: 340px;
     margin: 1.0875rem 1.0875rem 1.45rem;
     padding: 1.0875rem 1.0875rem 1.45rem;
     background: #fff;
@@ -10,7 +10,7 @@
     display: -webkit-flex;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-content: space-between;
     justify-content: space-between;
     align-items: center;
