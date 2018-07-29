@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './preloaderHeat.scss'
+import './preloaderHeat.css'
 
 class PreloadHeat extends Component {
   state = { loadStage: 0 }

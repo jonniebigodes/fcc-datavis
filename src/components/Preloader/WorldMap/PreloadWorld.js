@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './preloadWorld.scss'
+import './preloadWorld.css'
 
 class PreloadWorld extends Component {
   state = { loadStage: 0 }

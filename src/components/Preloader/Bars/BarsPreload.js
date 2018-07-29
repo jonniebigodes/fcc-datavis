@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './preloaderBar.scss'
+import './preloaderBar.css'
 
 class PreloadBars extends Component {
   state = { loadStage: 0 }

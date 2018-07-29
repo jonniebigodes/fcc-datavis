@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './preloader-scatter.scss'
+import './preloader-scatter.css'
 
 class Counter extends Component {
   state = { loadStage: 0 }
