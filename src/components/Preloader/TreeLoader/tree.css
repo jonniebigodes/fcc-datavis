@@ -1,0 +1,140 @@
+.preload {
+   margin: 0 auto;
+   max-width: 960px;
+  
+}
+
+.preloadProgress {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 200px;
+    max-height: 300px;
+    position: relative;
+    display: block;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: block;
+}
+
+.progress-bar:nth-child(1) {
+    background: #fff;
+    animation-name: sliderTop;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    animation-timing-function: .09, .31, .93, .7;
+    animation-iteration-count: infinite;
+}
+
+.preload .loadText {
+    position: absolute;
+    margin: 3.86rem .8rem;
+    display: block;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    color: red;
+    font-size: 16px;
+    font-family: 'Mukta Mahee' sans-serif;
+    letter-spacing: 3px;
+    line-height: 10px;
+    height: 16px;
+    animation: fade 1s ease 0s infinite;
+}
+
+.progress-bar:nth-child(2) {
+    background-color: #00A2DE;
+    animation-name: sliderMid;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-timing-function: .09, .31, .93, .7;
+    animation-iteration-count: infinite;
+}
+
+.progress-bar:nth-child(3) {
+    background-color: #111C24;
+    animation-name: sliderBottom;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    animation-timing-function: .09, .31, .93, .7;
+    animation-iteration-count: infinite;
+}
+
+@keyframes sliderTop {
+    0% {
+        right: 100%;
+        left: 0%;
+    }
+    20%,
+    55% {
+        right: 0%;
+        left: 0%;
+    }
+    99% {
+        right: 0%;
+        left: 100%;
+    }
+    100% {
+        right: 100%;
+        left: 0%;
+    }
+}
+
+@keyframes sliderMid {
+    0% {
+        right: 100%;
+        left: 0%;
+    }
+    32%,
+    55% {
+        right: 0%;
+        left: 0%;
+    }
+    86%,
+    99% {
+        right: 0%;
+        left: 100%;
+    }
+    100% {
+        right: 100%;
+        left: 0%;
+    }
+}
+
+@keyframes sliderBottom {
+    0% {
+        right: 100%;
+        left: 0%;
+    }
+    45%,
+    55% {
+        right: 0%;
+        left: 0%;
+    }
+    75%,
+    99% {
+        right: 0%;
+        left: 100%;
+    }
+    100% {
+        right: 100%;
+        left: 0%;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

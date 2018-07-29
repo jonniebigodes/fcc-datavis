@@ -29,13 +29,21 @@ const ViewCloro = () => {
       />
       <CloroProvider>
         <CloroContext.Consumer>
-          {({ getData, isloading, isError, chartWidth, setChart }) => (
+          {({
+            getData,
+            isloading,
+            isError,
+            chartWidth,
+            setChart,
+            closePreloader,
+          }) => (
             <CloroPethContainer
               fetchMapData={getData}
               appError={isError}
               appLoading={isloading}
               widthchart={chartWidth}
               resizeChart={setChart}
+              endPreloader={closePreloader}
             />
           )}
         </CloroContext.Consumer>

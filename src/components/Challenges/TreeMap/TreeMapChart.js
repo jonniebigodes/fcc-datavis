@@ -2,7 +2,7 @@ import React from 'react'
 import uuid from 'uuid'
 import TreeTile from './TreeTile'
 import { TreeContext } from '../../../contexts/TreeMapContext'
-import './treemap.scss'
+import './treemap.css'
 
 const TreeMapChart = () => (
   <TreeContext.Consumer>

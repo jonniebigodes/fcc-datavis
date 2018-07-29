@@ -1,6 +1,6 @@
 import React from 'react'
 import { TreeContext } from '../../../contexts/TreeMapContext'
-import './treemap.scss'
+import './treemap.css'
 
 const TreeToolTip = () => (
   <TreeContext.Consumer>
@@ -16,8 +16,8 @@ const TreeToolTip = () => (
           {toolTipData.datavalue ? (
             <p>
               <span className="treeInfo">
-                Item:{toolTipData.dataname} in:{toolTipData.datacategory} with
-                value:{toolTipData.datavalue}
+                {toolTipData.dataname} is in: {toolTipData.datacategory} with
+                value: {toolTipData.datavalue}
               </span>
             </p>
           ) : (

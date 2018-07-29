@@ -25,12 +25,12 @@ const IndexPage = () => (
           id: 'heatchart',
         },
         {
-          name: 'Globe Chart Project',
+          name: 'Force Directed Chart Project',
           linkLocation: '/forceview/',
           id: 'forcechart',
         },
         {
-          name: 'Force Directed Chart Project',
+          name: 'Globe Chart Project',
           linkLocation: '/globeview/',
           id: 'mapchart',
         },

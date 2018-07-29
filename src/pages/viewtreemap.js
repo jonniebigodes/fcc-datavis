@@ -35,6 +35,7 @@ const ViewTree = () => {
             activeTree,
             changeDataSet,
             activeTab,
+            closePreloader,
           }) => (
             <TreeMapContainer
               getInfo={getTreeData}
@@ -47,6 +48,7 @@ const ViewTree = () => {
               resizeTree={saveTreeDimensions}
               switchdataset={changeDataSet}
               tabActive={activeTab}
+              endPreloader={closePreloader}
             />
           )}
         </TreeContext.Consumer>

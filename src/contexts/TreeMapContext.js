@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import PropTypes from 'prop-types'
 import { scaleOrdinal } from 'd3-scale'
 import { hierarchy, treemap } from 'd3-hierarchy'
 import uuid from 'uuid'
@@ -8,13 +7,6 @@ import uuid from 'uuid'
 export const TreeContext = React.createContext()
 
 export class TreeMapProvider extends Component {
-  // #region Props
-  static propTypes = {
-    children: PropTypes.func,
-  }
-
-  // #endregion
-
   // #region state
   state = {
     isloading: true,
@@ -38,7 +30,9 @@ export class TreeMapProvider extends Component {
       treeHeight: valueHeight - margin.top - margin.bottom,
     })
   }
-
+  handleClosePreload = () => {
+    this.setState({ isloading: false })
+  }
   // #region fetch data
   fetchTreeData = () => {
     Axios.all([
@@ -210,7 +204,6 @@ export class TreeMapProvider extends Component {
             videodata: videogameTreeData,
             moviesdata: movieTreeData,
             kickdata: kickstarterTreeData,
-            isloading: false,
           })
         })
       )
@@ -268,6 +261,7 @@ export class TreeMapProvider extends Component {
           toolTipActivate: this.showToolTip,
           toolTipDisable: this.hideToolTip,
           changeDataSet: this.switchData,
+          closePreloader: this.handleClosePreload,
         }}>
         {this.props.children}
       </TreeContext.Provider>

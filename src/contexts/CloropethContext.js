@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import PropTypes from 'prop-types'
 import { geoPath } from 'd3-geo'
 import { feature, mesh } from 'topojson-client'
 import { scaleThreshold, scaleLinear } from 'd3-scale'
@@ -10,10 +9,6 @@ import { schemeBlues as bluecolors } from 'd3-scale-chromatic'
 export const CloroContext = React.createContext()
 
 export class CloroProvider extends Component {
-  static propTypes = {
-    children: PropTypes.func,
-  }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -52,7 +47,9 @@ export class CloroProvider extends Component {
   disableToolTip = () => {
     this.setState({ ToolTipActive: false, dataToolTip: {} })
   }
-
+  handlePreloaderClose = () => {
+    this.setState({ isloading: false })
+  }
   fetchMapData = () => {
     Axios.all([
       Axios.get(
@@ -106,7 +103,6 @@ export class CloroProvider extends Component {
           })
 
           this.setState({
-            isloading: false,
             countyData: parsedCounties,
             statesData: parsedStates,
             cloroLegendData: legendColours,
@@ -135,6 +131,7 @@ export class CloroProvider extends Component {
           activateToolTip: this.enableToolTip,
           deactivateToolTip: this.disableToolTip,
           setChart: this.setDimensions,
+          closePreloader: this.handlePreloaderClose,
         }}>
         {this.props.children}
       </CloroContext.Provider>

@@ -4,6 +4,7 @@ import CountyMap from './CountyMap'
 import CloroLegend from './Clorolegend'
 import CloroToolTip from './CloroTooltip'
 import ErrorViewer from '../../ErrorViewer/ViewError'
+import Preload from '../../Preloader/index'
 
 class CloroPethContainer extends Component {
   static propTypes = {
@@ -12,6 +13,7 @@ class CloroPethContainer extends Component {
     appError: PropTypes.bool,
     fetchMapData: PropTypes.func,
     resizeChart: PropTypes.func,
+    endPreloader: PropTypes.func,
   }
 
   // #region component guard methods
@@ -66,12 +68,12 @@ class CloroPethContainer extends Component {
   // #endregion
 
   render() {
-    const { appError, appLoading } = this.props
+    const { appError, appLoading, endPreloader } = this.props
     if (appError) {
       return <ErrorViewer />
     }
     if (appLoading) {
-      return <h3>getting data</h3>
+      return <Preload chartName="cloro" turnDownPreload={endPreloader} />
     }
     return (
       <div

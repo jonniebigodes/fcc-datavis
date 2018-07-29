@@ -5,12 +5,17 @@ import PreloadBars from './Bars/BarsPreload'
 import PreloadHeat from './Heat/HeatPreload'
 import PreloadForce from './Force/ForcePreload'
 import PreloadWorld from './WorldMap/PreloadWorld'
-import './preloader-styles.scss'
+import CloroLoader from './CloroMapLoader/CloroLoader'
+import TreeLoader from './TreeLoader/TreeLoader'
+import styles from './preloader-styles.module.css'
 
 class Preload extends Component {
   RenderTextPreloader = () => {
     const { chartName } = this.props
     switch (chartName) {
+      case 'cloro':
+      case 'tree':
+        return ''
       case 'bar':
         return "Hold on to your hat...i'm getting the data at lightspeed"
       case 'scatter':
@@ -31,6 +36,10 @@ class Preload extends Component {
   renderPreloader = () => {
     const { chartName } = this.props
     switch (chartName) {
+      case 'tree':
+        return <TreeLoader endLoading={this.closePreload} />
+      case 'cloro':
+        return <CloroLoader endLoader={this.closePreload} />
       case 'bar':
         return <PreloadBars endCounter={this.closePreload} />
       case 'scatter':
@@ -47,7 +56,7 @@ class Preload extends Component {
     return (
       <div>
         {this.renderPreloader()}
-        <div className="Preload">{this.RenderTextPreloader()}</div>
+        <div className={styles.Preload}>{this.RenderTextPreloader()}</div>
       </div>
     )
   }

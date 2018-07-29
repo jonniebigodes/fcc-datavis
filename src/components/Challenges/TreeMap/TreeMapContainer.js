@@ -4,7 +4,8 @@ import TreeMapChart from './TreeMapChart'
 import TreeToolTip from './TreeToolTip'
 import TreeLegend from './TreeMapLegend'
 import ErrorViewer from '../../ErrorViewer/ViewError'
-import './treemap.scss'
+import Preload from '../../Preloader/index'
+import './treemap.css'
 
 class TreeMapContainer extends Component {
   // #region component props
@@ -18,6 +19,7 @@ class TreeMapContainer extends Component {
     getInfo: PropTypes.func,
     resizeTree: PropTypes.func,
     switchdataset: PropTypes.func,
+    endPreloader: PropTypes.func,
   }
   // #endregion
 
@@ -97,16 +99,13 @@ class TreeMapContainer extends Component {
       treeMapTitle,
       treeMapDescription,
       tabActive,
+      endPreloader,
     } = this.props
     if (treeError) {
       return <ErrorViewer />
     }
     if (treeloading) {
-      return (
-        <p>
-          <span>fetching.....fetching</span>
-        </p>
-      )
+      return <Preload chartName="tree" turnDownPreload={endPreloader} />
     }
     return (
       <div
@@ -115,7 +114,7 @@ class TreeMapContainer extends Component {
         }}
         className="containerTreeMap">
         <div className="tabs vertical">
-          <ul className="tabs-nav">
+          <ul className="tabsnav">
             <li
               data-tab="tab-0"
               className={tabActive === 0 ? 'active' : 'notactive'}
@@ -135,7 +134,7 @@ class TreeMapContainer extends Component {
               Kickstarter Tree
             </li>
           </ul>
-          <div className="tabs-contents">
+          <div className="tabscontents">
             <div id="title" className="treetitle">
               {treeMapTitle}
             </div>

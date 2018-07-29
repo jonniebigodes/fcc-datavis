@@ -1,0 +1,108 @@
+.containerTreeMap {
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  
+  .svgInfo {
+    font: 9px sans-serif;
+    text-align: center;
+    display: block;
+  }
+  
+  .treeInfo {
+    text-align: center;
+    font-size: .75rem;
+    font-family: 'Merriweather', serif;
+  }
+  
+  .treetitle {
+    text-align: center;
+    font-size: .95rem;
+    font-family: 'Merriweather', serif;
+  }
+  
+  .treeDescription {
+    text-align: center;
+    font-size: .75rem;
+    font-family: 'Merriweather', serif;
+  }
+  .treeInfo{
+    text-align: center;
+    font-family:'Mukta Mahee', serif;
+    padding: 0.85rem 0.85rem;
+    font-size: .90rem;
+  }
+  .containerTooltip{
+
+    background-color: #E6E6E6;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0.25rem 0.15rem;
+  }
+  .tabs.vertical {
+    display: table;
+    border-spacing: 3px;
+  }
+  .tabs.vertical ul.tabsnav {
+    display: table-cell;
+    white-space: nowrap;
+  }
+  .tabs.vertical ul.tabsnav li {
+    display: block;
+    margin: 3px 0;
+  }
+  .tabs.vertical ul.tabsnav li:first-child {
+    border-radius: 15px 0 0 0;
+  }
+  .tabs.vertical ul.tabsnav li:last-child {
+    border-radius: 0 0 0 15px;
+  }
+  .tabs.vertical .tabscontents {
+    border-radius: 0 15px 15px 0;
+  }
+  
+  .tabs ul.tabsnav {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 3px;
+    margin-top: 1.075rem;
+  }
+  .tabs ul.tabsnav li {
+    transition: background 100ms ease 0ms;
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: bold;
+    padding: 15px;
+    border: 3px #e6e6e6 solid;
+    cursor: pointer;
+  }
+  .tabs ul.tabsnav li.active {
+    background: #e6e6e6;
+    color: #1a1a1a;
+  }
+  .tabs ul.tabsnav li:first-child {
+    border-radius: 15px 0 0 0;
+  }
+  .tabs ul.tabsnav li:last-child {
+    border-radius: 0 15px 0 0;
+  }
+  .tabs .tabscontents {
+    border: 3px solid #e6e6e6;
+    padding: 15px;
+    border-radius: 0 15px 15px 15px;
+    background: #e6e6e6;
+    color: #1a1a1a;
+    max-height: 100%;
+    /*  > div {
+       display: none;
+     } */
+  }
+  
