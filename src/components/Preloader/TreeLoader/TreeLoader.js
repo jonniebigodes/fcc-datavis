@@ -7,9 +7,9 @@ class TreeLoader extends PureComponent {
     endLoading: PropTypes.func,
   }
   componentDidMount() {
-    this.timerID= setTimeout(() => {
-        this.props.endLoading();
-    }, 5000);
+    this.timerID = setTimeout(() => {
+      this.props.endLoading()
+    }, 5000)
   }
   render() {
     return (
@@ -20,7 +20,6 @@ class TreeLoader extends PureComponent {
           <div className="progress-bar" />
           <div className="loadText">LOADING TREE...</div>
         </div>
-       
       </div>
     )
   }
