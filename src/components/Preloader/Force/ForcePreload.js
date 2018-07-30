@@ -1,94 +1,32 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './preloadForce.scss'
+import './preloadForce.css'
 
 class PreloadForce extends Component {
-  state = { loadStage: 0 }
-
   componentDidMount() {
-    this.timerID = setInterval(() => this.updateLoadState(), 1000)
-  }
-  componentWillUnmount() {
-    clearTimeout(this.timerID)
-  }
-  updateLoadState() {
-    const { loadStage } = this.state
-    if (loadStage >= 15) {
+    setTimeout(() => {
       this.props.endCounter()
-    } else {
-      this.setState(prevState => {
-        return { loadStage: prevState.loadStage + 1 }
-      })
-    }
+    }, 6000)
   }
+
   render() {
-    const { loadStage } = this.state
     return (
       <div className="containerForce">
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
-        <div className={`itemForce-${loadStage}`} />
+        <div className="Atom">
+          <div className="Atom-core" />
+          <div className="Atom-orbit Atom-orbit--left Atom-orbit--visible" />
+          <div className="Atom-orbit Atom-orbit--right Atom-orbit--visible" />
+          <div className="Atom-orbit Atom-orbit--top Atom-orbit--visible" />
+          <div className="Atom-orbit Atom-orbit--left Atom-orbit--foreground">
+            <div className="Atom-electron" />
+          </div>
+          <div className="Atom-orbit Atom-orbit--right Atom-orbit--foreground">
+            <div className="Atom-electron" />
+          </div>
+          <div className="Atom-orbit Atom-orbit--top Atom-orbit--foreground">
+            <div className="Atom-electron" />
+          </div>
+        </div>
       </div>
     )
   }
