@@ -36,12 +36,12 @@ const IndexPage = () => (
         },
         {
           name: 'Treemap Project',
-          linkLocation: 'viewtreemap',
+          linkLocation: '/viewtreemap/',
           id: 'treemapchart',
         },
         {
           name: 'Cloropeth Project',
-          linkLocation: 'viewcloro',
+          linkLocation: '/viewcloro/',
           id: 'cloropethchart',
         },
       ].map(item => (
